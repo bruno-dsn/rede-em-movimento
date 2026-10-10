@@ -1,14 +1,35 @@
 # Rede em Movimento
 
-[**Abrir a prévia — acesso privado do autor**](https://rede-em-movimento.brdsnunes.chatgpt.site) · [**Código público**](https://github.com/bruno-dsn/rede-em-movimento) · [**Baixar o ZIP**](https://github.com/bruno-dsn/rede-em-movimento/archive/refs/heads/main.zip) · [**Ponto de retomada**](https://github.com/bruno-dsn/netguard-lab/blob/main/docs/CONTINUIDADE.md)
+[**Abrir a prévia — acesso privado do autor**](https://rede-em-movimento.brdsnunes.chatgpt.site) · [**Código público**](https://github.com/bruno-dsn/rede-em-movimento) · [**Baixar o ZIP**](https://github.com/bruno-dsn/rede-em-movimento/archive/refs/heads/main.zip)
 
 O código está no repositório público `bruno-dsn/rede-em-movimento`, na branch `main`. A prévia está online para o autor; os colegas podem estudar o código e executar a edição local.
 
 **Uma reciclagem de redes para aprender construindo.** Projeto de Bruno Nunes, separado do NetGuard Lab.
 
-A primeira versão transforma o caminho de uma requisição ao abrir um site em uma aula animada de 12 etapas. Você pausa, volta, muda a velocidade e explora sete camadas OSI com desenhos próprios. Depois quebra uma pequena rede, ajusta as configurações e registra o que aprendeu.
+A aula original transforma o caminho de uma requisição ao abrir um site em uma aula animada de 12 etapas. Você pausa, volta, muda a velocidade e explora sete camadas OSI com desenhos próprios. Depois quebra uma pequena rede, ajusta as configurações e registra o que aprendeu.
 
-## O que funciona nesta versão
+## Versão 2: uma trilha, seis bancadas
+
+Há uma **trilha de reciclagem inspirada nas seis áreas do 200-301 CCNA v1.1**, referência verificada em 10/10/2026. Cada área reúne conceitos, um experimento, um entregável e uma continuação em ferramentas oficiais. É uma trilha autoral de recortes para aprender por projetos, sem afiliação ou preparação completa para certificação.
+
+Em **Oficina**, altere uma condição e observe uma explicação:
+
+| Bancada | O que dá para experimentar |
+| --- | --- |
+| Sub-redes | IPv4 /0–/32, máscara, bloco, hosts e desenho dos bits; /31 ponto a ponto e /32 de host |
+| VLANs | VLANs 10/20, transporte no trunk e dependência de roteamento entre VLANs |
+| Rotas | Prefixo mais específico, origem do mesmo prefixo e indisponibilidade de rotas |
+| Mensagens | Reprodução das cenas DHCPv4 DORA, ARP do gateway e NDP IPv6 |
+| Acesso | Primeira regra correspondente e efeito de uma permissão ampla no início |
+| Telemetria + IA | Leitura de JSON, taxa entre contadores e revisão de uma conclusão sem evidência |
+
+IA generativa/preditiva, Ansible/Terraform, APIs REST, controladores, gestão por nuvem, contêineres e VRF aparecem com seu papel explicado na trilha. A “resposta da IA” é texto fixo para estudo; o aplicativo não executa modelo, API ou automação.
+
+Veja [**Trilha e laboratórios**](docs/TRILHA_E_LABORATORIOS.md) para os experimentos, limites e fontes primárias.
+
+**Experimente agora:** calcule `192.0.2.200/26`; em VLANs, habilite o roteador e depois remova a VLAN 20 do trunk; em Rotas, consulte `192.0.2.200` e desative a /25, OSPF e a rota flutuante, uma por vez. Compare e explique os resultados.
+
+## O que já existia e continua disponível
 
 - Aula de DNS, enlace, IP, abertura TCP, TLS e HTTP, em um cenário fictício.
 - Navegação manual e reprodução por etapas; modo de movimento reduzido, teclado e descrições dos desenhos.
@@ -47,7 +68,7 @@ npm test
 
 Para empacotar os arquivos estáticos: `npm run build`. Publique somente `dist/`, sem dependências de desenvolvimento.
 
-## Limites do exercício
+## Limites do exercício original
 
 A máscara é sempre /24. O roteador tem `192.0.2.1/24`, o DNS `198.51.100.53` e o servidor web `203.0.113.80`. São endereços de documentação. Os cenários têm nome fictício e não fazem sondagens de rede.
 
@@ -61,17 +82,20 @@ As notas e configurações ficam na memória da página, sem envio ao servidor, 
 
 A configuração pode estar errada no cenário, mas precisa ter IPv4s com sintaxe válida para exportar. Textos são escapados na interface e nos relatórios, que têm política CSP sem scripts. Não há captura de pacotes ou execução de comandos.
 
-## Próximos módulos
+## Limites das novas bancadas e próximos passos
 
-- DHCP e ARP, com eventos visíveis e cache.
-- Sub-redes com prefixos variáveis, IPv6 e planejamento.
-- VLANs, roteamento e regras entre redes.
-- Arquivos de laboratório Packet Tracer e exercícios com capturas de exemplo no Wireshark.
+As bancadas são modelos separados do exercício /24 original. VLANs não implementam tabela MAC, STP ou VLAN nativa; roteamento não executa OSPF, convergência ou ECMP; a ACL usa grupos e portas TCP, sem estado ou sintaxe completa de IOS. DHCP/ARP/NDP ilustram mensagens de cenários sem perdas ou conflitos. A taxa entre duas amostras é uma média de saída; o limiar não detecta ataque.
 
-São propostas futuras, não funções já implementadas. A inspeção visual em navegador precisa ser registrada separadamente dos testes DOM.
+O JSON do caderno mantém o esquema 1 e guarda a aula, a configuração original e suas três notas. Entradas e seleções das novas bancadas ficam na sessão e não são incluídas nesse JSON. Os testes DOM não substituem inspeção visual em navegador.
+
+Arquitetura de Redes de Computadores, Routing and Switching e Administração de Redes e Sistemas aparecem na grade Impacta 2022.2 fornecida pelo autor. A ligação com as atividades é uma proposta própria: o documento não contém ementas completas e não é redistribuído.
+
+O [NetGuard Lab](https://github.com/bruno-dsn/netguard-lab) continua separado e reúne logs, Wi-Fi e um [método de defesa](https://netguard-lab.brdsnunes.chatgpt.site/#metodo) relacionado a monitoramento, riscos, perícia e governança.
+
+Capturas de exemplo, arquivos Packet Tracer, NAT e configuração IPv6 completa continuam como possíveis próximos módulos, sem implementação nesta edição.
 
 ## Referências
 
-Os textos, desenhos e cenários são próprios. As referências técnicas são [ITU X.200](https://www.itu.int/rec/T-REC-X.200-199407-I/en), [RFC 1122](https://www.rfc-editor.org/info/rfc1122/), [RFC 9293](https://www.rfc-editor.org/info/rfc9293/), [RFC 1034](https://www.rfc-editor.org/info/rfc1034/) e [RFC 9846](https://www.rfc-editor.org/info/rfc9846/). Para praticar fora deste aplicativo: [Cisco Packet Tracer](https://www.netacad.com/learning-collections/cisco-packet-tracer).
+Os textos, desenhos e cenários são próprios. A referência curricular é o [programa Cisco 200-301 CCNA v1.1](https://learningcontent.cisco.com/documents/marketing/exam-topics/200-301-CCNA-v1.1.pdf); confira mudanças antes de planejar uma prova. As [fontes das novas bancadas](docs/TRILHA_E_LABORATORIOS.md#fontes-primárias) incluem RFCs de DHCP, ARP, NDP IPv6 e /31. As referências técnicas são [ITU X.200](https://www.itu.int/rec/T-REC-X.200-199407-I/en), [RFC 1122](https://www.rfc-editor.org/info/rfc1122/), [RFC 9293](https://www.rfc-editor.org/info/rfc9293/), [RFC 1034](https://www.rfc-editor.org/info/rfc1034/) e [RFC 9846](https://www.rfc-editor.org/info/rfc9846/). Para praticar fora deste aplicativo: [Cisco Packet Tracer](https://www.netacad.com/learning-collections/cisco-packet-tracer).
 
 Licença MIT. Este projeto não é afiliado à Cisco, à ITU ou à IETF.
