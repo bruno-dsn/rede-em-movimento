@@ -1,3 +1,7 @@
+## A mini escola da versão 3
+
+A trilha abaixo continua sendo o mapa por domínios. Para estudar assunto por assunto, use as [29 aulas da mini escola](MINI_ESCOLA.md), o progresso restaurável e as quatro novas bancadas de IPv6/MAC/NAT/transporte. O conteúdo é introdutório e deve ser complementado com implementação em laboratório.
+
 # Trilha e laboratórios · versão 2
 
 Uma reciclagem autoral inspirada nas seis áreas do **200-301 CCNA v1.1**, com referência verificada em 10/10/2026. Esta edição cobre recortes para aprender por projetos; não é curso Cisco ou preparação completa para certificação. Textos, desenhos e exercícios são próprios.

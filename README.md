@@ -8,6 +8,18 @@ O código está no repositório público `bruno-dsn/rede-em-movimento`, na branc
 
 A aula original transforma o caminho de uma requisição ao abrir um site em uma aula animada de 12 etapas. Você pausa, volta, muda a velocidade e explora sete camadas OSI com desenhos próprios. Depois quebra uma pequena rede, ajusta as configurações e registra o que aprendeu.
 
+## Versão 3: uma mini escola para sua reciclagem
+
+[**Mini escola**](https://rede-em-movimento.brdsnunes.chatgpt.site/#escola): **29 aulas em oito unidades**, explicações em linguagem simples, exemplos, formas de lembrar, perguntas e raciocínio de referência. Registre sua explicação, marque o estudo e use revisões sugeridas. O progresso tem JSON restaurável próprio e relatório HTML; o caderno anterior continua disponível.
+
+**Quatro novas bancadas** completam as seis existentes: **IPv6 por dentro**, **aprendizado MAC**, **NAT/PAT** e **TCP × UDP**. Os desenhos mostram como a decisão muda; os resultados são modelos locais, sem acesso à sua rede.
+
+O **dicionário de 24 termos** leva às aulas correspondentes. O **projeto Aurora** une endereçamento, VLANs, política de acesso, diagnóstico e evidências para implementar uma pequena empresa fictícia no Packet Tracer.
+
+A organização usa o CCNA v1.1 vigente em 10/10/2026 e temas das matrizes atuais da **Fatec Osasco (agosto de 2026)** e do **IFPB/Telemática (2026.1)**. Não é curso oficial ou cobertura integral de graduação/certificação. [Conteúdos, fontes, projeto final e limites](docs/MINI_ESCOLA.md).
+
+A prévia mantém acesso privado do autor; o repositório é público para colegas executarem localmente. O programa funciona no navegador após servir os arquivos — não depende de abrir o código dentro do GitHub.
+
 ## Versão 2: uma trilha, seis bancadas
 
 Há uma **trilha de reciclagem inspirada nas seis áreas do 200-301 CCNA v1.1**, referência verificada em 10/10/2026. Cada área reúne conceitos, um experimento, um entregável e uma continuação em ferramentas oficiais. É uma trilha autoral de recortes para aprender por projetos, sem afiliação ou preparação completa para certificação.
