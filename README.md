@@ -8,6 +8,16 @@ O código está no repositório público `bruno-dsn/rede-em-movimento`, na branc
 
 A aula original transforma o caminho de uma requisição ao abrir um site em uma aula animada de 12 etapas. Você pausa, volta, muda a velocidade e explora sete camadas OSI com desenhos próprios. Depois quebra uma pequena rede, ajusta as configurações e registra o que aprendeu.
 
+## Versão 4: formação do sinal ao serviço
+
+A nova entrada **Comece aqui** oferece **43 aulas em dez unidades**, em ordem de baixo para cima. Cada aula tem quatro etapas: entender sem excesso de siglas, ver três cenas, aprofundar mecanismos e explicar uma previsão. O conteúdo é autoral, com leitura orientada aos capítulos de *Redes de Computadores*, 6ª edição (Tanenbaum, Feamster e Wetherall) e ao manual fornecido pelo autor.
+
+As **seis novas bancadas** calculam capacidade Nyquist/Shannon, atraso, janela/BDP, CRC com alteração de bit, Dijkstra com falha de enlace e VLSM com gateways. Mostram unidades, etapas e limites do modelo. Somadas às dez anteriores, são **16 bancadas**, além dos exercícios originais.
+
+A revisão rápida de 29 aulas e seu JSON continuam disponíveis. A Formação tem **JSON próprio**, notas de até 3.000 caracteres e importação validada. Registrar uma revisão exige uma explicação e comparação com a referência; isso não é correção automática nem certificado. Fechar a página sem exportar perde o progresso da sessão.
+
+Comece pelas aulas 1–3 e faça uma etapa por vez. Veja [**Guia da formação e projeto final**](docs/FORMACAO_PROFUNDA.md) para a sequência, os capítulos, exemplos resolvidos e os critérios de entrega. O livro e o manual não são redistribuídos. As animações são cenas conceituais, sem vídeo exportado.
+
 ## Versão 3: uma mini escola para sua reciclagem
 
 [**Mini escola**](https://rede-em-movimento.brdsnunes.chatgpt.site/#escola): **29 aulas em oito unidades**, explicações em linguagem simples, exemplos, formas de lembrar, perguntas e raciocínio de referência. Registre sua explicação, marque o estudo e use revisões sugeridas. O progresso tem JSON restaurável próprio e relatório HTML; o caderno anterior continua disponível.
@@ -84,7 +94,7 @@ Para empacotar os arquivos estáticos: `npm run build`. Publique somente `dist/`
 
 A máscara é sempre /24. O roteador tem `192.0.2.1/24`, o DNS `198.51.100.53` e o servidor web `203.0.113.80`. São endereços de documentação. Os cenários têm nome fictício e não fazem sondagens de rede.
 
-O modelo não implementa DHCP, ARP, NAT, IPv6, VLANs, firewall ou o estado completo de TCP/TLS. A animação assume endereços e rotas configurados, MAC do gateway conhecido, DNS sem resposta em cache e HTTPS sobre TCP. HTTP/3/QUIC terá outro caminho de estudo. A negociação TLS e a resposta HTTP podem resumir vários pacotes numa cena.
+O modelo não implementa DHCP, ARP, NAT, IPv6, VLANs, firewall ou o estado completo de TCP/TLS. A animação assume endereços e rotas configurados, MAC do gateway conhecido, DNS sem resposta em cache e HTTPS sobre TCP. HTTP/3/QUIC é explicado na Formação; a animação original continua modelando HTTPS sobre TCP. A negociação TLS e a resposta HTTP podem resumir vários pacotes numa cena.
 
 O teste local considera uma LAN sem rota adicional entre os computadores. Alterar o computador B não impede, sozinho, o computador A de usar o site. Um diagnóstico do modelo não verifica equipamentos reais.
 
@@ -104,7 +114,7 @@ Arquitetura de Redes de Computadores, Routing and Switching e Administração de
 
 O [NetGuard Lab](https://github.com/bruno-dsn/netguard-lab) continua separado e reúne logs, Wi-Fi e um [método de defesa](https://netguard-lab.brdsnunes.chatgpt.site/#metodo) relacionado a monitoramento, riscos, perícia e governança.
 
-Capturas de exemplo, arquivos Packet Tracer, NAT e configuração IPv6 completa continuam como possíveis próximos módulos, sem implementação nesta edição.
+Capturas de tráfego reais autorizadas, arquivos Packet Tracer e configuração IPv6 completa continuam como possíveis próximos módulos. NAT/PAT e IPv6 já têm modelos didáticos locais.
 
 ## Referências
 
