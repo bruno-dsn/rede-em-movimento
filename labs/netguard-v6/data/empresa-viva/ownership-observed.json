@@ -1,0 +1,434 @@
+{
+  "id": "edfa45127d6444b49a6af2876d7f4b70",
+  "mission_id": "ownership",
+  "mode": "observed_python",
+  "exercise": "guided",
+  "version": "1.1.0",
+  "scenario_reference": "aurora-helpdesk-v1",
+  "started_at": "2026-10-12T20:47:33.473900Z",
+  "completed_at": "2026-10-12T20:47:34.460831Z",
+  "code_sha256": "7dce594fb8d2d5021b10a1041bbf7ae64ad8125f64b6b275321f1c1c8d334f90",
+  "configuration": {
+    "limit": 5,
+    "window_seconds": 60,
+    "reference_time": "2026-10-12T12:00:00+00:00",
+    "variant_transport": "in_process_no_listener"
+  },
+  "variants": [
+    {
+      "id": "before",
+      "events": [
+        {
+          "actor": "anonymous",
+          "category": "probe",
+          "correlation_id": "cfbd9c9bf7db4fd6aacdb90b40735270",
+          "decision": "denied",
+          "id": "b9e4fcca772147d3a944d3cad8672c17",
+          "observed_at": "2026-10-12T20:47:34.064746Z",
+          "origin": "observed_python",
+          "reason": "Anônimo tenta consultar",
+          "resource": "202",
+          "run_id": "edfa45127d6444b49a6af2876d7f4b70",
+          "timestamp": "2026-10-12T12:00:01+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.10",
+          "status": 401,
+          "request": "GET /api/tickets/202",
+          "code_ref": "helpdesk.py:can_read"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "b501ebc4c43c466c93d093cc22897c38",
+          "decision": "allowed",
+          "id": "767ffa681fbf48369f4321f9cc68de90",
+          "observed_at": "2026-10-12T20:47:34.064866Z",
+          "origin": "observed_python",
+          "reason": "Proprietário consulta",
+          "resource": "202",
+          "run_id": "edfa45127d6444b49a6af2876d7f4b70",
+          "timestamp": "2026-10-12T12:00:02+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.10",
+          "status": 200,
+          "request": "GET /api/tickets/202",
+          "code_ref": "helpdesk.py:can_read"
+        },
+        {
+          "actor": "lia",
+          "category": "probe",
+          "correlation_id": "a7ee70dc52914ba58f97b518b2162c7d",
+          "decision": "allowed",
+          "id": "e685d38e4bd342deaccaf0c0db7bc3f3",
+          "observed_at": "2026-10-12T20:47:34.064918Z",
+          "origin": "observed_python",
+          "reason": "Outro cliente consulta",
+          "resource": "202",
+          "run_id": "edfa45127d6444b49a6af2876d7f4b70",
+          "timestamp": "2026-10-12T12:00:03+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.10",
+          "status": 200,
+          "request": "GET /api/tickets/202",
+          "code_ref": "helpdesk.py:can_read"
+        },
+        {
+          "actor": "admin",
+          "category": "probe",
+          "correlation_id": "2396315bcd8a4da6a345d42fc375a8b1",
+          "decision": "allowed",
+          "id": "c8d6cf3cb9a7436181890152157f4a01",
+          "observed_at": "2026-10-12T20:47:34.064962Z",
+          "origin": "observed_python",
+          "reason": "Administradora autorizada consulta",
+          "resource": "202",
+          "run_id": "edfa45127d6444b49a6af2876d7f4b70",
+          "timestamp": "2026-10-12T12:00:04+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.10",
+          "status": 200,
+          "request": "GET /api/tickets/202",
+          "code_ref": "helpdesk.py:can_read"
+        },
+        {
+          "actor": "lia",
+          "category": "probe",
+          "correlation_id": "9dfb6250338744b5a5882a0b9b8dfc96",
+          "decision": "allowed",
+          "id": "861c244c845b4fbb83fc6e3bed40f306",
+          "observed_at": "2026-10-12T20:47:34.065010Z",
+          "origin": "observed_python",
+          "reason": "Cliente consulta o próprio chamado",
+          "resource": "101",
+          "run_id": "edfa45127d6444b49a6af2876d7f4b70",
+          "timestamp": "2026-10-12T12:00:05+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.10",
+          "status": 200,
+          "request": "GET /api/tickets/101",
+          "code_ref": "helpdesk.py:can_read"
+        }
+      ],
+      "observations": [
+        {
+          "label": "Anônimo tenta consultar",
+          "status": 401,
+          "request": "GET /api/tickets/202",
+          "actor": "anonymous",
+          "resource": "202",
+          "data": {
+            "message": "Entre no portal local."
+          },
+          "event_id": "b9e4fcca772147d3a944d3cad8672c17",
+          "correlation_id": "cfbd9c9bf7db4fd6aacdb90b40735270"
+        },
+        {
+          "label": "Proprietário consulta",
+          "status": 200,
+          "request": "GET /api/tickets/202",
+          "actor": "rafa",
+          "resource": "202",
+          "data": {
+            "id": 202,
+            "owner": "rafa",
+            "title": "Pedido privado de Rafael",
+            "body": "Este conteúdo pertence apenas ao cliente Rafael e à administração autorizada.",
+            "status": "open"
+          },
+          "event_id": "767ffa681fbf48369f4321f9cc68de90",
+          "correlation_id": "b501ebc4c43c466c93d093cc22897c38"
+        },
+        {
+          "label": "Outro cliente consulta",
+          "status": 200,
+          "request": "GET /api/tickets/202",
+          "actor": "lia",
+          "resource": "202",
+          "data": {
+            "id": 202,
+            "owner": "rafa",
+            "title": "Pedido privado de Rafael",
+            "body": "Este conteúdo pertence apenas ao cliente Rafael e à administração autorizada.",
+            "status": "open"
+          },
+          "event_id": "e685d38e4bd342deaccaf0c0db7bc3f3",
+          "correlation_id": "a7ee70dc52914ba58f97b518b2162c7d"
+        },
+        {
+          "label": "Administradora autorizada consulta",
+          "status": 200,
+          "request": "GET /api/tickets/202",
+          "actor": "admin",
+          "resource": "202",
+          "data": {
+            "id": 202,
+            "owner": "rafa",
+            "title": "Pedido privado de Rafael",
+            "body": "Este conteúdo pertence apenas ao cliente Rafael e à administração autorizada.",
+            "status": "open"
+          },
+          "event_id": "c8d6cf3cb9a7436181890152157f4a01",
+          "correlation_id": "2396315bcd8a4da6a345d42fc375a8b1"
+        },
+        {
+          "label": "Cliente consulta o próprio chamado",
+          "status": 200,
+          "request": "GET /api/tickets/101",
+          "actor": "lia",
+          "resource": "101",
+          "data": {
+            "id": 101,
+            "owner": "lia",
+            "title": "Acesso ao portal",
+            "body": "O acesso voltou depois de corrigir um erro de digitação.",
+            "status": "open"
+          },
+          "event_id": "861c244c845b4fbb83fc6e3bed40f306",
+          "correlation_id": "9dfb6250338744b5a5882a0b9b8dfc96"
+        }
+      ],
+      "operations": 5,
+      "budget": 12,
+      "initial_data": "Lia/101, Rafael/202, Joana/admin; uma empresa fictícia"
+    },
+    {
+      "id": "after",
+      "events": [
+        {
+          "actor": "anonymous",
+          "category": "probe",
+          "correlation_id": "9f3fdc8af8df473e825d81297509c767",
+          "decision": "denied",
+          "id": "ad07aef776a240fbba5bcebb0aa26d2d",
+          "observed_at": "2026-10-12T20:47:34.460301Z",
+          "origin": "observed_python",
+          "reason": "Anônimo tenta consultar",
+          "resource": "202",
+          "run_id": "edfa45127d6444b49a6af2876d7f4b70",
+          "timestamp": "2026-10-12T12:00:01+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.10",
+          "status": 401,
+          "request": "GET /api/tickets/202",
+          "code_ref": "helpdesk.py:can_read"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "60cabb727e344b9c91c440abd0389d8a",
+          "decision": "allowed",
+          "id": "38ca6e33250440f99a50a722ec152d41",
+          "observed_at": "2026-10-12T20:47:34.460451Z",
+          "origin": "observed_python",
+          "reason": "Proprietário consulta",
+          "resource": "202",
+          "run_id": "edfa45127d6444b49a6af2876d7f4b70",
+          "timestamp": "2026-10-12T12:00:02+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.10",
+          "status": 200,
+          "request": "GET /api/tickets/202",
+          "code_ref": "helpdesk.py:can_read"
+        },
+        {
+          "actor": "lia",
+          "category": "probe",
+          "correlation_id": "1f2483e0b18d4c259488d65111f6a43d",
+          "decision": "denied",
+          "id": "c51dfd12f3484916bc451ba15617f4a8",
+          "observed_at": "2026-10-12T20:47:34.460536Z",
+          "origin": "observed_python",
+          "reason": "Outro cliente consulta",
+          "resource": "202",
+          "run_id": "edfa45127d6444b49a6af2876d7f4b70",
+          "timestamp": "2026-10-12T12:00:03+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.10",
+          "status": 404,
+          "request": "GET /api/tickets/202",
+          "code_ref": "helpdesk.py:can_read"
+        },
+        {
+          "actor": "admin",
+          "category": "probe",
+          "correlation_id": "578b07b84fb14498b99d004440de0b4e",
+          "decision": "allowed",
+          "id": "a1f08422f0b5461f8a64b5e50a1e78e1",
+          "observed_at": "2026-10-12T20:47:34.460582Z",
+          "origin": "observed_python",
+          "reason": "Administradora autorizada consulta",
+          "resource": "202",
+          "run_id": "edfa45127d6444b49a6af2876d7f4b70",
+          "timestamp": "2026-10-12T12:00:04+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.10",
+          "status": 200,
+          "request": "GET /api/tickets/202",
+          "code_ref": "helpdesk.py:can_read"
+        },
+        {
+          "actor": "lia",
+          "category": "probe",
+          "correlation_id": "8b550c005223418a864eac8b4a35df4c",
+          "decision": "allowed",
+          "id": "13f3ce4ae2b1408b9aac10c0cdb71c65",
+          "observed_at": "2026-10-12T20:47:34.460665Z",
+          "origin": "observed_python",
+          "reason": "Cliente consulta o próprio chamado",
+          "resource": "101",
+          "run_id": "edfa45127d6444b49a6af2876d7f4b70",
+          "timestamp": "2026-10-12T12:00:05+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.10",
+          "status": 200,
+          "request": "GET /api/tickets/101",
+          "code_ref": "helpdesk.py:can_read"
+        }
+      ],
+      "observations": [
+        {
+          "label": "Anônimo tenta consultar",
+          "status": 401,
+          "request": "GET /api/tickets/202",
+          "actor": "anonymous",
+          "resource": "202",
+          "data": {
+            "message": "Entre no portal local."
+          },
+          "event_id": "ad07aef776a240fbba5bcebb0aa26d2d",
+          "correlation_id": "9f3fdc8af8df473e825d81297509c767"
+        },
+        {
+          "label": "Proprietário consulta",
+          "status": 200,
+          "request": "GET /api/tickets/202",
+          "actor": "rafa",
+          "resource": "202",
+          "data": {
+            "id": 202,
+            "owner": "rafa",
+            "title": "Pedido privado de Rafael",
+            "body": "Este conteúdo pertence apenas ao cliente Rafael e à administração autorizada.",
+            "status": "open"
+          },
+          "event_id": "38ca6e33250440f99a50a722ec152d41",
+          "correlation_id": "60cabb727e344b9c91c440abd0389d8a"
+        },
+        {
+          "label": "Outro cliente consulta",
+          "status": 404,
+          "request": "GET /api/tickets/202",
+          "actor": "lia",
+          "resource": "202",
+          "data": {
+            "message": "Chamado não encontrado para esta conta."
+          },
+          "event_id": "c51dfd12f3484916bc451ba15617f4a8",
+          "correlation_id": "1f2483e0b18d4c259488d65111f6a43d"
+        },
+        {
+          "label": "Administradora autorizada consulta",
+          "status": 200,
+          "request": "GET /api/tickets/202",
+          "actor": "admin",
+          "resource": "202",
+          "data": {
+            "id": 202,
+            "owner": "rafa",
+            "title": "Pedido privado de Rafael",
+            "body": "Este conteúdo pertence apenas ao cliente Rafael e à administração autorizada.",
+            "status": "open"
+          },
+          "event_id": "a1f08422f0b5461f8a64b5e50a1e78e1",
+          "correlation_id": "578b07b84fb14498b99d004440de0b4e"
+        },
+        {
+          "label": "Cliente consulta o próprio chamado",
+          "status": 200,
+          "request": "GET /api/tickets/101",
+          "actor": "lia",
+          "resource": "101",
+          "data": {
+            "id": 101,
+            "owner": "lia",
+            "title": "Acesso ao portal",
+            "body": "O acesso voltou depois de corrigir um erro de digitação.",
+            "status": "open"
+          },
+          "event_id": "13f3ce4ae2b1408b9aac10c0cdb71c65",
+          "correlation_id": "8b550c005223418a864eac8b4a35df4c"
+        }
+      ],
+      "operations": 5,
+      "budget": 12,
+      "initial_data": "Lia/101, Rafael/202, Joana/admin; uma empresa fictícia"
+    }
+  ],
+  "checks": [
+    {
+      "name": "before: Anônimo tenta consultar",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "before: Proprietário consulta",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    },
+    {
+      "name": "before: Outro cliente consulta",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    },
+    {
+      "name": "before: Administradora autorizada consulta",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    },
+    {
+      "name": "before: Cliente consulta o próprio chamado",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    },
+    {
+      "name": "after: Anônimo tenta consultar",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "after: Proprietário consulta",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    },
+    {
+      "name": "after: Outro cliente consulta",
+      "expected": 404,
+      "actual": 404,
+      "passed": true
+    },
+    {
+      "name": "after: Administradora autorizada consulta",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    },
+    {
+      "name": "after: Cliente consulta o próprio chamado",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    }
+  ],
+  "snippets": {
+    "before": "# lessons.py: MissingOwnerCheck\ndef can_read(self, identity, ticket):\n    return True",
+    "after": "# helpdesk.py: Helpdesk.can_read\nreturn identity.role == 'admin' or identity.id == ticket['owner']"
+  },
+  "limit": "Execução real de funções Python em bancos de memória separados. Sem requisições HTTP nas variantes, contêiner ou isolamento de máquina virtual. Relógio e IPs didáticos; não é incidente real."
+}

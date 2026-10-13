@@ -1,0 +1,300 @@
+{
+  "id": "825f7b41e0f540d095f1afca715f6a0a",
+  "mission_id": "xss",
+  "mode": "observed_python",
+  "exercise": "guided",
+  "version": "1.1.0",
+  "scenario_reference": "aurora-books-v1",
+  "started_at": "2026-10-12T20:47:37.278314Z",
+  "code_sha256": "7dce594fb8d2d5021b10a1041bbf7ae64ad8125f64b6b275321f1c1c8d334f90",
+  "configuration": {
+    "reference_time": "2026-10-12T12:00:00+00:00",
+    "variant_transport": "in_process_no_listener",
+    "operation_budget": 12,
+    "fixture_only": true,
+    "os_permissions_tested": false,
+    "active_html_executed": false
+  },
+  "variants": [
+    {
+      "id": "before",
+      "events": [
+        {
+          "id": "cb96ef5fc46d4e27802fe9e9c26d9fc2",
+          "run_id": "825f7b41e0f540d095f1afca715f6a0a",
+          "timestamp": "2026-10-12T12:00:01+00:00",
+          "observed_at": "2026-10-12T20:47:37.278336Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "lia",
+          "resource": "comment",
+          "decision": "allowed",
+          "reason": "Comentário legítimo",
+          "correlation_id": "ed97a5b208a74c7d8f0821a5bc15e526",
+          "variant": "before",
+          "status": null,
+          "result": "True",
+          "request": "Fixture local · Comentário legítimo",
+          "source_ip": "",
+          "code_ref": "book_models.py · xss",
+          "evidence_kind": "html_transformation"
+        },
+        {
+          "id": "28e5bf188e72417faa87e3e551ffe7b2",
+          "run_id": "825f7b41e0f540d095f1afca715f6a0a",
+          "timestamp": "2026-10-12T12:00:02+00:00",
+          "observed_at": "2026-10-12T20:47:37.278349Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "lia",
+          "resource": "comment",
+          "decision": "review",
+          "reason": "Marcador HTML controlado",
+          "correlation_id": "2ddf30beedec4fe6a7f79cb3d2c04025",
+          "variant": "before",
+          "status": null,
+          "result": "False",
+          "request": "Fixture local · Marcador HTML controlado",
+          "source_ip": "",
+          "code_ref": "book_models.py · xss",
+          "evidence_kind": "html_transformation"
+        },
+        {
+          "id": "a1b76323e3b94b3f8f84a46e7271d181",
+          "run_id": "825f7b41e0f540d095f1afca715f6a0a",
+          "timestamp": "2026-10-12T12:00:03+00:00",
+          "observed_at": "2026-10-12T20:47:37.278358Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "lia",
+          "resource": "comment",
+          "decision": "review",
+          "reason": "Texto com símbolos",
+          "correlation_id": "e7f9cfaa8cc94b84b8be58515954f7c4",
+          "variant": "before",
+          "status": null,
+          "result": "False",
+          "request": "Fixture local · Texto com símbolos",
+          "source_ip": "",
+          "code_ref": "book_models.py · xss",
+          "evidence_kind": "html_transformation"
+        }
+      ],
+      "observations": [
+        {
+          "label": "Comentário legítimo",
+          "status": null,
+          "request": "Fixture local · Comentário legítimo",
+          "actor": "lia",
+          "resource": "comment",
+          "data": {
+            "input": "Manutenção concluída.",
+            "output": "Manutenção concluída.",
+            "text_only": true,
+            "active_html_executed": false,
+            "context": "Conteúdo textual HTML"
+          },
+          "event_id": "cb96ef5fc46d4e27802fe9e9c26d9fc2",
+          "correlation_id": "ed97a5b208a74c7d8f0821a5bc15e526"
+        },
+        {
+          "label": "Marcador HTML controlado",
+          "status": null,
+          "request": "Fixture local · Marcador HTML controlado",
+          "actor": "lia",
+          "resource": "comment",
+          "data": {
+            "input": "<img src=x onerror=\"alert('LAB-FICTICIO')\">",
+            "output": "<img src=x onerror=\"alert('LAB-FICTICIO')\">",
+            "text_only": false,
+            "active_html_executed": false,
+            "context": "Conteúdo textual HTML"
+          },
+          "event_id": "28e5bf188e72417faa87e3e551ffe7b2",
+          "correlation_id": "2ddf30beedec4fe6a7f79cb3d2c04025"
+        },
+        {
+          "label": "Texto com símbolos",
+          "status": null,
+          "request": "Fixture local · Texto com símbolos",
+          "actor": "lia",
+          "resource": "comment",
+          "data": {
+            "input": "A & B < orçamento > ontem",
+            "output": "A & B < orçamento > ontem",
+            "text_only": false,
+            "active_html_executed": false,
+            "context": "Conteúdo textual HTML"
+          },
+          "event_id": "a1b76323e3b94b3f8f84a46e7271d181",
+          "correlation_id": "e7f9cfaa8cc94b84b8be58515954f7c4"
+        }
+      ],
+      "operations": 3,
+      "budget": 12,
+      "initial_data": "Fixtures finitas da Aurora; estados antes/depois independentes, sem arquivos pessoais."
+    },
+    {
+      "id": "after",
+      "events": [
+        {
+          "id": "761e5c2d749e42469689ddb8f3a41d97",
+          "run_id": "825f7b41e0f540d095f1afca715f6a0a",
+          "timestamp": "2026-10-12T12:00:01+00:00",
+          "observed_at": "2026-10-12T20:47:37.278367Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "lia",
+          "resource": "comment",
+          "decision": "allowed",
+          "reason": "Comentário legítimo",
+          "correlation_id": "dc367fbe3caa45489ad920a891d94e41",
+          "variant": "after",
+          "status": null,
+          "result": "True",
+          "request": "Fixture local · Comentário legítimo",
+          "source_ip": "",
+          "code_ref": "book_models.py · xss",
+          "evidence_kind": "html_transformation"
+        },
+        {
+          "id": "5972c3cc18f249a1a8dc4e7fc81106c5",
+          "run_id": "825f7b41e0f540d095f1afca715f6a0a",
+          "timestamp": "2026-10-12T12:00:02+00:00",
+          "observed_at": "2026-10-12T20:47:37.278376Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "lia",
+          "resource": "comment",
+          "decision": "allowed",
+          "reason": "Marcador HTML controlado",
+          "correlation_id": "ac00d59b0e4348ac85a36c31d1f8462a",
+          "variant": "after",
+          "status": null,
+          "result": "True",
+          "request": "Fixture local · Marcador HTML controlado",
+          "source_ip": "",
+          "code_ref": "book_models.py · xss",
+          "evidence_kind": "html_transformation"
+        },
+        {
+          "id": "6a3c8b8c57214917a3e171d7c46572f9",
+          "run_id": "825f7b41e0f540d095f1afca715f6a0a",
+          "timestamp": "2026-10-12T12:00:03+00:00",
+          "observed_at": "2026-10-12T20:47:37.279379Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "lia",
+          "resource": "comment",
+          "decision": "allowed",
+          "reason": "Texto com símbolos",
+          "correlation_id": "f7f7e25218984661b0e28854217b31b5",
+          "variant": "after",
+          "status": null,
+          "result": "True",
+          "request": "Fixture local · Texto com símbolos",
+          "source_ip": "",
+          "code_ref": "book_models.py · xss",
+          "evidence_kind": "html_transformation"
+        }
+      ],
+      "observations": [
+        {
+          "label": "Comentário legítimo",
+          "status": null,
+          "request": "Fixture local · Comentário legítimo",
+          "actor": "lia",
+          "resource": "comment",
+          "data": {
+            "input": "Manutenção concluída.",
+            "output": "Manutenção concluída.",
+            "text_only": true,
+            "active_html_executed": false,
+            "context": "Conteúdo textual HTML"
+          },
+          "event_id": "761e5c2d749e42469689ddb8f3a41d97",
+          "correlation_id": "dc367fbe3caa45489ad920a891d94e41"
+        },
+        {
+          "label": "Marcador HTML controlado",
+          "status": null,
+          "request": "Fixture local · Marcador HTML controlado",
+          "actor": "lia",
+          "resource": "comment",
+          "data": {
+            "input": "<img src=x onerror=\"alert('LAB-FICTICIO')\">",
+            "output": "&lt;img src=x onerror=&quot;alert(&#x27;LAB-FICTICIO&#x27;)&quot;&gt;",
+            "text_only": true,
+            "active_html_executed": false,
+            "context": "Conteúdo textual HTML"
+          },
+          "event_id": "5972c3cc18f249a1a8dc4e7fc81106c5",
+          "correlation_id": "ac00d59b0e4348ac85a36c31d1f8462a"
+        },
+        {
+          "label": "Texto com símbolos",
+          "status": null,
+          "request": "Fixture local · Texto com símbolos",
+          "actor": "lia",
+          "resource": "comment",
+          "data": {
+            "input": "A & B < orçamento > ontem",
+            "output": "A &amp; B &lt; orçamento &gt; ontem",
+            "text_only": true,
+            "active_html_executed": false,
+            "context": "Conteúdo textual HTML"
+          },
+          "event_id": "6a3c8b8c57214917a3e171d7c46572f9",
+          "correlation_id": "f7f7e25218984661b0e28854217b31b5"
+        }
+      ],
+      "operations": 3,
+      "budget": 12,
+      "initial_data": "Fixtures finitas da Aurora; estados antes/depois independentes, sem arquivos pessoais."
+    }
+  ],
+  "checks": [
+    {
+      "name": "before: Comentário legítimo",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "before: Marcador HTML controlado",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "before: Texto com símbolos",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "after: Comentário legítimo",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "after: Marcador HTML controlado",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "after: Texto com símbolos",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    }
+  ],
+  "snippets": {
+    "before": "# Transformação insegura; saída NÃO inserida em HTML ativo\noutput = comment",
+    "after": "# Conteúdo textual HTML no Python\noutput = html.escape(comment, quote=True)\n# No navegador: textContent; outros contextos exigem outras defesas"
+  },
+  "limit": "Funções Python sobre dados fictícios. SQL usa SQLite em memória; HTML é transformado em texto; hashes são de bytes preparados. Permissões, resposta e atribuição são modelos. Sem leitura de arquivos pessoais, shell, tráfego de rede, contêiner ou HTML ativo. Resultados desta missão não são códigos HTTP.",
+  "completed_at": "2026-10-12T20:47:37.279388Z"
+}

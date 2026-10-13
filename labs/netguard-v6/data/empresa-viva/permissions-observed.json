@@ -1,0 +1,488 @@
+{
+  "id": "795986db0a9144bb9643b8cb71a754e2",
+  "mission_id": "permissions",
+  "mode": "observed_python",
+  "exercise": "guided",
+  "version": "1.1.0",
+  "scenario_reference": "aurora-books-v1",
+  "started_at": "2026-10-12T20:47:37.276296Z",
+  "code_sha256": "7dce594fb8d2d5021b10a1041bbf7ae64ad8125f64b6b275321f1c1c8d334f90",
+  "configuration": {
+    "reference_time": "2026-10-12T12:00:00+00:00",
+    "variant_transport": "in_process_no_listener",
+    "operation_budget": 12,
+    "fixture_only": true,
+    "os_permissions_tested": false,
+    "active_html_executed": false
+  },
+  "variants": [
+    {
+      "id": "before",
+      "events": [
+        {
+          "id": "520fe8bbe49c43bca87ff11847e3519e",
+          "run_id": "795986db0a9144bb9643b8cb71a754e2",
+          "timestamp": "2026-10-12T12:00:01+00:00",
+          "observed_at": "2026-10-12T20:47:37.276329Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "lia",
+          "resource": "financeiro/folha.csv",
+          "decision": "allowed",
+          "reason": "lia: read",
+          "correlation_id": "e19f718f40ac46a0958df21fc443d366",
+          "variant": "before",
+          "status": null,
+          "result": "allowed",
+          "request": "Fixture local · lia: read",
+          "source_ip": "",
+          "code_ref": "book_models.py · permissions",
+          "evidence_kind": "model_decision"
+        },
+        {
+          "id": "79d7d32fee684aafbd6d5bc31783c747",
+          "run_id": "795986db0a9144bb9643b8cb71a754e2",
+          "timestamp": "2026-10-12T12:00:02+00:00",
+          "observed_at": "2026-10-12T20:47:37.276346Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "rafa",
+          "resource": "financeiro/folha.csv",
+          "decision": "allowed",
+          "reason": "rafa: read",
+          "correlation_id": "b2d737b97500402da2716a7b641456a6",
+          "variant": "before",
+          "status": null,
+          "result": "allowed",
+          "request": "Fixture local · rafa: read",
+          "source_ip": "",
+          "code_ref": "book_models.py · permissions",
+          "evidence_kind": "model_decision"
+        },
+        {
+          "id": "d3647a7923ed474dbd1b0469e7fcdbe4",
+          "run_id": "795986db0a9144bb9643b8cb71a754e2",
+          "timestamp": "2026-10-12T12:00:03+00:00",
+          "observed_at": "2026-10-12T20:47:37.276360Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "financeiro/folha.csv",
+          "decision": "allowed",
+          "reason": "admin: read",
+          "correlation_id": "9bc6269ddb3f408fa3030781f7b92bc8",
+          "variant": "before",
+          "status": null,
+          "result": "allowed",
+          "request": "Fixture local · admin: read",
+          "source_ip": "",
+          "code_ref": "book_models.py · permissions",
+          "evidence_kind": "model_decision"
+        },
+        {
+          "id": "824d01795f994e358f3d953e604109a3",
+          "run_id": "795986db0a9144bb9643b8cb71a754e2",
+          "timestamp": "2026-10-12T12:00:04+00:00",
+          "observed_at": "2026-10-12T20:47:37.276372Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "rafa",
+          "resource": "financeiro/folha.csv",
+          "decision": "allowed",
+          "reason": "rafa: write",
+          "correlation_id": "b4ed4544fbe3429bb843def53d832037",
+          "variant": "before",
+          "status": null,
+          "result": "allowed",
+          "request": "Fixture local · rafa: write",
+          "source_ip": "",
+          "code_ref": "book_models.py · permissions",
+          "evidence_kind": "model_decision"
+        },
+        {
+          "id": "a7e44214c8734b2791721f2631b1c1b6",
+          "run_id": "795986db0a9144bb9643b8cb71a754e2",
+          "timestamp": "2026-10-12T12:00:05+00:00",
+          "observed_at": "2026-10-12T20:47:37.276382Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "financeiro/folha.csv",
+          "decision": "denied",
+          "reason": "admin: write",
+          "correlation_id": "843cedd349bf4e86b9a9917644036bce",
+          "variant": "before",
+          "status": null,
+          "result": "denied",
+          "request": "Fixture local · admin: write",
+          "source_ip": "",
+          "code_ref": "book_models.py · permissions",
+          "evidence_kind": "model_decision"
+        }
+      ],
+      "observations": [
+        {
+          "label": "lia: read",
+          "status": null,
+          "request": "Fixture local · lia: read",
+          "actor": "lia",
+          "resource": "financeiro/folha.csv",
+          "data": {
+            "mode": "644",
+            "owner": "rafa",
+            "group_id": 2002,
+            "selected_class": "others",
+            "operation": "read",
+            "allowed": true,
+            "limit": "Modelo de arquivo regular; não testa permissões no SO."
+          },
+          "event_id": "520fe8bbe49c43bca87ff11847e3519e",
+          "correlation_id": "e19f718f40ac46a0958df21fc443d366"
+        },
+        {
+          "label": "rafa: read",
+          "status": null,
+          "request": "Fixture local · rafa: read",
+          "actor": "rafa",
+          "resource": "financeiro/folha.csv",
+          "data": {
+            "mode": "644",
+            "owner": "rafa",
+            "group_id": 2002,
+            "selected_class": "owner",
+            "operation": "read",
+            "allowed": true,
+            "limit": "Modelo de arquivo regular; não testa permissões no SO."
+          },
+          "event_id": "79d7d32fee684aafbd6d5bc31783c747",
+          "correlation_id": "b2d737b97500402da2716a7b641456a6"
+        },
+        {
+          "label": "admin: read",
+          "status": null,
+          "request": "Fixture local · admin: read",
+          "actor": "admin",
+          "resource": "financeiro/folha.csv",
+          "data": {
+            "mode": "644",
+            "owner": "rafa",
+            "group_id": 2002,
+            "selected_class": "group",
+            "operation": "read",
+            "allowed": true,
+            "limit": "Modelo de arquivo regular; não testa permissões no SO."
+          },
+          "event_id": "d3647a7923ed474dbd1b0469e7fcdbe4",
+          "correlation_id": "9bc6269ddb3f408fa3030781f7b92bc8"
+        },
+        {
+          "label": "rafa: write",
+          "status": null,
+          "request": "Fixture local · rafa: write",
+          "actor": "rafa",
+          "resource": "financeiro/folha.csv",
+          "data": {
+            "mode": "644",
+            "owner": "rafa",
+            "group_id": 2002,
+            "selected_class": "owner",
+            "operation": "write",
+            "allowed": true,
+            "limit": "Modelo de arquivo regular; não testa permissões no SO."
+          },
+          "event_id": "824d01795f994e358f3d953e604109a3",
+          "correlation_id": "b4ed4544fbe3429bb843def53d832037"
+        },
+        {
+          "label": "admin: write",
+          "status": null,
+          "request": "Fixture local · admin: write",
+          "actor": "admin",
+          "resource": "financeiro/folha.csv",
+          "data": {
+            "mode": "644",
+            "owner": "rafa",
+            "group_id": 2002,
+            "selected_class": "group",
+            "operation": "write",
+            "allowed": false,
+            "limit": "Modelo de arquivo regular; não testa permissões no SO."
+          },
+          "event_id": "a7e44214c8734b2791721f2631b1c1b6",
+          "correlation_id": "843cedd349bf4e86b9a9917644036bce"
+        }
+      ],
+      "operations": 5,
+      "budget": 12,
+      "initial_data": "Fixtures finitas da Aurora; estados antes/depois independentes, sem arquivos pessoais."
+    },
+    {
+      "id": "after",
+      "events": [
+        {
+          "id": "b41da07c541746068f79c743c602eed5",
+          "run_id": "795986db0a9144bb9643b8cb71a754e2",
+          "timestamp": "2026-10-12T12:00:01+00:00",
+          "observed_at": "2026-10-12T20:47:37.276397Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "lia",
+          "resource": "financeiro/folha.csv",
+          "decision": "denied",
+          "reason": "lia: read",
+          "correlation_id": "2bcb994896ed4d2c86470a693793d579",
+          "variant": "after",
+          "status": null,
+          "result": "denied",
+          "request": "Fixture local · lia: read",
+          "source_ip": "",
+          "code_ref": "book_models.py · permissions",
+          "evidence_kind": "model_decision"
+        },
+        {
+          "id": "e96709ce641341ac8049ec215059e86f",
+          "run_id": "795986db0a9144bb9643b8cb71a754e2",
+          "timestamp": "2026-10-12T12:00:02+00:00",
+          "observed_at": "2026-10-12T20:47:37.276405Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "rafa",
+          "resource": "financeiro/folha.csv",
+          "decision": "allowed",
+          "reason": "rafa: read",
+          "correlation_id": "5cbe007070e442dcbe5dad0a54c3e8a5",
+          "variant": "after",
+          "status": null,
+          "result": "allowed",
+          "request": "Fixture local · rafa: read",
+          "source_ip": "",
+          "code_ref": "book_models.py · permissions",
+          "evidence_kind": "model_decision"
+        },
+        {
+          "id": "62da395a883e4df381444abde3945d70",
+          "run_id": "795986db0a9144bb9643b8cb71a754e2",
+          "timestamp": "2026-10-12T12:00:03+00:00",
+          "observed_at": "2026-10-12T20:47:37.276413Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "financeiro/folha.csv",
+          "decision": "allowed",
+          "reason": "admin: read",
+          "correlation_id": "89ce5d246b5346c3b00e470554f00ab1",
+          "variant": "after",
+          "status": null,
+          "result": "allowed",
+          "request": "Fixture local · admin: read",
+          "source_ip": "",
+          "code_ref": "book_models.py · permissions",
+          "evidence_kind": "model_decision"
+        },
+        {
+          "id": "ff34af80d8f1466785c2478ae3afb256",
+          "run_id": "795986db0a9144bb9643b8cb71a754e2",
+          "timestamp": "2026-10-12T12:00:04+00:00",
+          "observed_at": "2026-10-12T20:47:37.276421Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "rafa",
+          "resource": "financeiro/folha.csv",
+          "decision": "allowed",
+          "reason": "rafa: write",
+          "correlation_id": "3611983869ee4185b4350ae8ecd84ff5",
+          "variant": "after",
+          "status": null,
+          "result": "allowed",
+          "request": "Fixture local · rafa: write",
+          "source_ip": "",
+          "code_ref": "book_models.py · permissions",
+          "evidence_kind": "model_decision"
+        },
+        {
+          "id": "435f53c5e82249c2b11453b5d33a3232",
+          "run_id": "795986db0a9144bb9643b8cb71a754e2",
+          "timestamp": "2026-10-12T12:00:05+00:00",
+          "observed_at": "2026-10-12T20:47:37.276430Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "financeiro/folha.csv",
+          "decision": "denied",
+          "reason": "admin: write",
+          "correlation_id": "16031d34720e4cf8b872488d192bd06e",
+          "variant": "after",
+          "status": null,
+          "result": "denied",
+          "request": "Fixture local · admin: write",
+          "source_ip": "",
+          "code_ref": "book_models.py · permissions",
+          "evidence_kind": "model_decision"
+        }
+      ],
+      "observations": [
+        {
+          "label": "lia: read",
+          "status": null,
+          "request": "Fixture local · lia: read",
+          "actor": "lia",
+          "resource": "financeiro/folha.csv",
+          "data": {
+            "mode": "640",
+            "owner": "rafa",
+            "group_id": 2002,
+            "selected_class": "others",
+            "operation": "read",
+            "allowed": false,
+            "limit": "Modelo de arquivo regular; não testa permissões no SO."
+          },
+          "event_id": "b41da07c541746068f79c743c602eed5",
+          "correlation_id": "2bcb994896ed4d2c86470a693793d579"
+        },
+        {
+          "label": "rafa: read",
+          "status": null,
+          "request": "Fixture local · rafa: read",
+          "actor": "rafa",
+          "resource": "financeiro/folha.csv",
+          "data": {
+            "mode": "640",
+            "owner": "rafa",
+            "group_id": 2002,
+            "selected_class": "owner",
+            "operation": "read",
+            "allowed": true,
+            "limit": "Modelo de arquivo regular; não testa permissões no SO."
+          },
+          "event_id": "e96709ce641341ac8049ec215059e86f",
+          "correlation_id": "5cbe007070e442dcbe5dad0a54c3e8a5"
+        },
+        {
+          "label": "admin: read",
+          "status": null,
+          "request": "Fixture local · admin: read",
+          "actor": "admin",
+          "resource": "financeiro/folha.csv",
+          "data": {
+            "mode": "640",
+            "owner": "rafa",
+            "group_id": 2002,
+            "selected_class": "group",
+            "operation": "read",
+            "allowed": true,
+            "limit": "Modelo de arquivo regular; não testa permissões no SO."
+          },
+          "event_id": "62da395a883e4df381444abde3945d70",
+          "correlation_id": "89ce5d246b5346c3b00e470554f00ab1"
+        },
+        {
+          "label": "rafa: write",
+          "status": null,
+          "request": "Fixture local · rafa: write",
+          "actor": "rafa",
+          "resource": "financeiro/folha.csv",
+          "data": {
+            "mode": "640",
+            "owner": "rafa",
+            "group_id": 2002,
+            "selected_class": "owner",
+            "operation": "write",
+            "allowed": true,
+            "limit": "Modelo de arquivo regular; não testa permissões no SO."
+          },
+          "event_id": "ff34af80d8f1466785c2478ae3afb256",
+          "correlation_id": "3611983869ee4185b4350ae8ecd84ff5"
+        },
+        {
+          "label": "admin: write",
+          "status": null,
+          "request": "Fixture local · admin: write",
+          "actor": "admin",
+          "resource": "financeiro/folha.csv",
+          "data": {
+            "mode": "640",
+            "owner": "rafa",
+            "group_id": 2002,
+            "selected_class": "group",
+            "operation": "write",
+            "allowed": false,
+            "limit": "Modelo de arquivo regular; não testa permissões no SO."
+          },
+          "event_id": "435f53c5e82249c2b11453b5d33a3232",
+          "correlation_id": "16031d34720e4cf8b872488d192bd06e"
+        }
+      ],
+      "operations": 5,
+      "budget": 12,
+      "initial_data": "Fixtures finitas da Aurora; estados antes/depois independentes, sem arquivos pessoais."
+    }
+  ],
+  "checks": [
+    {
+      "name": "before: lia: read",
+      "expected": "allowed",
+      "actual": "allowed",
+      "passed": true
+    },
+    {
+      "name": "before: rafa: read",
+      "expected": "allowed",
+      "actual": "allowed",
+      "passed": true
+    },
+    {
+      "name": "before: admin: read",
+      "expected": "allowed",
+      "actual": "allowed",
+      "passed": true
+    },
+    {
+      "name": "before: rafa: write",
+      "expected": "allowed",
+      "actual": "allowed",
+      "passed": true
+    },
+    {
+      "name": "before: admin: write",
+      "expected": "denied",
+      "actual": "denied",
+      "passed": true
+    },
+    {
+      "name": "after: lia: read",
+      "expected": "denied",
+      "actual": "denied",
+      "passed": true
+    },
+    {
+      "name": "after: rafa: read",
+      "expected": "allowed",
+      "actual": "allowed",
+      "passed": true
+    },
+    {
+      "name": "after: admin: read",
+      "expected": "allowed",
+      "actual": "allowed",
+      "passed": true
+    },
+    {
+      "name": "after: rafa: write",
+      "expected": "allowed",
+      "actual": "allowed",
+      "passed": true
+    },
+    {
+      "name": "after: admin: write",
+      "expected": "denied",
+      "actual": "denied",
+      "passed": true
+    }
+  ],
+  "snippets": {
+    "before": "# Modelo DAC: dono / grupo / outros\nmode = 0o644  # rw- r-- r--\n# 'outros' também podem ler",
+    "after": "mode = 0o640  # rw- r-- ---\n# dono escreve; grupo autorizado lê; outros não leem\n# ACL, root, diretórios e capacidades não entram neste modelo"
+  },
+  "limit": "Funções Python sobre dados fictícios. SQL usa SQLite em memória; HTML é transformado em texto; hashes são de bytes preparados. Permissões, resposta e atribuição são modelos. Sem leitura de arquivos pessoais, shell, tráfego de rede, contêiner ou HTML ativo. Resultados desta missão não são códigos HTTP.",
+  "completed_at": "2026-10-12T20:47:37.276433Z"
+}

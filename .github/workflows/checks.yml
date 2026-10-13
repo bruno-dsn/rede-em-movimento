@@ -13,4 +13,6 @@ jobs:
           cache: npm
       - run: npm ci --ignore-scripts
       - run: npm test
+      - name: Verificar interface do acervo preservado
+        run: node --test labs/netguard-v6/web/tests/*.test.mjs
       - run: npm run build

@@ -1,0 +1,400 @@
+{
+  "id": "e991a79cf93a4738ac4300265455c33a",
+  "mission_id": "integrity",
+  "mode": "observed_python",
+  "exercise": "guided",
+  "version": "1.1.0",
+  "scenario_reference": "aurora-books-v1",
+  "started_at": "2026-10-12T20:47:37.279916Z",
+  "code_sha256": "7dce594fb8d2d5021b10a1041bbf7ae64ad8125f64b6b275321f1c1c8d334f90",
+  "configuration": {
+    "reference_time": "2026-10-12T12:00:00+00:00",
+    "variant_transport": "in_process_no_listener",
+    "operation_budget": 12,
+    "fixture_only": true,
+    "os_permissions_tested": false,
+    "active_html_executed": false
+  },
+  "variants": [
+    {
+      "id": "before",
+      "events": [
+        {
+          "id": "6b8a205adc1d4f1a90b467d8ab7e9d37",
+          "run_id": "e991a79cf93a4738ac4300265455c33a",
+          "timestamp": "2026-10-12T12:00:01+00:00",
+          "observed_at": "2026-10-12T20:47:37.279936Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "manifest",
+          "decision": "review",
+          "reason": "Mesmo número de arquivos",
+          "correlation_id": "50ac7e1480ac4fb49271f407ec6a8d70",
+          "variant": "before",
+          "status": null,
+          "result": "True",
+          "request": "Fixture local · Mesmo número de arquivos",
+          "source_ip": "",
+          "code_ref": "book_models.py · integrity",
+          "evidence_kind": "synthetic_bytes"
+        },
+        {
+          "id": "3332e0d262214742be73525335b2fff7",
+          "run_id": "e991a79cf93a4738ac4300265455c33a",
+          "timestamp": "2026-10-12T12:00:02+00:00",
+          "observed_at": "2026-10-12T20:47:37.279946Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "manifest",
+          "decision": "review",
+          "reason": "Conclusão baseada só na contagem",
+          "correlation_id": "9fcb67370aa84ba68d0ce512b22ba412",
+          "variant": "before",
+          "status": null,
+          "result": "no_changes",
+          "request": "Fixture local · Conclusão baseada só na contagem",
+          "source_ip": "",
+          "code_ref": "book_models.py · integrity",
+          "evidence_kind": "model_decision"
+        }
+      ],
+      "observations": [
+        {
+          "label": "Mesmo número de arquivos",
+          "status": null,
+          "request": "Fixture local · Mesmo número de arquivos",
+          "actor": "admin",
+          "resource": "manifest",
+          "data": {
+            "before_count": 3,
+            "after_count": 3,
+            "limit": "Contagem igual não prova conteúdo igual."
+          },
+          "event_id": "6b8a205adc1d4f1a90b467d8ab7e9d37",
+          "correlation_id": "50ac7e1480ac4fb49271f407ec6a8d70"
+        },
+        {
+          "label": "Conclusão baseada só na contagem",
+          "status": null,
+          "request": "Fixture local · Conclusão baseada só na contagem",
+          "actor": "admin",
+          "resource": "manifest",
+          "data": {
+            "conclusion": "Nada mudou; decisão insegura."
+          },
+          "event_id": "3332e0d262214742be73525335b2fff7",
+          "correlation_id": "9fcb67370aa84ba68d0ce512b22ba412"
+        }
+      ],
+      "operations": 2,
+      "budget": 12,
+      "initial_data": "Fixtures finitas da Aurora; estados antes/depois independentes, sem arquivos pessoais."
+    },
+    {
+      "id": "after",
+      "events": [
+        {
+          "id": "0cd275f969ae460daf64369ddbd19bb6",
+          "run_id": "e991a79cf93a4738ac4300265455c33a",
+          "timestamp": "2026-10-12T12:00:01+00:00",
+          "observed_at": "2026-10-12T20:47:37.279961Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "manifest",
+          "decision": "review",
+          "reason": "Mesmo número de arquivos",
+          "correlation_id": "a1d108e86e214f2398cc564e0dea1ce4",
+          "variant": "after",
+          "status": null,
+          "result": "True",
+          "request": "Fixture local · Mesmo número de arquivos",
+          "source_ip": "",
+          "code_ref": "book_models.py · integrity",
+          "evidence_kind": "synthetic_bytes"
+        },
+        {
+          "id": "dd373d5171af4a7aa6640060f7aa37fe",
+          "run_id": "e991a79cf93a4738ac4300265455c33a",
+          "timestamp": "2026-10-12T12:00:02+00:00",
+          "observed_at": "2026-10-12T20:47:37.279986Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "backup.txt",
+          "decision": "review",
+          "reason": "Alteração: modified",
+          "correlation_id": "c1390baf8da947fea4d96d216f576d8a",
+          "variant": "after",
+          "status": null,
+          "result": "approved_change",
+          "request": "Fixture local · Alteração: modified",
+          "source_ip": "",
+          "code_ref": "book_models.py · integrity",
+          "evidence_kind": "synthetic_bytes"
+        },
+        {
+          "id": "ae8c918f223b4996bc16dc2b60deb205",
+          "run_id": "e991a79cf93a4738ac4300265455c33a",
+          "timestamp": "2026-10-12T12:00:03+00:00",
+          "observed_at": "2026-10-12T20:47:37.279996Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "config.txt",
+          "decision": "review",
+          "reason": "Alteração: deleted",
+          "correlation_id": "d037fc9b7c73427dbb189783473b0bec",
+          "variant": "after",
+          "status": null,
+          "result": "needs_review",
+          "request": "Fixture local · Alteração: deleted",
+          "source_ip": "",
+          "code_ref": "book_models.py · integrity",
+          "evidence_kind": "synthetic_bytes"
+        },
+        {
+          "id": "c84c074b764d404c8e4fecd4639b4c2c",
+          "run_id": "e991a79cf93a4738ac4300265455c33a",
+          "timestamp": "2026-10-12T12:00:04+00:00",
+          "observed_at": "2026-10-12T20:47:37.280003Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "financeiro.csv",
+          "decision": "review",
+          "reason": "Alteração: modified",
+          "correlation_id": "6ee0ef4894864688924e0757871955fb",
+          "variant": "after",
+          "status": null,
+          "result": "needs_review",
+          "request": "Fixture local · Alteração: modified",
+          "source_ip": "",
+          "code_ref": "book_models.py · integrity",
+          "evidence_kind": "synthetic_bytes"
+        },
+        {
+          "id": "ab44fe3002af48ac8e2d4d91619d3a70",
+          "run_id": "e991a79cf93a4738ac4300265455c33a",
+          "timestamp": "2026-10-12T12:00:05+00:00",
+          "observed_at": "2026-10-12T20:47:37.280010Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "nota.txt",
+          "decision": "review",
+          "reason": "Alteração: created",
+          "correlation_id": "55438e9d82454b819de46790179381f3",
+          "variant": "after",
+          "status": null,
+          "result": "needs_review",
+          "request": "Fixture local · Alteração: created",
+          "source_ip": "",
+          "code_ref": "book_models.py · integrity",
+          "evidence_kind": "synthetic_bytes"
+        },
+        {
+          "id": "85af2c914a8f4b14ae3ddc7ddcee281a",
+          "run_id": "e991a79cf93a4738ac4300265455c33a",
+          "timestamp": "2026-10-12T12:00:06+00:00",
+          "observed_at": "2026-10-12T20:47:37.280022Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "evidence-copy",
+          "decision": "review",
+          "reason": "Cópia preparada preserva os bytes",
+          "correlation_id": "fe0bfe2ac728473ab9facfb29d5efbbf",
+          "variant": "after",
+          "status": null,
+          "result": "True",
+          "request": "Fixture local · Cópia preparada preserva os bytes",
+          "source_ip": "",
+          "code_ref": "book_models.py · integrity",
+          "evidence_kind": "synthetic_bytes"
+        }
+      ],
+      "observations": [
+        {
+          "label": "Mesmo número de arquivos",
+          "status": null,
+          "request": "Fixture local · Mesmo número de arquivos",
+          "actor": "admin",
+          "resource": "manifest",
+          "data": {
+            "before_count": 3,
+            "after_count": 3,
+            "limit": "Contagem igual não prova conteúdo igual."
+          },
+          "event_id": "0cd275f969ae460daf64369ddbd19bb6",
+          "correlation_id": "a1d108e86e214f2398cc564e0dea1ce4"
+        },
+        {
+          "label": "Alteração: modified",
+          "status": null,
+          "request": "Fixture local · Alteração: modified",
+          "actor": "admin",
+          "resource": "backup.txt",
+          "data": {
+            "path": "backup.txt",
+            "kind": "modified",
+            "before": {
+              "sha256": "ca307569980dfb082d0eec06ae14123a7ae45c5df0a10d692d291acf586fbe30",
+              "size": 10
+            },
+            "after": {
+              "sha256": "7443c8ae7e257e1098701622f8542394bb18d562e3d4bf547baa569dc3573240",
+              "size": 10
+            },
+            "classification": "approved_change",
+            "approved_sha256": "7443c8ae7e257e1098701622f8542394bb18d562e3d4bf547baa569dc3573240",
+            "limit": "Hash diferente comprova bytes diferentes, não malware ou autoria."
+          },
+          "event_id": "dd373d5171af4a7aa6640060f7aa37fe",
+          "correlation_id": "c1390baf8da947fea4d96d216f576d8a"
+        },
+        {
+          "label": "Alteração: deleted",
+          "status": null,
+          "request": "Fixture local · Alteração: deleted",
+          "actor": "admin",
+          "resource": "config.txt",
+          "data": {
+            "path": "config.txt",
+            "kind": "deleted",
+            "before": {
+              "sha256": "4e812065d34265bf38f971141dce3f2a37e6166b838167ca0b583dd304c81abe",
+              "size": 9
+            },
+            "after": null,
+            "classification": "needs_review",
+            "approved_sha256": null,
+            "limit": "Hash diferente comprova bytes diferentes, não malware ou autoria."
+          },
+          "event_id": "ae8c918f223b4996bc16dc2b60deb205",
+          "correlation_id": "d037fc9b7c73427dbb189783473b0bec"
+        },
+        {
+          "label": "Alteração: modified",
+          "status": null,
+          "request": "Fixture local · Alteração: modified",
+          "actor": "admin",
+          "resource": "financeiro.csv",
+          "data": {
+            "path": "financeiro.csv",
+            "kind": "modified",
+            "before": {
+              "sha256": "0845e19700ae70ee5efb5abf9ab0d49e302962a088b8b1d7c856a665133819fe",
+              "size": 10
+            },
+            "after": {
+              "sha256": "b6c26bf4edf9f67d18ceb19fc5c43001ca66d7a778f5dea44f45c7368879f0ea",
+              "size": 10
+            },
+            "classification": "needs_review",
+            "approved_sha256": null,
+            "limit": "Hash diferente comprova bytes diferentes, não malware ou autoria."
+          },
+          "event_id": "c84c074b764d404c8e4fecd4639b4c2c",
+          "correlation_id": "6ee0ef4894864688924e0757871955fb"
+        },
+        {
+          "label": "Alteração: created",
+          "status": null,
+          "request": "Fixture local · Alteração: created",
+          "actor": "admin",
+          "resource": "nota.txt",
+          "data": {
+            "path": "nota.txt",
+            "kind": "created",
+            "before": null,
+            "after": {
+              "sha256": "a1125e023929b8cdfc0b31205ff00a30dc8b3936ee93bf6c78eecb875e170576",
+              "size": 23
+            },
+            "classification": "needs_review",
+            "approved_sha256": null,
+            "limit": "Hash diferente comprova bytes diferentes, não malware ou autoria."
+          },
+          "event_id": "ab44fe3002af48ac8e2d4d91619d3a70",
+          "correlation_id": "55438e9d82454b819de46790179381f3"
+        },
+        {
+          "label": "Cópia preparada preserva os bytes",
+          "status": null,
+          "request": "Fixture local · Cópia preparada preserva os bytes",
+          "actor": "admin",
+          "resource": "evidence-copy",
+          "data": {
+            "source_sha256": "b6c26bf4edf9f67d18ceb19fc5c43001ca66d7a778f5dea44f45c7368879f0ea",
+            "copy_sha256": "b6c26bf4edf9f67d18ceb19fc5c43001ca66d7a778f5dea44f45c7368879f0ea",
+            "limit": "Cópia em memória; não é backup externo nem cadeia de custódia."
+          },
+          "event_id": "85af2c914a8f4b14ae3ddc7ddcee281a",
+          "correlation_id": "fe0bfe2ac728473ab9facfb29d5efbbf"
+        }
+      ],
+      "operations": 6,
+      "budget": 12,
+      "initial_data": "Fixtures finitas da Aurora; estados antes/depois independentes, sem arquivos pessoais."
+    }
+  ],
+  "checks": [
+    {
+      "name": "before: Mesmo número de arquivos",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "before: Conclusão baseada só na contagem",
+      "expected": "no_changes",
+      "actual": "no_changes",
+      "passed": true
+    },
+    {
+      "name": "after: Mesmo número de arquivos",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "after: Alteração: modified",
+      "expected": "approved_change",
+      "actual": "approved_change",
+      "passed": true
+    },
+    {
+      "name": "after: Alteração: deleted",
+      "expected": "needs_review",
+      "actual": "needs_review",
+      "passed": true
+    },
+    {
+      "name": "after: Alteração: modified",
+      "expected": "needs_review",
+      "actual": "needs_review",
+      "passed": true
+    },
+    {
+      "name": "after: Alteração: created",
+      "expected": "needs_review",
+      "actual": "needs_review",
+      "passed": true
+    },
+    {
+      "name": "after: Cópia preparada preserva os bytes",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    }
+  ],
+  "snippets": {
+    "before": "# Uma contagem não mostra quais bytes mudaram\nunchanged = len(before) == len(after)",
+    "after": "changes = compare_manifests(before, after)\n# SHA-256, tamanho, criado / alterado / excluído\n# mudança aprovada exige caminho E hash correspondente"
+  },
+  "limit": "Funções Python sobre dados fictícios. SQL usa SQLite em memória; HTML é transformado em texto; hashes são de bytes preparados. Permissões, resposta e atribuição são modelos. Sem leitura de arquivos pessoais, shell, tráfego de rede, contêiner ou HTML ativo. Resultados desta missão não são códigos HTTP.",
+  "completed_at": "2026-10-12T20:47:37.280027Z"
+}

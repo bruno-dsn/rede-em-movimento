@@ -1,0 +1,10 @@
+{
+  "product": "netguard-empresa-viva",
+  "origin": "observed_python",
+  "runs": 18,
+  "checks": 160,
+  "passed": 160,
+  "code_sha256": "7dce594fb8d2d5021b10a1041bbf7ae64ad8125f64b6b275321f1c1c8d334f90",
+  "network_tests": "Nenhuma variante exposta em HTTP; execução em memória.",
+  "browser_qa": "Não executada por este comando."
+}

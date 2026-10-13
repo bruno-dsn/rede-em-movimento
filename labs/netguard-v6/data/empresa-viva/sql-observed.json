@@ -1,0 +1,420 @@
+{
+  "id": "9db498ac44574607ab22cfc52d135488",
+  "mission_id": "sql",
+  "mode": "observed_python",
+  "exercise": "guided",
+  "version": "1.1.0",
+  "scenario_reference": "aurora-books-v1",
+  "started_at": "2026-10-12T20:47:37.276860Z",
+  "code_sha256": "7dce594fb8d2d5021b10a1041bbf7ae64ad8125f64b6b275321f1c1c8d334f90",
+  "configuration": {
+    "reference_time": "2026-10-12T12:00:00+00:00",
+    "variant_transport": "in_process_no_listener",
+    "operation_budget": 12,
+    "fixture_only": true,
+    "os_permissions_tested": false,
+    "active_html_executed": false
+  },
+  "variants": [
+    {
+      "id": "before",
+      "events": [
+        {
+          "id": "6a49b2fd17b5456fb21774b550005b3d",
+          "run_id": "9db498ac44574607ab22cfc52d135488",
+          "timestamp": "2026-10-12T12:00:01+00:00",
+          "observed_at": "2026-10-12T20:47:37.277274Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "lia",
+          "resource": "items",
+          "decision": "allowed",
+          "reason": "Busca legítima de Lia",
+          "correlation_id": "9afa7edfa1a54ca88c694e6bb506d71e",
+          "variant": "before",
+          "status": null,
+          "result": "1",
+          "request": "Fixture local · Busca legítima de Lia",
+          "source_ip": "",
+          "code_ref": "book_models.py · sql",
+          "evidence_kind": "sqlite_result"
+        },
+        {
+          "id": "3518724d0a71426e9613b07bc2b77ea0",
+          "run_id": "9db498ac44574607ab22cfc52d135488",
+          "timestamp": "2026-10-12T12:00:02+00:00",
+          "observed_at": "2026-10-12T20:47:37.277313Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "lia",
+          "resource": "items",
+          "decision": "review",
+          "reason": "Entrada altera a lógica da busca",
+          "correlation_id": "77660c59c6cc4c9bb43e7b14656a3757",
+          "variant": "before",
+          "status": null,
+          "result": "3",
+          "request": "Fixture local · Entrada altera a lógica da busca",
+          "source_ip": "",
+          "code_ref": "book_models.py · sql",
+          "evidence_kind": "sqlite_result"
+        },
+        {
+          "id": "3a6381d2c84c4060a93b1a42e1534bc0",
+          "run_id": "9db498ac44574607ab22cfc52d135488",
+          "timestamp": "2026-10-12T12:00:03+00:00",
+          "observed_at": "2026-10-12T20:47:37.277333Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "rafa",
+          "resource": "items",
+          "decision": "allowed",
+          "reason": "Busca legítima de Rafael",
+          "correlation_id": "f125ce258d8a4b5189ddd78960cfe974",
+          "variant": "before",
+          "status": null,
+          "result": "1",
+          "request": "Fixture local · Busca legítima de Rafael",
+          "source_ip": "",
+          "code_ref": "book_models.py · sql",
+          "evidence_kind": "sqlite_result"
+        },
+        {
+          "id": "945ba5d2aa1d4e07b733ad876779ed35",
+          "run_id": "9db498ac44574607ab22cfc52d135488",
+          "timestamp": "2026-10-12T12:00:04+00:00",
+          "observed_at": "2026-10-12T20:47:37.277365Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "lia",
+          "resource": "items",
+          "decision": "denied",
+          "reason": "Apóstrofo tratado como dado",
+          "correlation_id": "7c857e9af2d94514b3fcfeee3524856e",
+          "variant": "before",
+          "status": null,
+          "result": "query_rejected",
+          "request": "Fixture local · Apóstrofo tratado como dado",
+          "source_ip": "",
+          "code_ref": "book_models.py · sql",
+          "evidence_kind": "sqlite_result"
+        }
+      ],
+      "observations": [
+        {
+          "label": "Busca legítima de Lia",
+          "status": null,
+          "request": "Fixture local · Busca legítima de Lia",
+          "actor": "lia",
+          "resource": "items",
+          "data": {
+            "input": "Acesso",
+            "rows": [
+              {
+                "id": 101,
+                "owner": "lia",
+                "title": "Acesso"
+              }
+            ],
+            "parameters_bound": false,
+            "foreign_records": 0
+          },
+          "event_id": "6a49b2fd17b5456fb21774b550005b3d",
+          "correlation_id": "9afa7edfa1a54ca88c694e6bb506d71e"
+        },
+        {
+          "label": "Entrada altera a lógica da busca",
+          "status": null,
+          "request": "Fixture local · Entrada altera a lógica da busca",
+          "actor": "lia",
+          "resource": "items",
+          "data": {
+            "input": "' OR 1=1 --",
+            "rows": [
+              {
+                "id": 101,
+                "owner": "lia",
+                "title": "Acesso"
+              },
+              {
+                "id": 202,
+                "owner": "rafa",
+                "title": "Financeiro"
+              },
+              {
+                "id": 303,
+                "owner": "lia",
+                "title": "D'Ávila"
+              }
+            ],
+            "parameters_bound": false,
+            "foreign_records": 1
+          },
+          "event_id": "3518724d0a71426e9613b07bc2b77ea0",
+          "correlation_id": "77660c59c6cc4c9bb43e7b14656a3757"
+        },
+        {
+          "label": "Busca legítima de Rafael",
+          "status": null,
+          "request": "Fixture local · Busca legítima de Rafael",
+          "actor": "rafa",
+          "resource": "items",
+          "data": {
+            "input": "Financeiro",
+            "rows": [
+              {
+                "id": 202,
+                "owner": "rafa",
+                "title": "Financeiro"
+              }
+            ],
+            "parameters_bound": false,
+            "foreign_records": 0
+          },
+          "event_id": "3a6381d2c84c4060a93b1a42e1534bc0",
+          "correlation_id": "f125ce258d8a4b5189ddd78960cfe974"
+        },
+        {
+          "label": "Apóstrofo tratado como dado",
+          "status": null,
+          "request": "Fixture local · Apóstrofo tratado como dado",
+          "actor": "lia",
+          "resource": "items",
+          "data": {
+            "input": "D'Ávila",
+            "query_error": "Entrada quebrou a consulta concatenada."
+          },
+          "event_id": "945ba5d2aa1d4e07b733ad876779ed35",
+          "correlation_id": "7c857e9af2d94514b3fcfeee3524856e"
+        }
+      ],
+      "operations": 4,
+      "budget": 12,
+      "initial_data": "Fixtures finitas da Aurora; estados antes/depois independentes, sem arquivos pessoais."
+    },
+    {
+      "id": "after",
+      "events": [
+        {
+          "id": "afeb5187dad145128b69334653d3dcd1",
+          "run_id": "9db498ac44574607ab22cfc52d135488",
+          "timestamp": "2026-10-12T12:00:01+00:00",
+          "observed_at": "2026-10-12T20:47:37.277477Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "lia",
+          "resource": "items",
+          "decision": "allowed",
+          "reason": "Busca legítima de Lia",
+          "correlation_id": "07db0937e07b4225aa3b42121f0499a5",
+          "variant": "after",
+          "status": null,
+          "result": "1",
+          "request": "Fixture local · Busca legítima de Lia",
+          "source_ip": "",
+          "code_ref": "book_models.py · sql",
+          "evidence_kind": "sqlite_result"
+        },
+        {
+          "id": "2901730d08fc445eaa2ab383461e0b0a",
+          "run_id": "9db498ac44574607ab22cfc52d135488",
+          "timestamp": "2026-10-12T12:00:02+00:00",
+          "observed_at": "2026-10-12T20:47:37.277490Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "lia",
+          "resource": "items",
+          "decision": "allowed",
+          "reason": "Entrada altera a lógica da busca",
+          "correlation_id": "19dec4be75f940199bba4d413b816d25",
+          "variant": "after",
+          "status": null,
+          "result": "0",
+          "request": "Fixture local · Entrada altera a lógica da busca",
+          "source_ip": "",
+          "code_ref": "book_models.py · sql",
+          "evidence_kind": "sqlite_result"
+        },
+        {
+          "id": "13c1b5d0012e41c49e48cc5d37f03a46",
+          "run_id": "9db498ac44574607ab22cfc52d135488",
+          "timestamp": "2026-10-12T12:00:03+00:00",
+          "observed_at": "2026-10-12T20:47:37.277502Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "rafa",
+          "resource": "items",
+          "decision": "allowed",
+          "reason": "Busca legítima de Rafael",
+          "correlation_id": "114c940e0b5047f69e641f3255a1f451",
+          "variant": "after",
+          "status": null,
+          "result": "1",
+          "request": "Fixture local · Busca legítima de Rafael",
+          "source_ip": "",
+          "code_ref": "book_models.py · sql",
+          "evidence_kind": "sqlite_result"
+        },
+        {
+          "id": "428ce1aed50149d8b0435f6be87bf10c",
+          "run_id": "9db498ac44574607ab22cfc52d135488",
+          "timestamp": "2026-10-12T12:00:04+00:00",
+          "observed_at": "2026-10-12T20:47:37.277516Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "lia",
+          "resource": "items",
+          "decision": "allowed",
+          "reason": "Apóstrofo tratado como dado",
+          "correlation_id": "1c99b0b0d9904edda2a40d2ea91c1f11",
+          "variant": "after",
+          "status": null,
+          "result": "1",
+          "request": "Fixture local · Apóstrofo tratado como dado",
+          "source_ip": "",
+          "code_ref": "book_models.py · sql",
+          "evidence_kind": "sqlite_result"
+        }
+      ],
+      "observations": [
+        {
+          "label": "Busca legítima de Lia",
+          "status": null,
+          "request": "Fixture local · Busca legítima de Lia",
+          "actor": "lia",
+          "resource": "items",
+          "data": {
+            "input": "Acesso",
+            "rows": [
+              {
+                "id": 101,
+                "owner": "lia",
+                "title": "Acesso"
+              }
+            ],
+            "parameters_bound": true,
+            "foreign_records": 0
+          },
+          "event_id": "afeb5187dad145128b69334653d3dcd1",
+          "correlation_id": "07db0937e07b4225aa3b42121f0499a5"
+        },
+        {
+          "label": "Entrada altera a lógica da busca",
+          "status": null,
+          "request": "Fixture local · Entrada altera a lógica da busca",
+          "actor": "lia",
+          "resource": "items",
+          "data": {
+            "input": "' OR 1=1 --",
+            "rows": [],
+            "parameters_bound": true,
+            "foreign_records": 0
+          },
+          "event_id": "2901730d08fc445eaa2ab383461e0b0a",
+          "correlation_id": "19dec4be75f940199bba4d413b816d25"
+        },
+        {
+          "label": "Busca legítima de Rafael",
+          "status": null,
+          "request": "Fixture local · Busca legítima de Rafael",
+          "actor": "rafa",
+          "resource": "items",
+          "data": {
+            "input": "Financeiro",
+            "rows": [
+              {
+                "id": 202,
+                "owner": "rafa",
+                "title": "Financeiro"
+              }
+            ],
+            "parameters_bound": true,
+            "foreign_records": 0
+          },
+          "event_id": "13c1b5d0012e41c49e48cc5d37f03a46",
+          "correlation_id": "114c940e0b5047f69e641f3255a1f451"
+        },
+        {
+          "label": "Apóstrofo tratado como dado",
+          "status": null,
+          "request": "Fixture local · Apóstrofo tratado como dado",
+          "actor": "lia",
+          "resource": "items",
+          "data": {
+            "input": "D'Ávila",
+            "rows": [
+              {
+                "id": 303,
+                "owner": "lia",
+                "title": "D'Ávila"
+              }
+            ],
+            "parameters_bound": true,
+            "foreign_records": 0
+          },
+          "event_id": "428ce1aed50149d8b0435f6be87bf10c",
+          "correlation_id": "1c99b0b0d9904edda2a40d2ea91c1f11"
+        }
+      ],
+      "operations": 4,
+      "budget": 12,
+      "initial_data": "Fixtures finitas da Aurora; estados antes/depois independentes, sem arquivos pessoais."
+    }
+  ],
+  "checks": [
+    {
+      "name": "before: Busca legítima de Lia",
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    {
+      "name": "before: Entrada altera a lógica da busca",
+      "expected": 3,
+      "actual": 3,
+      "passed": true
+    },
+    {
+      "name": "before: Busca legítima de Rafael",
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    {
+      "name": "before: Apóstrofo tratado como dado",
+      "expected": "query_rejected",
+      "actual": "query_rejected",
+      "passed": true
+    },
+    {
+      "name": "after: Busca legítima de Lia",
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    {
+      "name": "after: Entrada altera a lógica da busca",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "name": "after: Busca legítima de Rafael",
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    },
+    {
+      "name": "after: Apóstrofo tratado como dado",
+      "expected": 1,
+      "actual": 1,
+      "passed": true
+    }
+  ],
+  "snippets": {
+    "before": "# Falha intencional no banco descartável\nquery = f\"SELECT ... WHERE owner='{owner}' AND title='{term}'\"",
+    "after": "query = 'SELECT ... WHERE owner=? AND title=?'\nrows = db.execute(query, (owner, term))\n# parâmetros são dados, não parte da instrução SQL"
+  },
+  "limit": "Funções Python sobre dados fictícios. SQL usa SQLite em memória; HTML é transformado em texto; hashes são de bytes preparados. Permissões, resposta e atribuição são modelos. Sem leitura de arquivos pessoais, shell, tráfego de rede, contêiner ou HTML ativo. Resultados desta missão não são códigos HTTP.",
+  "completed_at": "2026-10-12T20:47:37.277526Z"
+}

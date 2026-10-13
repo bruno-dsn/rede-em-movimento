@@ -1,5 +1,14 @@
 # Rede em Movimento
 
+## Versão 5 · Redes + Cyber, em um laboratório de estudo
+
+O NetGuard atual segue **separado como produto empresarial, sem aulas**. Toda a versão educacional v6 foi preservada neste repositório. Comece pelo [Laboratório Cyber](https://rede-em-movimento.brdsnunes.chatgpt.site/cyber/index.html): **27 aulas em nove assuntos**, Empresa Viva (nove missões), logs, investigação, controles, Wi-Fi, Python local e exemplos de continuidade.
+
+O acervo completo está em [labs/netguard-v6](labs/netguard-v6), com **156 arquivos conferidos byte a byte** contra o GitHub e um [manifesto de migração](labs/netguard-v6/MIGRATION.json). [Organização, compatibilidade de progresso e execução local](docs/MIGRACAO_NETGUARD.md). Nenhum conteúdo ou caderno de redes anterior foi removido.
+
+Serve-se o projeto com `python -m http.server 8000` e abre-se `http://localhost:8000`. A formação de redes está na página principal; cibersegurança em `cyber/`. A prévia continua privada do autor; o código é público.
+
+
 [**Abrir a prévia — acesso privado do autor**](https://rede-em-movimento.brdsnunes.chatgpt.site) · [**Código público**](https://github.com/bruno-dsn/rede-em-movimento) · [**Baixar o ZIP**](https://github.com/bruno-dsn/rede-em-movimento/archive/refs/heads/main.zip)
 
 O código está no repositório público `bruno-dsn/rede-em-movimento`, na branch `main`. A prévia está online para o autor; os colegas podem estudar o código e executar a edição local.

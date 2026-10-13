@@ -1,0 +1,250 @@
+{
+  "id": "2ca9554d86644b5896435ffe3903f53a",
+  "mission_id": "attribution",
+  "mode": "observed_python",
+  "exercise": "guided",
+  "version": "1.1.0",
+  "scenario_reference": "aurora-books-v1",
+  "started_at": "2026-10-12T20:47:37.280857Z",
+  "code_sha256": "7dce594fb8d2d5021b10a1041bbf7ae64ad8125f64b6b275321f1c1c8d334f90",
+  "configuration": {
+    "reference_time": "2026-10-12T12:00:00+00:00",
+    "variant_transport": "in_process_no_listener",
+    "operation_budget": 12,
+    "fixture_only": true,
+    "os_permissions_tested": false,
+    "active_html_executed": false
+  },
+  "variants": [
+    {
+      "id": "before",
+      "events": [
+        {
+          "id": "4a8bb8fc0f3b401abc5e200471caa427",
+          "run_id": "2ca9554d86644b5896435ffe3903f53a",
+          "timestamp": "2026-10-12T12:00:01+00:00",
+          "observed_at": "2026-10-12T20:47:37.280868Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "backup",
+          "decision": "review",
+          "reason": "Acesso com contexto: backup",
+          "correlation_id": "e3665b85e1a94f36888257ae5b748ee4",
+          "variant": "before",
+          "status": null,
+          "result": "person_accused",
+          "request": "Fixture local · Acesso com contexto: backup",
+          "source_ip": "",
+          "code_ref": "book_models.py · attribution",
+          "evidence_kind": "model_decision"
+        },
+        {
+          "id": "0940b99c7f7b4176821efb0e6060a4dd",
+          "run_id": "2ca9554d86644b5896435ffe3903f53a",
+          "timestamp": "2026-10-12T12:00:02+00:00",
+          "observed_at": "2026-10-12T20:47:37.280886Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "rafa",
+          "resource": "financeiro.csv",
+          "decision": "review",
+          "reason": "Acesso com contexto: financeiro.csv",
+          "correlation_id": "ef98ce0c6f734b4ba9cda082badcac1a",
+          "variant": "before",
+          "status": null,
+          "result": "person_accused",
+          "request": "Fixture local · Acesso com contexto: financeiro.csv",
+          "source_ip": "",
+          "code_ref": "book_models.py · attribution",
+          "evidence_kind": "model_decision"
+        }
+      ],
+      "observations": [
+        {
+          "label": "Acesso com contexto: backup",
+          "status": null,
+          "request": "Fixture local · Acesso com contexto: backup",
+          "actor": "admin",
+          "resource": "backup",
+          "data": {
+            "record": {
+              "account": "admin",
+              "resource": "backup",
+              "correlation_id": "job-42",
+              "source_ip": "192.0.2.50",
+              "outside_work_hours": true
+            },
+            "finding": {
+              "classification": "person_accused",
+              "person": "Suposição sem evidência",
+              "limit": "Regra intencionalmente inadequada."
+            }
+          },
+          "event_id": "4a8bb8fc0f3b401abc5e200471caa427",
+          "correlation_id": "e3665b85e1a94f36888257ae5b748ee4"
+        },
+        {
+          "label": "Acesso com contexto: financeiro.csv",
+          "status": null,
+          "request": "Fixture local · Acesso com contexto: financeiro.csv",
+          "actor": "rafa",
+          "resource": "financeiro.csv",
+          "data": {
+            "record": {
+              "account": "rafa",
+              "resource": "financeiro.csv",
+              "correlation_id": "access-17",
+              "source_ip": "192.0.2.50",
+              "outside_work_hours": true
+            },
+            "finding": {
+              "classification": "person_accused",
+              "person": "Suposição sem evidência",
+              "limit": "Regra intencionalmente inadequada."
+            }
+          },
+          "event_id": "0940b99c7f7b4176821efb0e6060a4dd",
+          "correlation_id": "ef98ce0c6f734b4ba9cda082badcac1a"
+        }
+      ],
+      "operations": 2,
+      "budget": 12,
+      "initial_data": "Fixtures finitas da Aurora; estados antes/depois independentes, sem arquivos pessoais."
+    },
+    {
+      "id": "after",
+      "events": [
+        {
+          "id": "215630bac09f4fcc9f2e98d0953efc50",
+          "run_id": "2ca9554d86644b5896435ffe3903f53a",
+          "timestamp": "2026-10-12T12:00:01+00:00",
+          "observed_at": "2026-10-12T20:47:37.280964Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "backup",
+          "decision": "allowed",
+          "reason": "Acesso com contexto: backup",
+          "correlation_id": "94ee0794aefd4aa0876b55ddbe0c91ff",
+          "variant": "after",
+          "status": null,
+          "result": "documented_maintenance",
+          "request": "Fixture local · Acesso com contexto: backup",
+          "source_ip": "",
+          "code_ref": "book_models.py · attribution",
+          "evidence_kind": "model_decision"
+        },
+        {
+          "id": "e72cf2c4774e4661940871af8322ab29",
+          "run_id": "2ca9554d86644b5896435ffe3903f53a",
+          "timestamp": "2026-10-12T12:00:02+00:00",
+          "observed_at": "2026-10-12T20:47:37.280974Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "rafa",
+          "resource": "financeiro.csv",
+          "decision": "review",
+          "reason": "Acesso com contexto: financeiro.csv",
+          "correlation_id": "508bc03e827443c5b7dfccc2ac14fede",
+          "variant": "after",
+          "status": null,
+          "result": "needs_review",
+          "request": "Fixture local · Acesso com contexto: financeiro.csv",
+          "source_ip": "",
+          "code_ref": "book_models.py · attribution",
+          "evidence_kind": "model_decision"
+        }
+      ],
+      "observations": [
+        {
+          "label": "Acesso com contexto: backup",
+          "status": null,
+          "request": "Fixture local · Acesso com contexto: backup",
+          "actor": "admin",
+          "resource": "backup",
+          "data": {
+            "record": {
+              "account": "admin",
+              "resource": "backup",
+              "correlation_id": "job-42",
+              "source_ip": "192.0.2.50",
+              "outside_work_hours": true
+            },
+            "finding": {
+              "classification": "documented_maintenance",
+              "person": "unknown",
+              "source_ip": "192.0.2.50",
+              "account": "admin",
+              "basis": "Conta, recurso e correlação com mudança registrada.",
+              "limit": "Registro de conta não comprova quem a usou; ausência de mudança não comprova intenção."
+            }
+          },
+          "event_id": "215630bac09f4fcc9f2e98d0953efc50",
+          "correlation_id": "94ee0794aefd4aa0876b55ddbe0c91ff"
+        },
+        {
+          "label": "Acesso com contexto: financeiro.csv",
+          "status": null,
+          "request": "Fixture local · Acesso com contexto: financeiro.csv",
+          "actor": "rafa",
+          "resource": "financeiro.csv",
+          "data": {
+            "record": {
+              "account": "rafa",
+              "resource": "financeiro.csv",
+              "correlation_id": "access-17",
+              "source_ip": "192.0.2.50",
+              "outside_work_hours": true
+            },
+            "finding": {
+              "classification": "needs_review",
+              "person": "unknown",
+              "source_ip": "192.0.2.50",
+              "account": "rafa",
+              "basis": "Não há mudança correspondente neste conjunto de registros.",
+              "limit": "Registro de conta não comprova quem a usou; ausência de mudança não comprova intenção."
+            }
+          },
+          "event_id": "e72cf2c4774e4661940871af8322ab29",
+          "correlation_id": "508bc03e827443c5b7dfccc2ac14fede"
+        }
+      ],
+      "operations": 2,
+      "budget": 12,
+      "initial_data": "Fixtures finitas da Aurora; estados antes/depois independentes, sem arquivos pessoais."
+    }
+  ],
+  "checks": [
+    {
+      "name": "before: Acesso com contexto: backup",
+      "expected": "person_accused",
+      "actual": "person_accused",
+      "passed": true
+    },
+    {
+      "name": "before: Acesso com contexto: financeiro.csv",
+      "expected": "person_accused",
+      "actual": "person_accused",
+      "passed": true
+    },
+    {
+      "name": "after: Acesso com contexto: backup",
+      "expected": "documented_maintenance",
+      "actual": "documented_maintenance",
+      "passed": true
+    },
+    {
+      "name": "after: Acesso com contexto: financeiro.csv",
+      "expected": "needs_review",
+      "actual": "needs_review",
+      "passed": true
+    }
+  ],
+  "snippets": {
+    "before": "# Suposição excessiva\nif outside_work_hours:\n    conclusion = 'invasão confirmada por pessoa X'",
+    "after": "finding = correlate_access(event, registered_changes)\n# mesma conta + recurso + correlação\n# pessoa e intenção continuam desconhecidas"
+  },
+  "limit": "Funções Python sobre dados fictícios. SQL usa SQLite em memória; HTML é transformado em texto; hashes são de bytes preparados. Permissões, resposta e atribuição são modelos. Sem leitura de arquivos pessoais, shell, tráfego de rede, contêiner ou HTML ativo. Resultados desta missão não são códigos HTTP.",
+  "completed_at": "2026-10-12T20:47:37.280980Z"
+}

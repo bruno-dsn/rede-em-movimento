@@ -1,0 +1,255 @@
+{
+  "id": "f20d72d2bb4b4abe976b073fb507677e",
+  "mission_id": "response",
+  "mode": "observed_python",
+  "exercise": "guided",
+  "version": "1.1.0",
+  "scenario_reference": "aurora-books-v1",
+  "started_at": "2026-10-12T20:47:37.280442Z",
+  "code_sha256": "7dce594fb8d2d5021b10a1041bbf7ae64ad8125f64b6b275321f1c1c8d334f90",
+  "configuration": {
+    "reference_time": "2026-10-12T12:00:00+00:00",
+    "variant_transport": "in_process_no_listener",
+    "operation_budget": 12,
+    "fixture_only": true,
+    "os_permissions_tested": false,
+    "active_html_executed": false
+  },
+  "variants": [
+    {
+      "id": "before",
+      "events": [
+        {
+          "id": "3268b28462c247e5a09bafecb6dd9d35",
+          "run_id": "f20d72d2bb4b4abe976b073fb507677e",
+          "timestamp": "2026-10-12T12:00:01+00:00",
+          "observed_at": "2026-10-12T20:47:37.280455Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "finance-server",
+          "decision": "review",
+          "reason": "Alerta tratado como certeza",
+          "correlation_id": "4515e0869d0a481391af9cfdbbbd57d9",
+          "variant": "before",
+          "status": null,
+          "result": "erase_and_reopen",
+          "request": "Fixture local · Alerta tratado como certeza",
+          "source_ip": "",
+          "code_ref": "book_models.py · response",
+          "evidence_kind": "model_decision"
+        }
+      ],
+      "observations": [
+        {
+          "label": "Alerta tratado como certeza",
+          "status": null,
+          "request": "Fixture local · Alerta tratado como certeza",
+          "actor": "admin",
+          "resource": "finance-server",
+          "data": {
+            "evidence_preserved": false,
+            "impact": "Interromper toda a empresa sem validar o alcance."
+          },
+          "event_id": "3268b28462c247e5a09bafecb6dd9d35",
+          "correlation_id": "4515e0869d0a481391af9cfdbbbd57d9"
+        }
+      ],
+      "operations": 1,
+      "budget": 12,
+      "initial_data": "Fixtures finitas da Aurora; estados antes/depois independentes, sem arquivos pessoais."
+    },
+    {
+      "id": "after",
+      "events": [
+        {
+          "id": "71194e9ae7f14f0f8d95033751210ec5",
+          "run_id": "f20d72d2bb4b4abe976b073fb507677e",
+          "timestamp": "2026-10-12T12:00:01+00:00",
+          "observed_at": "2026-10-12T20:47:37.280466Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "finance-server",
+          "decision": "review",
+          "reason": "Responsável ainda não autorizou",
+          "correlation_id": "5486563be5aa4113b35e1ecc96e8f6a1",
+          "variant": "after",
+          "status": null,
+          "result": "pending_authorization",
+          "request": "Fixture local · Responsável ainda não autorizou",
+          "source_ip": "",
+          "code_ref": "book_models.py · response",
+          "evidence_kind": "model_decision"
+        },
+        {
+          "id": "35a0bcee394844659f6f4487977745d3",
+          "run_id": "f20d72d2bb4b4abe976b073fb507677e",
+          "timestamp": "2026-10-12T12:00:02+00:00",
+          "observed_at": "2026-10-12T20:47:37.280475Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "finance-server",
+          "decision": "review",
+          "reason": "Plano limitado ao ativo afetado",
+          "correlation_id": "72b21896fa6e42b2a5380f623462beed",
+          "variant": "after",
+          "status": null,
+          "result": "0",
+          "request": "Fixture local · Plano limitado ao ativo afetado",
+          "source_ip": "",
+          "code_ref": "book_models.py · response",
+          "evidence_kind": "model_decision"
+        },
+        {
+          "id": "8847a42e2a0f41bbbabebbff3bfd1504",
+          "run_id": "f20d72d2bb4b4abe976b073fb507677e",
+          "timestamp": "2026-10-12T12:00:03+00:00",
+          "observed_at": "2026-10-12T20:47:37.280490Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "finance-server",
+          "decision": "denied",
+          "reason": "Backup ainda não teve restauração conferida",
+          "correlation_id": "80e2612b5e54442a906b52d7cf9986e2",
+          "variant": "after",
+          "status": null,
+          "result": "False",
+          "request": "Fixture local · Backup ainda não teve restauração conferida",
+          "source_ip": "",
+          "code_ref": "book_models.py · response",
+          "evidence_kind": "model_decision"
+        },
+        {
+          "id": "035d7036a8e443a5b0098e5bfc45a332",
+          "run_id": "f20d72d2bb4b4abe976b073fb507677e",
+          "timestamp": "2026-10-12T12:00:04+00:00",
+          "observed_at": "2026-10-12T20:47:37.280500Z",
+          "origin": "observed_python",
+          "category": "probe",
+          "actor": "admin",
+          "resource": "finance-server",
+          "decision": "allowed",
+          "reason": "Conferência dos critérios de retorno",
+          "correlation_id": "defd9fe11f944a8da264147e1d8780c1",
+          "variant": "after",
+          "status": null,
+          "result": "True",
+          "request": "Fixture local · Conferência dos critérios de retorno",
+          "source_ip": "",
+          "code_ref": "book_models.py · response",
+          "evidence_kind": "model_decision"
+        }
+      ],
+      "observations": [
+        {
+          "label": "Responsável ainda não autorizou",
+          "status": null,
+          "request": "Fixture local · Responsável ainda não autorizou",
+          "actor": "admin",
+          "resource": "finance-server",
+          "data": {
+            "state": "pending_authorization",
+            "asset": "finance-server",
+            "commands_executed": 0,
+            "next": "Preservar evidências disponíveis e solicitar decisão ao responsável."
+          },
+          "event_id": "71194e9ae7f14f0f8d95033751210ec5",
+          "correlation_id": "5486563be5aa4113b35e1ecc96e8f6a1"
+        },
+        {
+          "label": "Plano limitado ao ativo afetado",
+          "status": null,
+          "request": "Fixture local · Plano limitado ao ativo afetado",
+          "actor": "admin",
+          "resource": "finance-server",
+          "data": {
+            "state": "planned_only",
+            "asset": "finance-server",
+            "commands_executed": 0,
+            "internet": "block_for_affected_asset",
+            "internal_network": "management_path_only",
+            "next": "Restringir também caminhos internos desnecessários; corte de internet não remove malware."
+          },
+          "event_id": "35a0bcee394844659f6f4487977745d3",
+          "correlation_id": "72b21896fa6e42b2a5380f623462beed"
+        },
+        {
+          "label": "Backup ainda não teve restauração conferida",
+          "status": null,
+          "request": "Fixture local · Backup ainda não teve restauração conferida",
+          "actor": "admin",
+          "resource": "finance-server",
+          "data": {
+            "evidence_preserved": true,
+            "cause_reviewed": true,
+            "credentials_rotated": true,
+            "restore_verified": true,
+            "owner_approved": true
+          },
+          "event_id": "8847a42e2a0f41bbbabebbff3bfd1504",
+          "correlation_id": "80e2612b5e54442a906b52d7cf9986e2"
+        },
+        {
+          "label": "Conferência dos critérios de retorno",
+          "status": null,
+          "request": "Fixture local · Conferência dos critérios de retorno",
+          "actor": "admin",
+          "resource": "finance-server",
+          "data": {
+            "evidence_preserved": true,
+            "cause_reviewed": true,
+            "credentials_rotated": true,
+            "restore_verified": true,
+            "owner_approved": true
+          },
+          "event_id": "035d7036a8e443a5b0098e5bfc45a332",
+          "correlation_id": "defd9fe11f944a8da264147e1d8780c1"
+        }
+      ],
+      "operations": 4,
+      "budget": 12,
+      "initial_data": "Fixtures finitas da Aurora; estados antes/depois independentes, sem arquivos pessoais."
+    }
+  ],
+  "checks": [
+    {
+      "name": "before: Alerta tratado como certeza",
+      "expected": "erase_and_reopen",
+      "actual": "erase_and_reopen",
+      "passed": true
+    },
+    {
+      "name": "after: Responsável ainda não autorizou",
+      "expected": "pending_authorization",
+      "actual": "pending_authorization",
+      "passed": true
+    },
+    {
+      "name": "after: Plano limitado ao ativo afetado",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "name": "after: Backup ainda não teve restauração conferida",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "after: Conferência dos critérios de retorno",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    }
+  ],
+  "snippets": {
+    "before": "# Decisão insegura do caso fictício\nif alert:\n    erase_records = True\n    reopen_everything = True",
+    "after": "plan = containment_plan(asset, authorized=owner_approved)\n# plano apenas; nenhum firewall é alterado\nreopen = all([evidence_preserved, cause_reviewed,\n              credentials_rotated, restore_verified, owner_approved])"
+  },
+  "limit": "Funções Python sobre dados fictícios. SQL usa SQLite em memória; HTML é transformado em texto; hashes são de bytes preparados. Permissões, resposta e atribuição são modelos. Sem leitura de arquivos pessoais, shell, tráfego de rede, contêiner ou HTML ativo. Resultados desta missão não são códigos HTTP.",
+  "completed_at": "2026-10-12T20:47:37.280503Z"
+}

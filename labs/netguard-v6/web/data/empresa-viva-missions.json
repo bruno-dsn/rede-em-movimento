@@ -1,0 +1,836 @@
+{
+  "version": "1.1.0",
+  "company": {
+    "name": "Aurora Serviços",
+    "fictional": true,
+    "brief": "Uma pequena empresa fictícia com dois clientes, uma administradora e uma central de chamados. Você assume sua primeira investigação de segurança.",
+    "people": [
+      {
+        "id": "lia",
+        "name": "Lia",
+        "role": "Cliente",
+        "ticket": 101
+      },
+      {
+        "id": "rafa",
+        "name": "Rafael",
+        "role": "Cliente",
+        "ticket": 202
+      },
+      {
+        "id": "admin",
+        "name": "Joana",
+        "role": "Administradora",
+        "ticket": null
+      }
+    ],
+    "scope": "Uma única empresa e três identidades fictícias. Não há multitenancy, clientes reais ou redes externas neste núcleo."
+  },
+  "missions": [
+    {
+      "id": "login",
+      "number": "01",
+      "title": "Falha de senha ou tentativa repetida?",
+      "brief": "Lia relata que digitou a senha errado. No mesmo episódio, a conta alegada de Rafael recebe oito negativas de uma origem fictícia. O chamado pede investigação, não uma acusação.",
+      "objective": "Distinguir autenticação, sinal de triagem e confirmação; comparar uma limitação temporária com tentativas sem limite.",
+      "prerequisites": [
+        "HTTP transporta uma solicitação e uma resposta.",
+        "Autenticação valida uma identidade; um nome no log não identifica uma pessoa.",
+        "401 informa credencial/sessão não aceita; 429 informa orçamento temporário excedido."
+      ],
+      "scope": "Oito tentativas fixas por variante, contra funções preparadas em memória. Sem dicionário, URL, IP externo ou teste em serviços de outras pessoas.",
+      "hypotheses": [
+        "Erro de digitação corrigido pelo cliente.",
+        "Aplicação usando uma credencial antiga.",
+        "Tentativas repetidas não autorizadas; os logs sozinhos não mostram intenção."
+      ],
+      "steps": [
+        "Execute ou simule o episódio e compare Lia com Rafael.",
+        "Filtre Rafael e abra o primeiro evento com status 429 na variante corrigida.",
+        "Troque para a visão da aplicação e observe a regra que decide.",
+        "Confira que Lia consegue acessar após corrigir a digitação.",
+        "Confira que uma origem fictícia diferente continua aceitando a credencial legítima.",
+        "Escreva uma conclusão com evidência e uma explicação alternativa."
+      ],
+      "evidence": [
+        "Sequência 401 → 200 do caso legítimo.",
+        "Cinco tentativas aceitas para verificação e três recusadas por orçamento na variante corrigida.",
+        "Evento derivado de uma regra: três negativas pedem revisão, não comprovam invasão."
+      ],
+      "hints": [
+        "Compare sequência, origem e resultado. Não some todas as negativas como se fossem um único caso.",
+        "Procure o primeiro 429. Ele representa uma decisão de limitação antes de validar a senha.",
+        "LoginBudget usa a origem e a identidade alegada numa janela fixa de 60 s; uma tentativa negada não prolonga a janela."
+      ],
+      "cause": "Sem orçamento, toda tentativa chega à verificação. O episódio repetido continua recebendo 401, mas o trabalho de verificar cada senha não é limitado.",
+      "correction": "Verificar um orçamento temporário no servidor antes da derivação da senha. O laboratório permite cinco tentativas por origem/conta alegada em 60 s, com limite adicional de 20 por origem. Não bloqueia globalmente a conta e não prolonga a janela ao negar. Isto não é proteção completa contra ataques distribuídos.",
+      "expected": [
+        "Caso legítimo: 401, 401, 200.",
+        "Variante corrigida: tentativas 6, 7 e 8 recebem 429.",
+        "Outra origem fictícia com credencial válida recebe 200.",
+        "O relatório não converte um alerta em invasão confirmada."
+      ],
+      "transfer": "No caso novo, Lia erra uma vez em vez de duas. Refaça a investigação sem depender da contagem do primeiro caso; confira que a conclusão legítima continua sustentada.",
+      "concepts": [
+        "authentication",
+        "session",
+        "http",
+        "rate",
+        "event",
+        "false_positive"
+      ],
+      "references": [
+        "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html"
+      ]
+    },
+    {
+      "id": "ownership",
+      "number": "02",
+      "title": "Um chamado que não é seu",
+      "brief": "Lia está autenticada e consulta o ID 202. A aplicação antiga devolve o chamado privado de Rafael. Ter entrado no portal permite ler qualquer recurso?",
+      "objective": "Demonstrar uma falha de autorização por objeto e verificar proprietário e papel no servidor.",
+      "prerequisites": [
+        "Autenticação e autorização são controles diferentes.",
+        "Um recurso tem proprietário, mesmo quando seu ID é conhecido.",
+        "A sessão validada pelo servidor determina a identidade."
+      ],
+      "scope": "Somente os chamados 101 e 202 e as três contas fictícias. Na transferência, o chamado de Rafael passa a ter ID 707; nenhum destino externo é aceito.",
+      "hypotheses": [
+        "Um administrador pode ter acesso legítimo ao chamado.",
+        "Um cliente pode consultar um chamado próprio.",
+        "A aplicação pode não conferir o proprietário e entregar dados a outro cliente."
+      ],
+      "steps": [
+        "Compare a consulta de Rafael com a consulta de Lia ao mesmo recurso.",
+        "Abra o evento Outro cliente consulta na variante antiga.",
+        "Na perspectiva do usuário, confira qual proprietário aparece no resultado.",
+        "Na perspectiva da aplicação, localize can_read.",
+        "Reexecute com a correção e observe 404 para Lia.",
+        "Confira também anônimo, proprietário e administradora."
+      ],
+      "evidence": [
+        "Identidade da sessão de Lia e proprietário Rafael no recurso 202.",
+        "Resposta 200 antiga e 404 corrigida para outro cliente.",
+        "Anônimo: 401; proprietário e administradora autorizada: 200."
+      ],
+      "hints": [
+        "Saber o ID não dá permissão para ler o chamado.",
+        "Compare identity.id com ticket.owner, em vez de confiar num campo enviado pelo navegador.",
+        "can_read deve aceitar o proprietário ou um papel administrativo autorizado. A política escolhida oculta o recurso alheio com 404."
+      ],
+      "cause": "A variante didática devolve True em can_read para qualquer usuário autenticado. A identidade existe, mas não é comparada com o proprietário do chamado.",
+      "correction": "Determinar a identidade pela sessão e conferir identity.id == ticket.owner ou papel admin no servidor. A criação também usa a sessão como proprietário e recusa campos owner/role enviados pelo cliente. Um ID inexistente e um recurso alheio recebem a mesma mensagem 404.",
+      "expected": [
+        "Anônimo recebe 401.",
+        "Rafael lê seu chamado com 200.",
+        "Lia recebe 404 para o chamado de Rafael após a correção.",
+        "Joana, administradora fictícia autorizada, recebe 200.",
+        "Lia continua lendo o próprio chamado 101."
+      ],
+      "transfer": "O chamado de Rafael passa para ID 707. Repita os testes; a correção precisa funcionar pelo proprietário, e não por bloquear apenas o número 202.",
+      "concepts": [
+        "authorization",
+        "owner",
+        "session",
+        "bola",
+        "http",
+        "least_privilege"
+      ],
+      "references": [
+        "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+        "https://api-security.owasp.org/editions/2023/en/0xa1-broken-object-level-authorization/"
+      ]
+    },
+    {
+      "id": "admin",
+      "number": "03",
+      "title": "O botão sumiu. A permissão também?",
+      "brief": "O portal esconde o botão administrativo de Rafael. Uma chamada direta à função antiga ainda consegue encerrar um chamado. A interface não é a fronteira de autorização.",
+      "objective": "Comparar uma função privilegiada sem verificação de papel com a negativa aplicada no servidor.",
+      "prerequisites": [
+        "Papel administrativo é uma permissão da aplicação fictícia, não do sistema operacional.",
+        "Uma interface pode esconder um controle enquanto a rota ainda existe.",
+        "Toda ação privilegiada precisa da mesma verificação no servidor."
+      ],
+      "scope": "Encerrar apenas chamados sintéticos em bancos descartáveis de memória. Nenhum serviço, conta do computador ou firewall é alterado.",
+      "hypotheses": [
+        "Joana executa uma manutenção autorizada.",
+        "Rafael chama a API apesar de o botão não aparecer.",
+        "A aplicação antiga confia na navegação e não verifica papel."
+      ],
+      "steps": [
+        "Observe anônimo, cliente e administradora na mesma função.",
+        "Compare a resposta do cliente antes e depois da correção.",
+        "Abra a perspectiva da aplicação e localize can_close.",
+        "Confira que a correção acontece antes da alteração no banco.",
+        "Verifique que Joana ainda consegue realizar a ação legítima.",
+        "Documente por que esconder o botão ajuda o uso, mas não substitui autorização."
+      ],
+      "evidence": [
+        "Cliente recebe 200 na variante sem controle de papel.",
+        "Cliente recebe 403 na variante corrigida.",
+        "Anônimo recebe 401 e administradora recebe 200.",
+        "A decisão administrativa foi verificada no servidor."
+      ],
+      "hints": [
+        "Compare a presença do botão com a existência da função.",
+        "Autenticar Rafael não transforma seu papel customer em admin.",
+        "can_close deve aceitar apenas identity.role == admin, antes do UPDATE no banco."
+      ],
+      "cause": "MissingAdminCheck aceita qualquer identidade autenticada. Esconder o botão não altera a decisão executada pela função no servidor.",
+      "correction": "Verificar o papel na central corrigida antes de alterar o chamado. Cliente recebe 403, anônimo recebe 401 e administradora recebe 200. O papel vem da conta validada, nunca do corpo da requisição.",
+      "expected": [
+        "Anônimo: 401.",
+        "Cliente: 200 antes, 403 depois.",
+        "Administradora: 200 nas duas variantes.",
+        "A atividade administrativa autorizada não deve ser classificada como incidente."
+      ],
+      "transfer": "A função agora aponta para o chamado privado com ID 707. Verifique novamente o papel, mesmo que o cliente seja proprietário do recurso: ser dono não dá acesso a toda função administrativa.",
+      "concepts": [
+        "role",
+        "authorization",
+        "bfla",
+        "http",
+        "least_privilege",
+        "test"
+      ],
+      "references": [
+        "https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html",
+        "https://api-security.owasp.org/editions/2023/en/0xa5-broken-function-level-authorization/"
+      ]
+    },
+    {
+      "id": "permissions",
+      "number": "04",
+      "title": "Quem pode ler o arquivo financeiro?",
+      "brief": "A folha fictícia pertence a Rafael e ao grupo Financeiro. Lia, do Atendimento, consegue ler porque o arquivo permite leitura a outros usuários. Joana participa do grupo autorizado.",
+      "objective": "Entender dono, grupo, outros e bits de leitura/escrita; escolher uma permissão que protege o arquivo e conserva o trabalho autorizado.",
+      "prerequisites": [
+        "Um usuário pode pertencer a mais de um grupo.",
+        "r = leitura (4), w = escrita (2), x = execução (1). Os valores se somam em cada classe.",
+        "644 representa rw- r-- r--; 640 representa rw- r-- ---."
+      ],
+      "scope": "Modelo dos nove bits DAC de um arquivo regular. Não lê arquivos pessoais nem altera permissões do computador. Não inclui root, ACLs, capacidades ou acesso aos diretórios.",
+      "hypotheses": [
+        "Lia está no grupo financeiro e tem acesso legítimo.",
+        "A classe outros recebeu leitura por engano.",
+        "Remover todas as permissões impediria também o trabalho legítimo."
+      ],
+      "steps": [
+        "Identifique dono, grupo e classe utilizada por Lia.",
+        "Compare a leitura de Lia com a de Rafael e Joana.",
+        "Abra Faça sua correção e experimente 000 e 640.",
+        "Confira leitura e escrita separadamente.",
+        "Execute o caso diferente: o proprietário e o grupo mudam.",
+        "Explique o que o modelo não consegue testar no seu sistema."
+      ],
+      "evidence": [
+        "Modo 644 antes e 640 depois.",
+        "Lia deixa de ler; dono e grupo autorizado continuam lendo.",
+        "Joana lê pelo grupo, mas não recebe escrita."
+      ],
+      "hints": [
+        "As três colunas representam classes diferentes, não três permissões que sempre se somam.",
+        "Primeiro selecione dono, grupo ou outros; só então consulte o bit da operação.",
+        "640 remove a leitura de outros e conserva a leitura do grupo. 000 bloqueia também o dono."
+      ],
+      "cause": "Leitura concedida à classe outros expõe o documento às contas que não são dono nem participantes do grupo autorizado.",
+      "correction": "Aplicar menor privilégio no modelo: 640, com proprietário e grupo apropriados. A conta administrativa fictícia não equivale a root. No sistema real, diretórios, ACLs e outros controles também precisam ser verificados.",
+      "expected": [
+        "Outro usuário: allowed antes, denied depois.",
+        "Dono conserva leitura e escrita.",
+        "Grupo autorizado conserva leitura, sem escrita.",
+        "Bloquear todo mundo não atende o objetivo."
+      ],
+      "transfer": "O arquivo vira um contrato de Lia, no grupo Atendimento. Rafael passa a ser o usuário externo ao grupo. Reavalie as identidades em vez de decorar o nome de quem deve receber a negativa.",
+      "concepts": [
+        "permissions",
+        "octal",
+        "least_privilege",
+        "owner",
+        "test"
+      ],
+      "references": [
+        "Learning Kali Linux, Ric Messier, 2ª edição: capítulo 1.",
+        "https://man7.org/linux/man-pages/man7/inode.7.html"
+      ]
+    },
+    {
+      "id": "sql",
+      "number": "05",
+      "title": "A busca trouxe dados de outro cliente",
+      "brief": "Uma busca da central deveria devolver apenas itens da conta autenticada. Uma entrada controlada muda a expressão SQL da versão antiga e faz aparecer três itens, incluindo um de Rafael.",
+      "objective": "Distinguir dado e instrução; comprovar a correção por parâmetros sem perder a busca legítima.",
+      "prerequisites": [
+        "SQL consulta dados de uma tabela.",
+        "Concatenar entrada do usuário pode mudar a instrução executada.",
+        "Parâmetros vinculam os valores sem inseri-los no texto SQL."
+      ],
+      "scope": "Python usa um SELECT fixo em SQLite de memória, com três registros fictícios e orçamento. O site calcula um modelo equivalente; não recebe alvo, SQL livre ou acesso a banco real.",
+      "hypotheses": [
+        "A consulta esqueceu de limitar o proprietário.",
+        "A entrada alterou a lógica da condição.",
+        "Um item pertence à própria conta e pode ser devolvido legitimamente."
+      ],
+      "steps": [
+        "Confira a busca legítima de Lia.",
+        "Abra Entrada altera a lógica da busca e compare proprietários.",
+        "Examine o trecho que concatena o texto SQL.",
+        "Escolha a correção no painel de prática.",
+        "Compare a busca controlada e as buscas legítimas após parametrizar.",
+        "No caso diferente, examine outra entrada e um ID novo."
+      ],
+      "evidence": [
+        "Três resultados antes; zero para a entrada controlada depois.",
+        "O item de Rafael aparece no conjunto indevido.",
+        "Buscas legítimas continuam devolvendo um item da própria conta."
+      ],
+      "hints": [
+        "Veja o proprietário de cada resultado, não apenas se a busca respondeu.",
+        "Filtrar a conta na consulta não basta se a entrada consegue mudar a lógica SQL.",
+        "Use WHERE owner=? AND title=? e passe os dois valores como parâmetros."
+      ],
+      "cause": "A versão intencionalmente insegura concatena a entrada no WHERE. A nova expressão pode tornar verdadeira uma condição que expõe os outros registros.",
+      "correction": "Executar a consulta fixa com parâmetros para proprietário e termo. O servidor obtém a identidade pela sessão. Rejeitar apenas uma palavra ou remover uma sequência conhecida não é uma defesa geral.",
+      "expected": [
+        "Entrada controlada: três itens antes e zero depois.",
+        "Busca legítima de Lia e de Rafael continua funcionando.",
+        "Texto com apóstrofo é tratado como dado.",
+        "A variante fraca não é uma rota HTTP."
+      ],
+      "transfer": "A expressão controlada muda e o item privado de Rafael passa para ID 707. A correção precisa manter dado e instrução separados em ambos os casos.",
+      "concepts": [
+        "sql",
+        "authorization",
+        "owner",
+        "test",
+        "threat_model"
+      ],
+      "references": [
+        "Web Application Security, Andrew Hoffman, 2ª edição: capítulos 13, 24 e 31.",
+        "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html"
+      ]
+    },
+    {
+      "id": "xss",
+      "number": "06",
+      "title": "O comentário deve ser texto",
+      "brief": "A central armazena um comentário com um marcador HTML controlado. A versão antiga devolve o texto bruto para um contexto HTML. A comparação mostra a transformação; o marcador nunca é inserido como HTML ativo nesta interface.",
+      "objective": "Entender contexto de saída e comparar texto literal com marcação que seria interpretada num renderizador inseguro.",
+      "prerequisites": [
+        "HTML pode representar estrutura, atributos e comportamento.",
+        "Um conteúdo não confiável deve permanecer texto quando esse é o objetivo da tela.",
+        "A defesa depende do contexto: texto HTML, atributo, JavaScript e URL são diferentes."
+      ],
+      "scope": "Comentários preparados em memória. Python compara html.escape; o site calcula o modelo. Não executa script, abre iframe ou cria HTML ativo com o marcador.",
+      "hypotheses": [
+        "O comentário é texto literal de uma pessoa.",
+        "O renderizador transformou conteúdo não confiável em marcação.",
+        "Remover só tags script pode deixar atributos de evento perigosos."
+      ],
+      "steps": [
+        "Veja o comentário legítimo e o marcador controlado.",
+        "Compare input e output antes e depois.",
+        "Escolha uma forma de renderizar no painel de prática.",
+        "Confira que símbolos e comentários legítimos não se perdem.",
+        "Troque para o caso diferente e compare o novo marcador.",
+        "Registre o contexto coberto e o que ainda exigiria teste em navegador."
+      ],
+      "evidence": [
+        "Saída antiga conserva marcação bruta.",
+        "Saída corrigida representa <, >, aspas e & como texto HTML.",
+        "Não existe evento comprovando execução de JavaScript nesta missão."
+      ],
+      "hints": [
+        "O problema acontece quando dados viram parte da estrutura da página.",
+        "O marcador usa atributo de evento, portanto remover só script não resolve o exemplo.",
+        "Para texto: html.escape no Python ou textContent no navegador. Não reutilize essa defesa automaticamente em outros contextos."
+      ],
+      "cause": "A saída bruta não separa comentário e marcação HTML. Um renderizador que usa essa saída como HTML pode interpretar conteúdo não confiável.",
+      "correction": "Preservar o comentário como texto no contexto correto. O laboratório verifica a transformação, não exploração ativa de XSS em navegador. HTML rico autorizado exigiria sanitização específica e testes adicionais.",
+      "expected": [
+        "Comentário legítimo continua aparecendo.",
+        "Marcador permanece texto depois da correção.",
+        "Texto com & e sinais de comparação conserva o significado.",
+        "Nenhum marcador é executado pela interface ou exportação."
+      ],
+      "transfer": "O marcador muda de img para svg. Uma correção limitada à primeira tag falha; uma saída apropriada ao contexto conserva ambos como texto.",
+      "concepts": [
+        "xss",
+        "test",
+        "threat_model",
+        "event"
+      ],
+      "references": [
+        "Web Application Security, Andrew Hoffman, 2ª edição: capítulos 10 e 28.",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html"
+      ]
+    },
+    {
+      "id": "integrity",
+      "number": "07",
+      "title": "O que mudou desde o último registro?",
+      "brief": "A contagem de arquivos ficou igual, mas o conteúdo financeiro mudou, um arquivo foi excluído e outro apareceu. Há também uma atualização de backup com mudança aprovada.",
+      "objective": "Comparar referências de conteúdo, preservar diferenças e distinguir mudança aprovada de item que exige investigação.",
+      "prerequisites": [
+        "Uma referência registra o estado conhecido de um conjunto de arquivos.",
+        "SHA-256 resume os bytes; o mesmo tamanho ou nome não garante o mesmo conteúdo.",
+        "Mudança de hash não comprova malware, autoria ou cópia para fora da empresa."
+      ],
+      "scope": "Quatro nomes fixos e bytes inofensivos preparados em memória. Não monitora pastas pessoais nem cria backup externo. A cópia demonstrada também é em memória.",
+      "hypotheses": [
+        "Foi uma alteração de trabalho aprovada.",
+        "Um arquivo foi alterado sem registro correspondente.",
+        "A contagem escondia criação e exclusão no mesmo intervalo."
+      ],
+      "steps": [
+        "Compare a contagem com a lista detalhada de alterações.",
+        "Abra cada item: criado, alterado ou excluído.",
+        "Confira o hash esperado da mudança de backup.",
+        "Escolha como validar uma mudança no painel de prática.",
+        "Confira os hashes da cópia preparada.",
+        "No caso diferente, veja se o nome aprovado também tem os bytes aprovados."
+      ],
+      "evidence": [
+        "Mesmo número de arquivos, com quatro diferenças reais entre os conjuntos preparados.",
+        "Hash antigo e novo de cada alteração disponível.",
+        "Aprovação exige caminho e hash correspondente; itens restantes pedem revisão."
+      ],
+      "hints": [
+        "Uma criação pode compensar uma exclusão na contagem.",
+        "Compare hash e tamanho, não só extensão e nome.",
+        "Aprovar backup.txt não aprova qualquer conteúdo futuro de backup.txt."
+      ],
+      "cause": "Contar arquivos não detecta alterações de conteúdo. Confiar apenas no nome de um arquivo aprovado permite tratar bytes diferentes como a mesma mudança.",
+      "correction": "Comparar manifestos com SHA-256 e tamanho; registrar criação, alteração e exclusão; exigir correspondência de caminho e bytes com a mudança aprovada. Preservar a referência anterior e documentar os limites.",
+      "expected": [
+        "Financeiro alterado pede revisão.",
+        "Configuração excluída e nota criada aparecem na investigação.",
+        "Backup aprovado só é reconhecido quando o hash confere.",
+        "Cópia preparada tem o mesmo hash dos bytes de origem."
+      ],
+      "transfer": "O arquivo continua chamado backup.txt, mas recebe bytes diferentes daqueles aprovados. Ele deve mudar de approved_change para needs_review.",
+      "concepts": [
+        "baseline",
+        "integrity",
+        "change",
+        "hash",
+        "event",
+        "test"
+      ],
+      "references": [
+        "Learning Kali Linux, Ric Messier, 2ª edição: capítulos 12 e 13.",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html"
+      ]
+    },
+    {
+      "id": "response",
+      "number": "08",
+      "title": "Conter sem apagar a investigação",
+      "brief": "Um alerta envolve o servidor financeiro fictício. A equipe precisa preservar registros, definir o alcance da contenção, pedir autorização e conferir as condições para voltar ao serviço.",
+      "objective": "Organizar papéis, evidências, contenção e recuperação, entendendo o impacto de cada decisão.",
+      "prerequisites": [
+        "Um alerta pede triagem; pode exigir mais evidências antes da conclusão.",
+        "Cortar internet não remove malware nem impede toda atividade local.",
+        "Ter um backup não comprova que a restauração funciona."
+      ],
+      "scope": "Exercício de decisão com ativos fictícios. Gera apenas planos; não altera firewall, conexão, senha, serviço ou arquivo do computador.",
+      "hypotheses": [
+        "O alerta é uma atividade legítima que precisa de contexto.",
+        "O ativo exige contenção autorizada e preservação de registros.",
+        "Reconectar antes de validar a causa e a restauração pode manter o problema."
+      ],
+      "steps": [
+        "Identifique o ativo e o responsável pela decisão.",
+        "Examine a diferença entre preservar evidências e apagar registros.",
+        "Compare o plano pendente com o autorizado.",
+        "Escolha a decisão no painel de prática.",
+        "Confira todos os critérios de retorno, inclusive restauração verificada.",
+        "No caso diferente, uma autorização final estará ausente."
+      ],
+      "evidence": [
+        "Plano sem autorização fica pendente.",
+        "Plano aprovado se limita ao ativo afetado e executa zero comandos.",
+        "Critério de retorno falha enquanto restauração ou autorização final estiver ausente."
+      ],
+      "hints": [
+        "Documente o que se sabe antes de escolher o alcance da interrupção.",
+        "Manter um caminho interno exige restringir e avaliar esse caminho; rede interna também pode transportar o problema.",
+        "Retorno depende de evidências preservadas, causa revisada, credenciais tratadas, restauração conferida e responsável aprovando."
+      ],
+      "cause": "Uma reação que apaga evidências e reabre tudo após um alerta prejudica a investigação e ignora causa, alcance e critérios de recuperação.",
+      "correction": "Planejar resposta proporcional e autorizada, preservar o material disponível e verificar critérios de retorno. Esta lista é a política didática do cenário; uma empresa precisa definir responsáveis e controles próprios.",
+      "expected": [
+        "Preservação precede uma ação destrutiva no exercício.",
+        "Sem autorização: pending_authorization.",
+        "Plano produz commands_executed = 0.",
+        "Falta de um critério impede o retorno na política do caso."
+      ],
+      "transfer": "O ativo passa a ser a central e a restauração confere, mas o responsável ainda não aprovou o retorno. Ter os demais critérios não substitui essa decisão.",
+      "concepts": [
+        "containment",
+        "recovery",
+        "scope",
+        "change",
+        "event"
+      ],
+      "references": [
+        "The Cybersecurity Manager’s Guide, Todd Barnum: capítulos 6, 7 e 10.",
+        "https://csrc.nist.gov/pubs/sp/800/61/r3/final"
+      ]
+    },
+    {
+      "id": "attribution",
+      "number": "09",
+      "title": "Um IP, duas explicações",
+      "brief": "Duas contas aparecem fora do expediente com o mesmo IP didático. Um acesso corresponde ao backup registrado; o outro não tem uma mudança correspondente no conjunto de evidências.",
+      "objective": "Separar observação, hipótese e autoria; correlacionar registros sem transformar endereço ou horário em identidade pessoal.",
+      "prerequisites": [
+        "IP é um dado de origem observado, não uma pessoa.",
+        "Horário fora do expediente pode ter uma explicação legítima.",
+        "Correlação de registros ajuda a investigar, mas não comprova sozinha intenção ou autoria."
+      ],
+      "scope": "Dois acessos e uma mudança preparados. Não consulta localização de IP, pessoas, inteligência externa ou redes reais. As classificações são decisões explicáveis do modelo.",
+      "hypotheses": [
+        "Um backup previsto executou fora do expediente.",
+        "Há uma atividade sem mudança correspondente que exige revisão.",
+        "Uma pessoa pode ter usado credenciais de outra; o registro não responde isso."
+      ],
+      "steps": [
+        "Compare IP e horário dos dois registros.",
+        "Localize a mudança que tem conta, recurso e correlação correspondentes.",
+        "Abra o resultado e observe o campo person.",
+        "Escolha uma regra no painel de prática.",
+        "Escreva uma conclusão limitada às evidências.",
+        "No caso diferente, uma atividade sem aprovação acontece durante o expediente."
+      ],
+      "evidence": [
+        "Mesmo IP não produz a mesma classificação para todos os acessos.",
+        "Backup corresponde a uma manutenção documentada.",
+        "Acesso financeiro sem mudança correspondente pede revisão; pessoa permanece unknown."
+      ],
+      "hints": [
+        "Uma regra baseada apenas em horário pode acusar um backup e ignorar uma atividade durante o expediente.",
+        "Compare conta, recurso e ID de correlação com a mudança registrada.",
+        "Sem registro correspondente, needs_review; isso não equivale a invasão confirmada ou pessoa identificada."
+      ],
+      "cause": "A regra antiga transforma um indício de horário em acusação e pode ignorar sinais durante o expediente. Os dados não sustentam essa atribuição.",
+      "correction": "Correlacionar a atividade com mudanças documentadas e conservar os limites da conclusão. Identidade da conta, endereço e autoria pessoal são informações diferentes.",
+      "expected": [
+        "Backup: documented_maintenance na regra contextual.",
+        "Acesso financeiro: needs_review.",
+        "Pessoa: unknown nos dois resultados corrigidos.",
+        "Acesso durante o expediente continua pedindo revisão quando falta contexto correspondente."
+      ],
+      "transfer": "O acesso financeiro passa para outro IP e acontece durante o expediente. A ausência de uma mudança correspondente continua sendo relevante, mesmo sem o primeiro sinal de horário.",
+      "concepts": [
+        "attribution",
+        "false_positive",
+        "ip",
+        "event",
+        "change"
+      ],
+      "references": [
+        "Inside Cyber Warfare, Jeffrey Caruso, 3ª edição: capítulo 2.",
+        "https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html"
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "id": "authentication",
+      "term": "Autenticação",
+      "text": "Confere uma identidade alegada. Um login aceito não concede automaticamente acesso a todo chamado."
+    },
+    {
+      "id": "authorization",
+      "term": "Autorização",
+      "text": "Decide se a identidade pode realizar uma ação num recurso. Conferir dono e papel acontece no servidor."
+    },
+    {
+      "id": "session",
+      "term": "Sessão",
+      "text": "Vincula solicitações posteriores ao login validado. O portal local usa um cookie opaco HttpOnly; não grava sua senha nele."
+    },
+    {
+      "id": "owner",
+      "term": "Proprietário",
+      "text": "Conta à qual pertence o recurso. A criação deriva esse valor da sessão, não de um campo editável."
+    },
+    {
+      "id": "role",
+      "term": "Papel",
+      "text": "Conjunto de permissões na aplicação. O papel admin fictício permite encerrar chamados; não dá privilégios no computador."
+    },
+    {
+      "id": "http",
+      "term": "HTTP e status",
+      "text": "Solicitação e resposta entre cliente e servidor. 200: operação atendida; 201: recurso criado; 401: autenticação necessária; 403: ação não permitida; 404: recurso não disponível para esta conta; 429: orçamento temporário excedido."
+    },
+    {
+      "id": "rate",
+      "term": "Limitação de tentativas",
+      "text": "Orçamento por janela de tempo antes de verificar novas credenciais. Os limites deste laboratório são didáticos, não uma configuração universal."
+    },
+    {
+      "id": "event",
+      "term": "Evento e correlação",
+      "text": "Registro de uma observação ou decisão. ID da execução e correlação ligam evidências do mesmo episódio; proximidade de horário não prova causa."
+    },
+    {
+      "id": "false_positive",
+      "term": "Falso positivo",
+      "text": "Uma regra sinaliza uma atividade legítima. Erros de digitação e tarefas previstas precisam de contexto antes da conclusão."
+    },
+    {
+      "id": "bola",
+      "term": "BOLA / IDOR",
+      "text": "Falha de autorização de objeto: um usuário lê ou altera um recurso alheio porque o servidor não confere a permissão."
+    },
+    {
+      "id": "bfla",
+      "term": "BFLA",
+      "text": "Falha de autorização de função: uma conta comum executa uma função reservada ao papel administrativo."
+    },
+    {
+      "id": "least_privilege",
+      "term": "Menor privilégio",
+      "text": "Conceder só as permissões necessárias. Recurso, identidade e função precisam ser considerados juntos."
+    },
+    {
+      "id": "test",
+      "term": "Teste de regressão",
+      "text": "Verifica um comportamento esperado depois da correção. Passar os casos previstos não demonstra segurança completa."
+    },
+    {
+      "id": "hash",
+      "term": "Hash do código",
+      "text": "Resumo SHA-256 dos módulos que produziram a execução. Identifica bytes da versão local, sem assinatura ou comprovação de origem."
+    },
+    {
+      "id": "ip",
+      "term": "IP e porta",
+      "text": "Endereço e ponto de serviço numa rede. Os IPs 192.0.2.x desta jornada são fictícios para documentação. Uma porta aberta não prova vulnerabilidade."
+    },
+    {
+      "id": "csrf",
+      "term": "CSRF",
+      "text": "Uma página de outra origem tenta provocar uma ação com sua sessão. O serviço local verifica origem e um valor de confirmação associado à sessão."
+    },
+    {
+      "id": "python",
+      "term": "Classe e função em Python",
+      "text": "Helpdesk agrupa o comportamento da central. can_read e can_close são funções pequenas com decisões que podemos testar antes de expor uma API."
+    },
+    {
+      "id": "replay",
+      "term": "Replay",
+      "text": "Reproduz registros já produzidos. Não cria novas solicitações nem executa novamente o episódio."
+    },
+    {
+      "id": "permissions",
+      "term": "Permissões DAC",
+      "text": "Modelo de dono, grupo e outros: selecione a classe e depois a operação. Não cobre ACL, root, capacidades ou permissões dos diretórios."
+    },
+    {
+      "id": "octal",
+      "term": "644, 640 e bits",
+      "text": "r=4, w=2, x=1. Some os bits em cada classe: 6 é leitura/escrita; 4 é leitura; 0 é ausência dessas permissões."
+    },
+    {
+      "id": "sql",
+      "term": "SQL injection",
+      "text": "Entrada vira parte da instrução SQL quando a consulta concatena dados. Parâmetros preservam valores como dados; autorização continua necessária."
+    },
+    {
+      "id": "xss",
+      "term": "XSS e contexto de saída",
+      "text": "Conteúdo não confiável pode ser interpretado pelo navegador quando vira marcação ativa. Texto HTML, atributos, URLs e JavaScript precisam de defesas apropriadas."
+    },
+    {
+      "id": "baseline",
+      "term": "Referência de integridade",
+      "text": "Estado conhecido usado para comparar conteúdo. Proteja e preserve a referência anterior; atualizar tudo automaticamente pode esconder alterações."
+    },
+    {
+      "id": "integrity",
+      "term": "Integridade de conteúdo",
+      "text": "Hash diferente significa bytes diferentes. Não revela sozinho malware, autoria, motivo ou destino de uma cópia."
+    },
+    {
+      "id": "change",
+      "term": "Mudança aprovada",
+      "text": "Registro do que foi autorizado: responsável, recurso e conteúdo/versão esperado. Um nome de arquivo sozinho não autoriza qualquer alteração."
+    },
+    {
+      "id": "containment",
+      "term": "Contenção",
+      "text": "Reduzir alcance e exposição de um incidente com impacto e autorização definidos. Cortar internet não elimina malware ou todos os caminhos internos."
+    },
+    {
+      "id": "recovery",
+      "term": "Recuperação",
+      "text": "Voltar ao serviço após conferir causa, controles, restauração e decisão do responsável. Possuir backup não equivale a testar a restauração."
+    },
+    {
+      "id": "attribution",
+      "term": "Atribuição e incerteza",
+      "text": "Investigar quem realizou uma ação exige evidências adicionais. Conta, IP e horário são pistas; registre hipótese, alternativa e limites."
+    },
+    {
+      "id": "scope",
+      "term": "Escopo de avaliação",
+      "text": "Ativos, objetivos, operações e limites autorizados. Os destinos e dados deste laboratório são fixos e fictícios."
+    },
+    {
+      "id": "threat_model",
+      "term": "Modelagem de ameaças",
+      "text": "Descreva recurso valioso, fluxo de dados, fronteira de confiança, falha possível, defesa e evidência que testa a defesa."
+    }
+  ],
+  "roadmap": [
+    {
+      "title": "Linux e Shell",
+      "status": "partly_implemented",
+      "prerequisite": "Concluir as três missões e distinguir processo, usuário e sessão.",
+      "mission": "Missão 04: modelo de permissões DAC. Ambiente Linux dedicado e shell ainda planejados.",
+      "evidence": "Decisão calculada no modelo, classe selecionada e bits antes/depois.",
+      "done": "Modelo funciona com dono/grupo novos; teste real de SO depende de ambiente dedicado validado."
+    },
+    {
+      "title": "Python e automação",
+      "status": "planned",
+      "prerequisite": "Ler eventos JSON e compreender funções, classes e exceções.",
+      "mission": "Construir um analisador de eventos a partir dos CSVs gerados aqui.",
+      "evidence": "Entrada, transformação e testes com caso benigno e suspeito.",
+      "done": "Explicar a regra e sua incerteza num episódio diferente."
+    },
+    {
+      "title": "Redes e reconhecimento",
+      "status": "planned",
+      "prerequisite": "Revisar IP, DNS, TCP e HTTP no Rede em Movimento.",
+      "mission": "Inventariar destinos de uma rede de laboratório com lista permitida fixa.",
+      "evidence": "Mapa de serviço e resposta observada por destino autorizado.",
+      "done": "Distinguir descoberta, exposição e falha comprovada."
+    },
+    {
+      "title": "Aplicações web e APIs",
+      "status": "partly_implemented",
+      "prerequisite": "Missões de proprietário e papel administrativo.",
+      "mission": "Missões 02/03: autorização; 05: SQL em memória; 06: saída HTML transformada. Upload e XSS ativo em navegador dedicado ainda planejados.",
+      "evidence": "Resultados de funções Python ou modelo do site, com fontes e contextos separados.",
+      "done": "Buscas legítimas e marcadores diferentes preservados após a correção."
+    },
+    {
+      "title": "Monitoramento e resposta",
+      "status": "partly_implemented",
+      "prerequisite": "Linha do tempo, fonte e limitações de evidências.",
+      "mission": "Missões 07/08/09: bytes preparados, planos de resposta e contexto de logs. Telemetria empresarial ainda exige integração.",
+      "evidence": "Mudanças, hashes, critérios de retorno e hipóteses limitadas ao conjunto fictício.",
+      "done": "Novo conteúdo no mesmo nome é revisto; atividade fora ou dentro do expediente recebe análise contextual."
+    },
+    {
+      "title": "Machine learning em segurança",
+      "status": "planned",
+      "prerequisite": "Analisador explícito e conjunto de episódios sem vazamento.",
+      "mission": "Comparar regra com detecção de anomalias por episódio e tempo.",
+      "evidence": "Treino/validação/teste separados, falsos positivos e falsos negativos.",
+      "done": "Métricas reais e limitações; desempenho sintético não vira promessa empresarial."
+    },
+    {
+      "title": "Segurança de IA e LLMs",
+      "status": "planned",
+      "prerequisite": "Autorização de recursos e ferramentas no servidor.",
+      "mission": "Assistente fictício recebe um documento com instruções não confiáveis.",
+      "evidence": "A ferramenta nega o recurso apesar da instrução no documento.",
+      "done": "Controles independem de um prompt e funcionam sem API paga."
+    },
+    {
+      "title": "Wi-Fi e interceptação",
+      "status": "planned",
+      "prerequisite": "Fundamentos de redes e escopo de autorização.",
+      "mission": "Analisar captura didática inofensiva; sem interferir em redes reais.",
+      "evidence": "Campos do protocolo e limites da captura.",
+      "done": "Interpretar comunicação sem tratar emulação como teste físico."
+    },
+    {
+      "title": "Hardware, C e dispositivos",
+      "status": "planned",
+      "prerequisite": "Sistema dedicado, objetivos e recursos identificados.",
+      "mission": "Firmware preparado ou emulação com dados inofensivos.",
+      "evidence": "Entrada, interpretação e comportamento da emulação.",
+      "done": "Sem código furtivo, persistência ou dispositivos de outras pessoas."
+    },
+    {
+      "title": "Phishing e artefatos",
+      "status": "planned",
+      "prerequisite": "Separar observação, hipótese e ausência de informação.",
+      "mission": "Mensagem fictícia com causas alternativas e links não operacionais.",
+      "evidence": "Indicadores, limites e decisão fundamentada.",
+      "done": "Sem campanha direcionada, coleta de credenciais ou malware."
+    },
+    {
+      "title": "Disponibilidade e pós-incidente",
+      "status": "planned",
+      "prerequisite": "Orçamentos de operação e recursos descartáveis.",
+      "mission": "Carga limitada e revisão de alterações num serviço dedicado futuro.",
+      "evidence": "Limite, resultado e recuperação documentados.",
+      "done": "Teste não afeta serviços compartilhados e não ensina evasão real."
+    }
+  ],
+  "reading": [
+    {
+      "id": "web",
+      "title": "Web Application Security",
+      "author": "Andrew Hoffman",
+      "edition": "2ª edição",
+      "year": 2024,
+      "chapters": "10/28: XSS; 13/31: injeção e defesa; 24: modelagem de ameaças.",
+      "mission_ids": [
+        "ownership",
+        "admin",
+        "sql",
+        "xss"
+      ],
+      "focus": "Compare a falha com a contramedida e confira o contexto em que a defesa funciona."
+    },
+    {
+      "id": "kali",
+      "title": "Learning Kali Linux",
+      "author": "Ric Messier",
+      "edition": "2ª edição",
+      "year": 2024,
+      "chapters": "1: Linux e permissões; 2: redes; 12: perícia digital; 13: relatório.",
+      "mission_ids": [
+        "permissions",
+        "integrity"
+      ],
+      "focus": "Comece pela base de Linux. Leia os resultados e os limites antes de escolher uma ferramenta."
+    },
+    {
+      "id": "management",
+      "title": "The Cybersecurity Manager’s Guide",
+      "author": "Todd Barnum",
+      "edition": "1ª edição",
+      "year": 2021,
+      "chapters": "6: documentação, governança, arquitetura e comunicação; 7: comunicação; 10: métricas.",
+      "mission_ids": [
+        "response"
+      ],
+      "focus": "Defina responsabilidade, política e critérios de retorno junto com o controle técnico."
+    },
+    {
+      "id": "warfare",
+      "title": "Inside Cyber Warfare",
+      "author": "Jeffrey Caruso",
+      "edition": "3ª edição",
+      "year": 2024,
+      "chapters": "2: atribuição e suas suposições; 7: riscos envolvendo IA, para leitura posterior.",
+      "mission_ids": [
+        "attribution"
+      ],
+      "focus": "Separe fato, hipótese e autoria. Use este livro como leitura de contexto depois dos fundamentos."
+    }
+  ]
+}

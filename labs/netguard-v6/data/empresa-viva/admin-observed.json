@@ -1,0 +1,265 @@
+{
+  "id": "0b9ab1e8f43549fd97ea473fe0b446fc",
+  "mission_id": "admin",
+  "mode": "observed_python",
+  "exercise": "guided",
+  "version": "1.1.0",
+  "scenario_reference": "aurora-helpdesk-v1",
+  "started_at": "2026-10-12T20:47:35.353923Z",
+  "completed_at": "2026-10-12T20:47:36.302036Z",
+  "code_sha256": "7dce594fb8d2d5021b10a1041bbf7ae64ad8125f64b6b275321f1c1c8d334f90",
+  "configuration": {
+    "limit": 5,
+    "window_seconds": 60,
+    "reference_time": "2026-10-12T12:00:00+00:00",
+    "variant_transport": "in_process_no_listener"
+  },
+  "variants": [
+    {
+      "id": "before",
+      "events": [
+        {
+          "actor": "anonymous",
+          "category": "probe",
+          "correlation_id": "cb07b22962c64d1ebaffad3bda472e7f",
+          "decision": "denied",
+          "id": "3b47dc1781544b999b6556923c974823",
+          "observed_at": "2026-10-12T20:47:35.930890Z",
+          "origin": "observed_python",
+          "reason": "Anônimo chama ação administrativa",
+          "resource": "101",
+          "run_id": "0b9ab1e8f43549fd97ea473fe0b446fc",
+          "timestamp": "2026-10-12T12:00:01+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.10",
+          "status": 401,
+          "request": "POST /api/admin/tickets/101/close",
+          "code_ref": "helpdesk.py:can_close"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "4b41f206fbb1464698587cf1f0f33d11",
+          "decision": "allowed",
+          "id": "75810803d1164a4ea349380dd7b25615",
+          "observed_at": "2026-10-12T20:47:35.931005Z",
+          "origin": "observed_python",
+          "reason": "Cliente chama API diretamente",
+          "resource": "101",
+          "run_id": "0b9ab1e8f43549fd97ea473fe0b446fc",
+          "timestamp": "2026-10-12T12:00:02+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.10",
+          "status": 200,
+          "request": "POST /api/admin/tickets/101/close",
+          "code_ref": "helpdesk.py:can_close"
+        },
+        {
+          "actor": "admin",
+          "category": "probe",
+          "correlation_id": "4bcf90b9ef76464184688fa3f9419eee",
+          "decision": "allowed",
+          "id": "565e6172a9b84386b77607d7d605115c",
+          "observed_at": "2026-10-12T20:47:35.931055Z",
+          "origin": "observed_python",
+          "reason": "Administradora executa ação legítima",
+          "resource": "101",
+          "run_id": "0b9ab1e8f43549fd97ea473fe0b446fc",
+          "timestamp": "2026-10-12T12:00:03+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.10",
+          "status": 200,
+          "request": "POST /api/admin/tickets/101/close",
+          "code_ref": "helpdesk.py:can_close"
+        }
+      ],
+      "observations": [
+        {
+          "label": "Anônimo chama ação administrativa",
+          "status": 401,
+          "request": "POST /api/admin/tickets/101/close",
+          "actor": "anonymous",
+          "resource": "101",
+          "data": {
+            "message": "Entre no portal local."
+          },
+          "event_id": "3b47dc1781544b999b6556923c974823",
+          "correlation_id": "cb07b22962c64d1ebaffad3bda472e7f"
+        },
+        {
+          "label": "Cliente chama API diretamente",
+          "status": 200,
+          "request": "POST /api/admin/tickets/101/close",
+          "actor": "rafa",
+          "resource": "101",
+          "data": {
+            "id": 101,
+            "status": "closed"
+          },
+          "event_id": "75810803d1164a4ea349380dd7b25615",
+          "correlation_id": "4b41f206fbb1464698587cf1f0f33d11"
+        },
+        {
+          "label": "Administradora executa ação legítima",
+          "status": 200,
+          "request": "POST /api/admin/tickets/101/close",
+          "actor": "admin",
+          "resource": "101",
+          "data": {
+            "id": 101,
+            "status": "closed"
+          },
+          "event_id": "565e6172a9b84386b77607d7d605115c",
+          "correlation_id": "4bcf90b9ef76464184688fa3f9419eee"
+        }
+      ],
+      "operations": 3,
+      "budget": 12,
+      "initial_data": "Lia/101, Rafael/202, Joana/admin; uma empresa fictícia"
+    },
+    {
+      "id": "after",
+      "events": [
+        {
+          "actor": "anonymous",
+          "category": "probe",
+          "correlation_id": "f7bff7ce9dc5481aa598ead19dd1aec1",
+          "decision": "denied",
+          "id": "66a7fd5dafc541f4976f2026b3b52861",
+          "observed_at": "2026-10-12T20:47:36.301722Z",
+          "origin": "observed_python",
+          "reason": "Anônimo chama ação administrativa",
+          "resource": "101",
+          "run_id": "0b9ab1e8f43549fd97ea473fe0b446fc",
+          "timestamp": "2026-10-12T12:00:01+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.10",
+          "status": 401,
+          "request": "POST /api/admin/tickets/101/close",
+          "code_ref": "helpdesk.py:can_close"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "da5f9f5bbd0f42a6a5562ee275d96d3b",
+          "decision": "denied",
+          "id": "0257c9aa210d48a0bdd40a17d1a30d23",
+          "observed_at": "2026-10-12T20:47:36.301795Z",
+          "origin": "observed_python",
+          "reason": "Cliente chama API diretamente",
+          "resource": "101",
+          "run_id": "0b9ab1e8f43549fd97ea473fe0b446fc",
+          "timestamp": "2026-10-12T12:00:02+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.10",
+          "status": 403,
+          "request": "POST /api/admin/tickets/101/close",
+          "code_ref": "helpdesk.py:can_close"
+        },
+        {
+          "actor": "admin",
+          "category": "probe",
+          "correlation_id": "7a8ff03f430746dba33fe2b69b140970",
+          "decision": "allowed",
+          "id": "2f1beb0990324286ae470448b7254555",
+          "observed_at": "2026-10-12T20:47:36.301907Z",
+          "origin": "observed_python",
+          "reason": "Administradora executa ação legítima",
+          "resource": "101",
+          "run_id": "0b9ab1e8f43549fd97ea473fe0b446fc",
+          "timestamp": "2026-10-12T12:00:03+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.10",
+          "status": 200,
+          "request": "POST /api/admin/tickets/101/close",
+          "code_ref": "helpdesk.py:can_close"
+        }
+      ],
+      "observations": [
+        {
+          "label": "Anônimo chama ação administrativa",
+          "status": 401,
+          "request": "POST /api/admin/tickets/101/close",
+          "actor": "anonymous",
+          "resource": "101",
+          "data": {
+            "message": "Entre no portal local."
+          },
+          "event_id": "66a7fd5dafc541f4976f2026b3b52861",
+          "correlation_id": "f7bff7ce9dc5481aa598ead19dd1aec1"
+        },
+        {
+          "label": "Cliente chama API diretamente",
+          "status": 403,
+          "request": "POST /api/admin/tickets/101/close",
+          "actor": "rafa",
+          "resource": "101",
+          "data": {
+            "message": "A função exige papel administrativo."
+          },
+          "event_id": "0257c9aa210d48a0bdd40a17d1a30d23",
+          "correlation_id": "da5f9f5bbd0f42a6a5562ee275d96d3b"
+        },
+        {
+          "label": "Administradora executa ação legítima",
+          "status": 200,
+          "request": "POST /api/admin/tickets/101/close",
+          "actor": "admin",
+          "resource": "101",
+          "data": {
+            "id": 101,
+            "status": "closed"
+          },
+          "event_id": "2f1beb0990324286ae470448b7254555",
+          "correlation_id": "7a8ff03f430746dba33fe2b69b140970"
+        }
+      ],
+      "operations": 3,
+      "budget": 12,
+      "initial_data": "Lia/101, Rafael/202, Joana/admin; uma empresa fictícia"
+    }
+  ],
+  "checks": [
+    {
+      "name": "before: Anônimo chama ação administrativa",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "before: Cliente chama API diretamente",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    },
+    {
+      "name": "before: Administradora executa ação legítima",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    },
+    {
+      "name": "after: Anônimo chama ação administrativa",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "after: Cliente chama API diretamente",
+      "expected": 403,
+      "actual": 403,
+      "passed": true
+    },
+    {
+      "name": "after: Administradora executa ação legítima",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    }
+  ],
+  "snippets": {
+    "before": "# lessons.py: MissingAdminCheck\ndef can_close(self, identity):\n    return True",
+    "after": "# helpdesk.py: Helpdesk.can_close\nreturn identity.role == 'admin'\n# close_ticket verifica o papel antes de alterar o chamado."
+  },
+  "limit": "Execução real de funções Python em bancos de memória separados. Sem requisições HTTP nas variantes, contêiner ou isolamento de máquina virtual. Relógio e IPs didáticos; não é incidente real."
+}

@@ -1,0 +1,949 @@
+{
+  "format": "rede-netguard-migration-v1",
+  "source_repository": "https://github.com/bruno-dsn/netguard-lab",
+  "source_commit": "cff8e01201c215fdc5b6cadf95d1c3c7f3eaf140",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "git_blob": "e4fb075f7c3e2d089778596e27a91ab70948e305",
+      "sha256": "21ce56742ffbd3ac1a1674855074028736ce5220ea90a61c79d8f2705c67174d",
+      "bytes": 80
+    },
+    {
+      "path": ".github/workflows/checks.yml",
+      "git_blob": "6a9d7650c94e19abb9dea716828cdaf4d3de2269",
+      "sha256": "c12a80f14ba68d3c0d869ff60cf1b13669dd1ea4e0282083613282b93462df55",
+      "bytes": 3464
+    },
+    {
+      "path": ".gitignore",
+      "git_blob": "e670419fb38dbf5e32e1d0583996e3da9f41a7b6",
+      "sha256": "1d0af60a1b7e4f22ea637b613c1471a966567028fa2377144f3abce7cdedd2f8",
+      "bytes": 254
+    },
+    {
+      "path": ".streamlit/config.toml",
+      "git_blob": "ff7f88c486a34448d46d149fc4075f3c447f917b",
+      "sha256": "ceb9264dcdcc8eb452dc1527ae67bcd3a0b2b5bc0e413a79df240b79d4dabaff",
+      "bytes": 245
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "git_blob": "10b0a517d83e28f04d89052aaf0a9100de2e96b9",
+      "sha256": "d8dcdfdcfd07419a9acc85cf1c914df4147c140f716e6dcb14a1d4496ed49c7b",
+      "bytes": 1434
+    },
+    {
+      "path": "Iniciar-Checkup.cmd",
+      "git_blob": "4df85642d100a0a86210ad84968f492901c6ca16",
+      "sha256": "f533f4d8176288e0b119936f691aa0fb22fe9ddf70fe447d600638b78c9bc2d8",
+      "bytes": 302
+    },
+    {
+      "path": "Iniciar-Empresa-Viva.cmd",
+      "git_blob": "6ccfdf942a80243c1c715382b1edc25d77f380b2",
+      "sha256": "07220c84fb87d333ae1ed89fe8471abea4e7ec7d5cd877bd3ed2660b627c44bf",
+      "bytes": 68
+    },
+    {
+      "path": "Iniciar-NetGuard-Empresas.cmd",
+      "git_blob": "e8a11c1953a8edfc557f973b323254be5bdc581e",
+      "sha256": "405945c7cbd1ca6211210aa65c7886b945c0e8414363c459b20c3fb68d9cc937",
+      "bytes": 160
+    },
+    {
+      "path": "Iniciar-Operacoes.cmd",
+      "git_blob": "e8a11c1953a8edfc557f973b323254be5bdc581e",
+      "sha256": "405945c7cbd1ca6211210aa65c7886b945c0e8414363c459b20c3fb68d9cc937",
+      "bytes": 160
+    },
+    {
+      "path": "LICENSE",
+      "git_blob": "92df6dd82952c8f3fa9a5c11599de883a4b42727",
+      "sha256": "674a71a71ea86ac0539c2905858a24a516fb7d4ab14ad2b4cab23cc6a7bdce8d",
+      "bytes": 1068
+    },
+    {
+      "path": "PROGRESS.md",
+      "git_blob": "a980976bf53e1fd3104a9e4874777c5755038860",
+      "sha256": "e0188f7fe2afab2b6c81fecbdecee3a097fab2278d8bfb8a8505d43f5546df79",
+      "bytes": 3649
+    },
+    {
+      "path": "README.md",
+      "git_blob": "4922c398b61fedee8cf4e1ace6a0c53f17f1e44b",
+      "sha256": "d87435de2fbd9dd1bc9ae5769f98df8e2fce93e927f33108add7d47fe0b42a34",
+      "bytes": 16499
+    },
+    {
+      "path": "SECURITY.md",
+      "git_blob": "ca347cb72a6ac56fd529d8f71154a493784a842d",
+      "sha256": "1f87a7b0cb60a42634cd5ec189fd08184e556738c8c5d722e8d2cf0aea57c2c8",
+      "bytes": 4742
+    },
+    {
+      "path": "app.py",
+      "git_blob": "fbaeb609bfa47d7166f46da8a6930afa201bfe6a",
+      "sha256": "e663c235c0b00cb733e9dba4fbb3fd3aa04683eb5decdfe04a16503f6582f751",
+      "bytes": 43308
+    },
+    {
+      "path": "aprender_fundamentos.py",
+      "git_blob": "f6160970014765bf7d03792a39add6b72ba7102f",
+      "sha256": "b0389c798d7f8aa4f7aff9b4fdad013f76f8289b1da6224fbf92735fc5fb0e73",
+      "bytes": 3344
+    },
+    {
+      "path": "assets/banner.svg",
+      "git_blob": "acd376b83b4de7f99ab8ae9964377871cc990abc",
+      "sha256": "6d86568e3a0d4808937ba179250acb045df3fc9e47020ab70f41f76c5ed6ef55",
+      "bytes": 3633
+    },
+    {
+      "path": "assets/interface-desktop.png",
+      "git_blob": "06d9d342bf8dde2b9d7385e57189da27ba8c1601",
+      "sha256": "1f0678869c4d0ac9edf97614aab48c743c47cb577a822bb677c1587a71187d3f",
+      "bytes": 187641
+    },
+    {
+      "path": "assets/interface-mobile.png",
+      "git_blob": "cc964e69513c9b5d17c9ce3ad2ffacc49185c032",
+      "sha256": "9dc8783ca863ade5afdbbf4b485f9d54084e1067be612799190980339cabb796",
+      "bytes": 51680
+    },
+    {
+      "path": "assets/investigacao-desktop.png",
+      "git_blob": "10792e79c76d32ef6e87222158f0e7437ad18b51",
+      "sha256": "345ba526a13253b73e112df5e0d4504259f8b3ada7af94a767ef8d5242907b8a",
+      "bytes": 161524
+    },
+    {
+      "path": "avaliar.py",
+      "git_blob": "6ba4af06f6fabb26979a61f4b938bbb61efd0dd2",
+      "sha256": "b27e35fabd8dd2b809d031633253a7300db7b0adc4965a6c79a564c7e6d6b7a6",
+      "bytes": 1484
+    },
+    {
+      "path": "data/caso-benigno-ficticio.csv",
+      "git_blob": "9c6233af9983e9c8e98356e1197aab089f23cd82",
+      "sha256": "f4409ca8f58253ff521da0cb5199ab287556ae79a22e1ddd3f7d7bf7cc071c72",
+      "bytes": 867
+    },
+    {
+      "path": "data/caso-financeiro-ficticio.csv",
+      "git_blob": "f7b03f188e6dc93eb794a8ea72884f5cdd79b364",
+      "sha256": "df1cd67c40a7c7d015914334a164106a279185bfdd14b83cdfe9594449d8f758",
+      "bytes": 1461
+    },
+    {
+      "path": "data/caso-financeiro-ficticio.jsonl",
+      "git_blob": "54af69fbc8129f0bdd27458840fc7dcdf681b9b5",
+      "sha256": "759b66c609171cbafde8fb9aa4cdc10028703b41963e594c0bcc9f18f94a33ce",
+      "bytes": 3161
+    },
+    {
+      "path": "data/cenario-escritorio.json",
+      "git_blob": "d52a7ba712478332aff3a0a799086936b4bf59b3",
+      "sha256": "cdb4779183270511886d265d9e7dde9cc110400c256fd321d6d8dad5360a5e31",
+      "bytes": 2147
+    },
+    {
+      "path": "data/cenario-loja.json",
+      "git_blob": "720718d99afc4a9d73695a0645caa24f29261350",
+      "sha256": "fd101a2a18bc8c9b60f61eaeb1f00d4addbca6721d22c45404f73b4183b76ee7",
+      "bytes": 1906
+    },
+    {
+      "path": "data/defense-method.json",
+      "git_blob": "ff88142a0901ecc4ff2b156cb24c5db1c0d53a7c",
+      "sha256": "143e12214c39ddc0d83c4249c683ce5de2a6d372c8116b9a1fb615d994d39aba",
+      "bytes": 7823
+    },
+    {
+      "path": "data/empresa-viva/README.md",
+      "git_blob": "73bf70bba87a8d9476cb50eb9b9040c4927d0d89",
+      "sha256": "aa30a8b81dcf37333fef2c1309b195cebd90c5ca9c54711ad4d9a6b62f672dd1",
+      "bytes": 1552
+    },
+    {
+      "path": "data/empresa-viva/admin-observed.json",
+      "git_blob": "051d4d0524b0fc3d77f5c7441ce9af4ce57ae3f1",
+      "sha256": "24aab032835c475050b7e99e796f1b86e9309827f82692b717859140c1cbd058",
+      "bytes": 9184
+    },
+    {
+      "path": "data/empresa-viva/attribution-observed.json",
+      "git_blob": "415e533baeb7eb4007b249082a73a57d80996db3",
+      "sha256": "d05f130fb693ebc48cc07bdf5a1c9f84d330b8c54218a4adff94cefa145ee947",
+      "bytes": 9440
+    },
+    {
+      "path": "data/empresa-viva/integrity-observed.json",
+      "git_blob": "4a8c2d148e39ded5258bf16ca0699372c46d5a45",
+      "sha256": "975cff882320cb72c15df38222a107a79f4f44a9866260b117eec2217fc11cb4",
+      "bytes": 14944
+    },
+    {
+      "path": "data/empresa-viva/login-observed.json",
+      "git_blob": "e8b284fc170e2d584443a504a7a9f9c4466261f5",
+      "sha256": "0777c5318fed423a4449312bd0d5c1b0432e7d22c52d988954098057081b14bf",
+      "bytes": 33552
+    },
+    {
+      "path": "data/empresa-viva/ownership-observed.json",
+      "git_blob": "f0318a09d27423f3a78f7f4062be4625b2ed35c1",
+      "sha256": "7bdae67e4994d333b26b23b1802790da9044faae7ab2a5064809512929bca434",
+      "bytes": 14992
+    },
+    {
+      "path": "data/empresa-viva/permissions-observed.json",
+      "git_blob": "e8843102ee875b21a2be283c320bcae97f4f8052",
+      "sha256": "e8ec127091af6dcd6ac4855643d89807967dd4ebdc454049f9ca4c3f59391ffe",
+      "bytes": 17100
+    },
+    {
+      "path": "data/empresa-viva/response-observed.json",
+      "git_blob": "88ff219bfe0e9c18513646cc4ce3cce407435be9",
+      "sha256": "db7667f9582e1884527e78f5d0e91dbc4b0db96db46fd46586151c26f52d4963",
+      "bytes": 9800
+    },
+    {
+      "path": "data/empresa-viva/sql-observed.json",
+      "git_blob": "36cd98c9810b4a824deeeee6be617fc20d56dc40",
+      "sha256": "e3f56b901dd5429a2ccff8add7cd40badfa4dfca28b74a89ae13afa7b0fac296",
+      "bytes": 14205
+    },
+    {
+      "path": "data/empresa-viva/verification.json",
+      "git_blob": "c449cd0c48b94ad1645ad17410c95363f24153f3",
+      "sha256": "8ce374a028e2aef9a258a026a3c01c21161fe88daf53255d3ab809ada07df451",
+      "bytes": 337
+    },
+    {
+      "path": "data/empresa-viva/xss-observed.json",
+      "git_blob": "37af413ad605b4cc871eab182ec860bdabf2023b",
+      "sha256": "1e1e3ece6867dfa8afa74dda72208f23506497bc94caa9750576af2aa5ec20eb",
+      "bytes": 10865
+    },
+    {
+      "path": "data/inventario-exemplo.csv",
+      "git_blob": "dd6d3859bf7d58b715ba79f77196ceb5f2f32c23",
+      "sha256": "9d02c2bde140564938ee3cc34a89235c5083e16b157c5cd48ec80522e61f37e7",
+      "bytes": 454
+    },
+    {
+      "path": "data/log-autenticacao-exemplo.csv",
+      "git_blob": "35f07a839345c06b5dd69ebb4c3b89443d2b19a3",
+      "sha256": "e29725ab4c6661af192fe0f02fd1d1f5d93276e99d1a607998cd01981251a142",
+      "bytes": 553
+    },
+    {
+      "path": "data/piloto/documento-ficticio.txt",
+      "git_blob": "9217d9de873fc65c005d878c787df78b1ea4e444",
+      "sha256": "292db3288feb4ad4f16fd09708f62bbba512362f509eb8831c5930c16b040dac",
+      "bytes": 351
+    },
+    {
+      "path": "data/piloto/inventario-ficticio.json",
+      "git_blob": "6f6af6d6d5d48ad1b38763d3f98758562414057f",
+      "sha256": "d83401915ec8e4ecfe062f657b12f61f82ff922dd25c99d100ebcb9e0752302f",
+      "bytes": 215
+    },
+    {
+      "path": "data/wifi-checklist.json",
+      "git_blob": "4b7a3d1ab6ea7ade5af10b80bcb232079fdc7422",
+      "sha256": "685edec56edb105fe8b2861af2f479075de15b0dc4ee5bd8150e11d15838cf82",
+      "bytes": 4100
+    },
+    {
+      "path": "docs/APRENDIZADO_E_METODO.md",
+      "git_blob": "e57fb162c723c474ba74f5ecd3661b8b1c8e55f0",
+      "sha256": "39d11cd2c513cee54508f3e3069bafc05477be657c134019459540de481a6db2",
+      "bytes": 4823
+    },
+    {
+      "path": "docs/ARQUITETURA_EMPRESA_VIVA.md",
+      "git_blob": "c9f2eb990beda727794c20d47f55f6031e75cb29",
+      "sha256": "4a6b9847d6be30168b4da4bc56a5783d074711f1216b39b06a69ad85c706ce18",
+      "bytes": 7320
+    },
+    {
+      "path": "docs/AUDITORIA_EMPRESA_VIVA.md",
+      "git_blob": "e8f447ccb52b5bf6c7452898ec4f8346e9c43cda",
+      "sha256": "00dd14d26e437d80ccb9c7e5f546a88128dd5f3ce3f3d1ca68adb590a0a042b1",
+      "bytes": 13093
+    },
+    {
+      "path": "docs/CHECKUP_LOCAL.md",
+      "git_blob": "c8cfa91cb99f1edf09292a0e660524098354d775",
+      "sha256": "ae88da45a9463e678a6ad5fa0487fa11569b18121833442febfe1effb271776f",
+      "bytes": 9721
+    },
+    {
+      "path": "docs/CONTINUIDADE.md",
+      "git_blob": "7136936e308d8b2b0070e9ff35236cac399b847c",
+      "sha256": "a4b602027d1bbbd510d8b6e228e7aea75d9f11d9cf411813e22b10f8f2c30b03",
+      "bytes": 7624
+    },
+    {
+      "path": "docs/EDICAO_WEB.md",
+      "git_blob": "1cd28fb6f6486d752433b816c740bf324a8e30fd",
+      "sha256": "2de75b33ae026967aafe6928fbcb5216e1140a0225d33e742070096e08afd016",
+      "bytes": 11609
+    },
+    {
+      "path": "docs/EMPRESA_VIVA.md",
+      "git_blob": "e9b631883307311d39c8c879518ee7704c3e11ed",
+      "sha256": "1c25e1d05951e717fc6f18bfffb5bfa310ef0f851fa2fe58c03f2d60a4ad227f",
+      "bytes": 12083
+    },
+    {
+      "path": "docs/FUNDAMENTOS.md",
+      "git_blob": "8891d4798fd0c1c47c2166c7b3585435e1f95c5c",
+      "sha256": "67335c9d6562ac64292108d7d0a484a06bf50c4e4598b7159f5872ed315ded3b",
+      "bytes": 5378
+    },
+    {
+      "path": "docs/HISTORICO_V4.md",
+      "git_blob": "1adc9472ed3eb02ecd49c04357de9c857f33a220",
+      "sha256": "7967c769e794fc4579e9999df5d392d9ce519d4efd365c1219c08332ab431695",
+      "bytes": 17637
+    },
+    {
+      "path": "docs/INVESTIGACAO_DE_LOGS.md",
+      "git_blob": "1d703c5054555bca5b365a859b267d2be724c7ee",
+      "sha256": "2735529189adde86c2d76ff0bed04bef6164beb19840e1d7e84812024fab52a4",
+      "bytes": 4502
+    },
+    {
+      "path": "docs/LIVROS_E_PRATICA.md",
+      "git_blob": "21672ada88bf7e971cf4d64109dca0dcf9ea958f",
+      "sha256": "bdd501851cf33fdd22e3a09e63205b9b7424008939cdb07d0d4048be0738682c",
+      "bytes": 6328
+    },
+    {
+      "path": "docs/METODOLOGIA.md",
+      "git_blob": "4e6df3b1f255a51c392efb84575988dac02ad894",
+      "sha256": "d60e469ec3241dfd0ac6fa156885fe6e85cfd8242ca92d6a2b1e2bffb37e8cd2",
+      "bytes": 2103
+    },
+    {
+      "path": "docs/OPERACOES.md",
+      "git_blob": "2b7841a12829ce4873f2b667478d7e8f0f7f70de",
+      "sha256": "c5017aba79f21d8fd289d6d8de2765b19d1b2a4a5f7a58747a4a9e3b5e496f8b",
+      "bytes": 16684
+    },
+    {
+      "path": "docs/PRODUTO_E_PILOTO.md",
+      "git_blob": "aef598d4a721980b03ab9c706e892d5ec3d36a6b",
+      "sha256": "36d40e49ba0011c8d656cf3567a66747532ad9f67c7b88940e78d4940f9cf71e",
+      "bytes": 12183
+    },
+    {
+      "path": "docs/ROADMAP_EMPRESA_VIVA.md",
+      "git_blob": "1b0a7affe129a79cedeace08fd3ad0625713c075",
+      "sha256": "e678267d9c51b3d79bd5723f6327a38f0beade11e61a31e716310960c5fed034",
+      "bytes": 4527
+    },
+    {
+      "path": "docs/TRILHA_DE_ESTUDO.md",
+      "git_blob": "9dba9ba571dfa3caac8ac513de25c08cb76d9457",
+      "sha256": "4a507df5e90566a9ee88c0de86ed4a0277eb9c91fb2ec51ea76a3a07557313df",
+      "bytes": 5507
+    },
+    {
+      "path": "empresa_viva/__init__.py",
+      "git_blob": "b00cdb3d10a19dbe4a5bdcf1782a2d86f1cf82e0",
+      "sha256": "245543ac92b237e199503d973959661d88119bc53092eeab434ef1dfcd87ccce",
+      "bytes": 107
+    },
+    {
+      "path": "empresa_viva/book_models.py",
+      "git_blob": "d22bbfafcc7faeec8fcb2ac050ebf1aa348c7f26",
+      "sha256": "389b0b80eb2fee1bf21916a5bd220d2f79bb8894b37f73ff21a75a05840017a2",
+      "bytes": 6088
+    },
+    {
+      "path": "empresa_viva/book_scenarios.py",
+      "git_blob": "7dcd97d9bfaab73f8d0c0a33db2bfd805df67ca9",
+      "sha256": "6b0ff72a7898b9bfddcf280780e920a5fc9365e4c6e575443b92c5e3642808b2",
+      "bytes": 14397
+    },
+    {
+      "path": "empresa_viva/helpdesk.py",
+      "git_blob": "30663a27b014294e90fd678f77175c65a252ce76",
+      "sha256": "e6715d72468aa71aabeb8f033cecb627d5bf15177c8dc3af99393999eda53c18",
+      "bytes": 5612
+    },
+    {
+      "path": "empresa_viva/lessons.py",
+      "git_blob": "22394be5cebff5f1ab31845c880f1984fd6e7bcf",
+      "sha256": "5fbe71dc37ed18a6a18941acc91978785159748065871aeec81c6e76fbdc1a11",
+      "bytes": 942
+    },
+    {
+      "path": "empresa_viva/reports.py",
+      "git_blob": "8b399429f35a376b7f9b76968eca3774cda5db4f",
+      "sha256": "e9908d7a26ede3cd0c8053c03fd5819367e844b5e56770abf72f0431cc8ad968",
+      "bytes": 2909
+    },
+    {
+      "path": "empresa_viva/scenarios.py",
+      "git_blob": "3cd23a6bc2d98d5088fe5a1e12c678bfa34bf31d",
+      "sha256": "d4df2a8889c694da833f0c59c1a79453f5070977de51273f5f2d419ceda8880b",
+      "bytes": 12385
+    },
+    {
+      "path": "empresa_viva/security.py",
+      "git_blob": "e008af338c524117827320e53c00856403183831",
+      "sha256": "ccf0a41010487d55d7c380b7ba3e963ceb10a4bb3f8393d496dbce15249b5a64",
+      "bytes": 3692
+    },
+    {
+      "path": "empresa_viva/server.py",
+      "git_blob": "5ae1a9d92e1fd90405e5d83eba8cdbc20eeecc7e",
+      "sha256": "79a650e1d770673251a5cb87dfb69efa4260e5ade95a465887eaa95b0ef7aab2",
+      "bytes": 12026
+    },
+    {
+      "path": "empresa_viva/store.py",
+      "git_blob": "bc140cd2d4e10ed64a476f84def2d778d7dc1acf",
+      "sha256": "c73f2ccf3ade76b16e955852d5a2e8967e28f1b54eace8ae4c0696fe8a159ef6",
+      "bytes": 8977
+    },
+    {
+      "path": "netguard_checkup.py",
+      "git_blob": "2b6c5a8d34fe40747bfa5ce200b13f382f8f611a",
+      "sha256": "2e60f3eccda64ee0df93539b6cde05a90bf033b6842c6f0f6d585f5b409c28a7",
+      "bytes": 3775
+    },
+    {
+      "path": "netguard_empresa_viva.py",
+      "git_blob": "07801d33ceb0e1423a383fc9df59156e2b426cbf",
+      "sha256": "1231a6a931eb25a4b58bed287a8765af86d3d46792c583edc868d563bf39d420",
+      "bytes": 6168
+    },
+    {
+      "path": "netguard_operations.py",
+      "git_blob": "cb7f4605b4da186dadf2f1a5a9250c4cc2ed9052",
+      "sha256": "de13b1f2f5114d9efa7b51981608d4feb3ba42b83d5062e9ccff40d48c579a1f",
+      "bytes": 9815
+    },
+    {
+      "path": "pyproject.toml",
+      "git_blob": "ffe247f249c662ca5b99c2c6735b3c4578468c3b",
+      "sha256": "03d88016e879839282a865fa74e6832139e22826a076a6d70b24b69be8a75bd3",
+      "bytes": 390
+    },
+    {
+      "path": "requirements-dev.txt",
+      "git_blob": "4828dcd4e3a0e9ee32f1b28ceaeb740710e5cfc1",
+      "sha256": "a2e21339047e4ad34f4d86eb24ef1c58edc19de6e881750ac8410efae95fbac3",
+      "bytes": 48
+    },
+    {
+      "path": "requirements.txt",
+      "git_blob": "90ee58adfc08d62715284a12b7de54d2c41f81f6",
+      "sha256": "053512b1cc820526702d7374fb0c396a0a65e7cbae1aea28d051b6008414b043",
+      "bytes": 46
+    },
+    {
+      "path": "scripts/Agendar-Checkup.ps1",
+      "git_blob": "75588ed23bb7a61eba7cb5bafff77cba60b9ebcc",
+      "sha256": "ab42a4fd11ef33670c0e72d5521070558de62684873a46dde847bc6a64490f61",
+      "bytes": 1833
+    },
+    {
+      "path": "scripts/Remover-Agendamento.ps1",
+      "git_blob": "7a59daca3e43b200f7275558d710532391834ea3",
+      "sha256": "57b983b441ac860199b71fd498d55bc4e09cc515bc5b9c20213cf943a05c9a64",
+      "bytes": 257
+    },
+    {
+      "path": "scripts/Verificar-Operacoes-CI.ps1",
+      "git_blob": "e124a253a5dc97767c433e11b8b9cf1136fd23e4",
+      "sha256": "49f616ef5cbf4c1532a9540a20fbb5632e48893a6f997b5afe513f37c4a72fb2",
+      "bytes": 2424
+    },
+    {
+      "path": "src/netguard/__init__.py",
+      "git_blob": "b4a50b86991c9fb5d5d849d4b445ec312d5ac9f0",
+      "sha256": "8caed79ddb5b07978083a4fc9ac8ca796b9bcd53ffdb5b52eef5b6a91854cf0a",
+      "bytes": 93
+    },
+    {
+      "path": "src/netguard/assessment.py",
+      "git_blob": "27f574d3458f8c3c936d2184012ab2e89929d894",
+      "sha256": "476fac103971bfb7c0c824b48002a464e94563f2d156392ad2e14d517c2a6f0b",
+      "bytes": 3481
+    },
+    {
+      "path": "src/netguard/business.py",
+      "git_blob": "969d6a538215547a39e5bfac05626b5ad8ec45be",
+      "sha256": "12bcd982849e2a0493e798fa0f55c49a7dc8ac60e7586812bf06576d19106feb",
+      "bytes": 20741
+    },
+    {
+      "path": "src/netguard/checkup.py",
+      "git_blob": "84119885f9a1f8eca7df3a2881a747074023998e",
+      "sha256": "0f88846e16c4f35458042f472888f7d03bd7d8756e72c25e62b22b0389d6a820",
+      "bytes": 23875
+    },
+    {
+      "path": "src/netguard/controls.py",
+      "git_blob": "81ef6017c9bd621f8c5cbedbf0191cd27cbf1068",
+      "sha256": "4dad1fcf9c95af3b46e860861c073b7f48faf6f10393c5ea3f6e1a549692b610",
+      "bytes": 5976
+    },
+    {
+      "path": "src/netguard/inventory.py",
+      "git_blob": "1f46047c9956cc4d92e96aa5b144132afc47c666",
+      "sha256": "82a9a2169d9d1074e62ff7f9ef714b19b6e665d2721b4d96df26ff537f725221",
+      "bytes": 5942
+    },
+    {
+      "path": "src/netguard/investigation.py",
+      "git_blob": "ee16eb5c171c4004f3cab406e3970a7d91bb828e",
+      "sha256": "4d9d2e279fa19bb2e2cca1b504659ba77a285218818b06940e34e8bd4b90eefe",
+      "bytes": 12414
+    },
+    {
+      "path": "src/netguard/learning.py",
+      "git_blob": "0d21d5253bc388767d19ef7751b2f98502fa73cd",
+      "sha256": "f248b591827ff1d319c4a3d7edfb3f701252b568474aeb84def8f213047ad403",
+      "bytes": 2288
+    },
+    {
+      "path": "src/netguard/logs.py",
+      "git_blob": "981e661da4a5442295c3e669a34f43d44bb80fbd",
+      "sha256": "74512dfbebcbfe5a01c8003f7cb10ff1f42d6bb2a52abb5960397e5d0d40eade",
+      "bytes": 2754
+    },
+    {
+      "path": "src/netguard/method.py",
+      "git_blob": "98e60b94a263486678d6f2340eb621c1b9e445da",
+      "sha256": "8d18632446763b247c81a69e9c423b2c60e8f906ddb6d546304c01e89f9b81ec",
+      "bytes": 4728
+    },
+    {
+      "path": "src/netguard/network.py",
+      "git_blob": "40aca384d1f8dd2de87626e9ffb9414e0ce2669a",
+      "sha256": "76ed546bc41485499901d96e0475c2d2f9bf9f2965b2bfa2791f5530d9c4741b",
+      "bytes": 2838
+    },
+    {
+      "path": "src/netguard/notebook.py",
+      "git_blob": "20d41cda5179e5dcdf397f5047891a2fa5d566f3",
+      "sha256": "406058264a14c75789d6544b43c1c4bc5a07cffc3421542b108372cefd665430",
+      "bytes": 6195
+    },
+    {
+      "path": "src/netguard/operations_containment.py",
+      "git_blob": "4ca8332371cd9647374bbd0241a9ccc6a699fcac",
+      "sha256": "a9db14290f6ac5e0ddb3bed4fddd20c87587949463441e0c77dce47bd82502f0",
+      "bytes": 9452
+    },
+    {
+      "path": "src/netguard/operations_monitor.py",
+      "git_blob": "c7a61fdef3a553ddb6fcc58797ebabc4bbaf72e1",
+      "sha256": "a65dbd220297bfe93143f3757b7cb99df8425d5019ff1bd3823cddcd7331816a",
+      "bytes": 23389
+    },
+    {
+      "path": "src/netguard/operations_server.py",
+      "git_blob": "d20ff1c269ff6113aaf100c1bd526991cb5b51b9",
+      "sha256": "954b6b632679086ec14d08442afbc709315c0620b67910463cca4c243b3c76fd",
+      "bytes": 18404
+    },
+    {
+      "path": "src/netguard/operations_store.py",
+      "git_blob": "3d01831b8b35085cade71f5179119591adbfb34b",
+      "sha256": "f5df3902f480e682ad98b38260d2dd7b7922242a4aaf99b6e784241dda925afc",
+      "bytes": 21571
+    },
+    {
+      "path": "src/netguard/reports.py",
+      "git_blob": "67fc9cbd7f6f0f37c600d265f86d1d7e150ec425",
+      "sha256": "bc9340b2ab0eaea1725fd3d74cec74e413b343db2553b9845a073459875e272b",
+      "bytes": 6119
+    },
+    {
+      "path": "src/netguard/wifi.py",
+      "git_blob": "83a82d7aa7f7f5e423758b97f7478fc8c10443d2",
+      "sha256": "5466dfd410a57398abe3f6b39d122fa2681e9af6208e9ce14eef287398752cd4",
+      "bytes": 4807
+    },
+    {
+      "path": "tests/test_app.py",
+      "git_blob": "3e6a9b112e545aa40bf1d12972f302dece30a943",
+      "sha256": "78f405e9d69dc8565eaa97dcf9d9e524c8ce104ad927726b774788477c64732d",
+      "bytes": 4006
+    },
+    {
+      "path": "tests/test_assessment_reports.py",
+      "git_blob": "d20f1603cb25c63cd202d1845029a0c5d9cf73a4",
+      "sha256": "8a2f6a31d10aee1d1b9674631c19606776b49a1177f6a817024a262f694922ce",
+      "bytes": 3661
+    },
+    {
+      "path": "tests/test_business.py",
+      "git_blob": "bd6a10b6262020c82bfda35f672477648ac5c763",
+      "sha256": "f4fb73012abf1c856c44637a6ae71ce2654b66ebbd0d14771ceb2fec02e0dd88",
+      "bytes": 11436
+    },
+    {
+      "path": "tests/test_checkup.py",
+      "git_blob": "6cbee67959c4c05103d243e045a92b37d6b23acd",
+      "sha256": "d1ec8264334eb252bc75d8701f8e574714456fb718c7659d73220cf86bda6e9c",
+      "bytes": 6867
+    },
+    {
+      "path": "tests/test_empresa_viva.py",
+      "git_blob": "cd0cab9478fc4253a6295b0180df748cc547eb35",
+      "sha256": "db07470201b9acba44bfac610fdc2d4659c79f89ec67615745e13136a0662c66",
+      "bytes": 17785
+    },
+    {
+      "path": "tests/test_empresa_viva_books.py",
+      "git_blob": "859854a1fc2d3c3ec6618b8bc55674bbb3f87ee9",
+      "sha256": "4d2f6d0900165d87fdc3f5ba29729a93aa21e2c0f6d50fb2ba1963e9fa4f8925",
+      "bytes": 9043
+    },
+    {
+      "path": "tests/test_inventory_network.py",
+      "git_blob": "9bfbdb3b15444b167e8785b0f5bc949ebce94aaf",
+      "sha256": "ef6037fc865ee96346d31b11424855d386ed0808f8c8800dcbbaad90a8d1bda6",
+      "bytes": 3306
+    },
+    {
+      "path": "tests/test_investigation.py",
+      "git_blob": "d9c4b55607eb0ceff800c2fd696087aac4fe4a87",
+      "sha256": "31e7ad343e9ef2a461e1ee89690210c030733cd3a04a54ce154744fc6bfcc834",
+      "bytes": 4829
+    },
+    {
+      "path": "tests/test_method.py",
+      "git_blob": "f470ede93e4168d57f9efdf178e78e8b30cc1eb7",
+      "sha256": "e517dd4a10f6398c63117457a2d32aaab54a6244ab1038c262e121369d86e827",
+      "bytes": 2269
+    },
+    {
+      "path": "tests/test_notebook_learning.py",
+      "git_blob": "60304289cfa1df6d6a8b65f6cc9f3d267cd7c7da",
+      "sha256": "7e0c5823be7a4edfb321ae4a189b0a336f658c18c48a306eb09202f3c269479e",
+      "bytes": 6148
+    },
+    {
+      "path": "tests/test_operations.py",
+      "git_blob": "a639e488163d40b32b55780d8b6bf1c41827ee68",
+      "sha256": "13c635b027408c1a139d132655845816dddc1ec2450b0a9845b50752f7b2bf66",
+      "bytes": 18868
+    },
+    {
+      "path": "tests/test_wifi.py",
+      "git_blob": "acfab166afd5c1622c304dbfdd0b84f62b823d83",
+      "sha256": "1d7d04a49b2da6ba888d83897f65c2beecaf30c5a97a7e5176ebb43978953bc1",
+      "bytes": 2573
+    },
+    {
+      "path": "web/academy.js",
+      "git_blob": "7924d3db1056b7ca566af101eaee4f4ec13394a1",
+      "sha256": "ed5f328107efdcc942db4013047bdee1a4a7f6a8100a0efbd62ede6674866152",
+      "bytes": 27584
+    },
+    {
+      "path": "web/app.js",
+      "git_blob": "93c20eec993fea2034ed22cbfb5169c4946c2b2f",
+      "sha256": "6f8aec5f1e7b97d79fef527d7e92c2059417a9f02b2b03d6bc27e07681d57701",
+      "bytes": 85121
+    },
+    {
+      "path": "web/checkup.js",
+      "git_blob": "50797bfbda1490d5bbc157c667b94087c2254567",
+      "sha256": "a89094f76ce6ef7ea71e2d55eea3909b2ccfc56c6241d2275cdde0f5e0c81fe5",
+      "bytes": 11103
+    },
+    {
+      "path": "web/continuity-core.js",
+      "git_blob": "84fdc3c13fba32df931deb0f4c0f128521517af4",
+      "sha256": "22d2a6a67dc9c20a9a5ebd186fe1b3f3dd657e3d6b7b6c0b85fe756fdf2d3897",
+      "bytes": 11109
+    },
+    {
+      "path": "web/continuity-views.js",
+      "git_blob": "e9ddda1a0c521c3553199f4821e938531dc8aaed",
+      "sha256": "862a668d3ab78b3893eaf51f418254b6323ec255b5c871bc0f683f5ec62c1f77",
+      "bytes": 14583
+    },
+    {
+      "path": "web/continuity.css",
+      "git_blob": "6c1601ea356e2ad9ee18bde5e3df7ddb763c9312",
+      "sha256": "ec03021f3254ceb02c0bd782c3acfacf1d8c7972651e6fc1ce7761f02113ef6e",
+      "bytes": 7570
+    },
+    {
+      "path": "web/continuity.js",
+      "git_blob": "1097caab99be4cc4c0433fd007bed0e78a50623c",
+      "sha256": "9d4c02175780eeb3a8883545758431716ccc49da854d82fe98a96846acd0d52a",
+      "bytes": 12444
+    },
+    {
+      "path": "web/core.js",
+      "git_blob": "f8b367ff94990e6b460156c19b48f7dd1e187015",
+      "sha256": "ef5d4ce3130037a242e1a0170dde047a9b457aef26d6c6111603f756b7500301",
+      "bytes": 35485
+    },
+    {
+      "path": "web/data/caso-benigno-ficticio.csv",
+      "git_blob": "9c6233af9983e9c8e98356e1197aab089f23cd82",
+      "sha256": "f4409ca8f58253ff521da0cb5199ab287556ae79a22e1ddd3f7d7bf7cc071c72",
+      "bytes": 867
+    },
+    {
+      "path": "web/data/caso-financeiro-ficticio.csv",
+      "git_blob": "f7b03f188e6dc93eb794a8ea72884f5cdd79b364",
+      "sha256": "df1cd67c40a7c7d015914334a164106a279185bfdd14b83cdfe9594449d8f758",
+      "bytes": 1461
+    },
+    {
+      "path": "web/data/caso-financeiro-ficticio.jsonl",
+      "git_blob": "54af69fbc8129f0bdd27458840fc7dcdf681b9b5",
+      "sha256": "759b66c609171cbafde8fb9aa4cdc10028703b41963e594c0bcc9f18f94a33ce",
+      "bytes": 3161
+    },
+    {
+      "path": "web/data/cenario-escritorio.json",
+      "git_blob": "d52a7ba712478332aff3a0a799086936b4bf59b3",
+      "sha256": "cdb4779183270511886d265d9e7dde9cc110400c256fd321d6d8dad5360a5e31",
+      "bytes": 2147
+    },
+    {
+      "path": "web/data/cenario-loja.json",
+      "git_blob": "720718d99afc4a9d73695a0645caa24f29261350",
+      "sha256": "fd101a2a18bc8c9b60f61eaeb1f00d4addbca6721d22c45404f73b4183b76ee7",
+      "bytes": 1906
+    },
+    {
+      "path": "web/data/controls.json",
+      "git_blob": "4d811403b951254d768c8375964c66de6cdbbced",
+      "sha256": "56522a36526ed91f5f415d91a50184e3aa2c87fef1dec65a14cc93d1c4987206",
+      "bytes": 7844
+    },
+    {
+      "path": "web/data/defense-method.json",
+      "git_blob": "ff88142a0901ecc4ff2b156cb24c5db1c0d53a7c",
+      "sha256": "143e12214c39ddc0d83c4249c683ce5de2a6d372c8116b9a1fb615d994d39aba",
+      "bytes": 7823
+    },
+    {
+      "path": "web/data/empresa-viva-missions.json",
+      "git_blob": "9c9c95e50b2279d7cdec8d2a664f6f5edafaab2b",
+      "sha256": "0ec49b65df5c3b3fcede988db463b62aa4021adcab29331f4c170c7942e97835",
+      "bytes": 44309
+    },
+    {
+      "path": "web/data/inventario-exemplo.csv",
+      "git_blob": "dd6d3859bf7d58b715ba79f77196ceb5f2f32c23",
+      "sha256": "9d02c2bde140564938ee3cc34a89235c5083e16b157c5cd48ec80522e61f37e7",
+      "bytes": 454
+    },
+    {
+      "path": "web/data/log-autenticacao-exemplo.csv",
+      "git_blob": "35f07a839345c06b5dd69ebb4c3b89443d2b19a3",
+      "sha256": "e29725ab4c6661af192fe0f02fd1d1f5d93276e99d1a607998cd01981251a142",
+      "bytes": 553
+    },
+    {
+      "path": "web/data/wifi-checklist.json",
+      "git_blob": "4b7a3d1ab6ea7ade5af10b80bcb232079fdc7422",
+      "sha256": "685edec56edb105fe8b2861af2f479075de15b0dc4ee5bd8150e11d15838cf82",
+      "bytes": 4100
+    },
+    {
+      "path": "web/empresa-viva-books.js",
+      "git_blob": "6fe192ef2ecccf49aa6c7de938207bf3cb831432",
+      "sha256": "f4f1af7cf917dc74d859cc43f302b5ed1ad603cd58f4698d63b8b087b65a0e57",
+      "bytes": 19384
+    },
+    {
+      "path": "web/empresa-viva-core.js",
+      "git_blob": "59f71897ffdcad35ca605dd05af2bec414a652ab",
+      "sha256": "99e6f629f1ecacdc947af4b9f4967ba836d7783897531edb3e7470b7776c1edb",
+      "bytes": 9250
+    },
+    {
+      "path": "web/empresa-viva-views.js",
+      "git_blob": "7b8a2224e23bd9dcf0d514cb8d6091129f9231ed",
+      "sha256": "8f1fdefcdab809ed0d8ecaf4c1c642afafc34e9ba6eddd7e60455bf806f86dfb",
+      "bytes": 31146
+    },
+    {
+      "path": "web/empresa-viva.css",
+      "git_blob": "e986b485ee4a1c0243b60c362c787a230dba3a8c",
+      "sha256": "83a28ffe0a309d8170104c5559b05d3ca91f6946c0f4f6323b418bbc94e75476",
+      "bytes": 14295
+    },
+    {
+      "path": "web/empresa-viva.html",
+      "git_blob": "423393afdb75fc2f1eb2aeabdb020358ccf2ad09",
+      "sha256": "863d40e66190a97b8490e8914f21442b71b57355cccb763f505820e583a85142",
+      "bytes": 2039
+    },
+    {
+      "path": "web/empresa-viva.js",
+      "git_blob": "086895da21e83c04f15639489dad877de987cd94",
+      "sha256": "f223ad4192fc2d7af35b7e1ccbf74712643428cb45df8d2944f324a835d3eb69",
+      "bytes": 15257
+    },
+    {
+      "path": "web/estudos.html",
+      "git_blob": "d2deff8906c17e857f02c0025bf4e2e97540f748",
+      "sha256": "19a671b7535dd2488212f884f68f56af555bb494db7a66654717c71ee68deeb2",
+      "bytes": 4347
+    },
+    {
+      "path": "web/index.html",
+      "git_blob": "9dd35729b7f2b53beaf78d370f1ec61ef58752dc",
+      "sha256": "ab063a3afde75ae5a3f96f7c9f77b1e7fbf1143d2f5b01bb5743002382d99da0",
+      "bytes": 2081
+    },
+    {
+      "path": "web/method-view.js",
+      "git_blob": "de49959df8ce1c7e790c85bdacc87f9333d82a57",
+      "sha256": "e66a1f0f577602dd16e82f3b204497f2e461a341cf6888b9420602db1e4e7571",
+      "bytes": 6829
+    },
+    {
+      "path": "web/method.js",
+      "git_blob": "7a47ed3230cf2b78f8ef0d67827a7982b4d0425a",
+      "sha256": "e0b50742eb1b341934e4572839283c86b3727912f44fca70cdfbada699edc69e",
+      "bytes": 3950
+    },
+    {
+      "path": "web/operations-demo.js",
+      "git_blob": "9fc61561d8fa24321ae479d914439f373d7f9c86",
+      "sha256": "07b1d22be0333a948a4b414ab3cfd96d7d01b548196112cf05bf92e847af59e7",
+      "bytes": 4995
+    },
+    {
+      "path": "web/operations-views.js",
+      "git_blob": "7c1e58a4a5904bb544adc578c6f7bbbdb1c09c5d",
+      "sha256": "aec9684a84ec014d87e36408e8998175c2d63082a0a28ced61945242864a0067",
+      "bytes": 24739
+    },
+    {
+      "path": "web/operations.css",
+      "git_blob": "6aeebcb04651cc060772f73c8836015661fce0fb",
+      "sha256": "0dc35f71aaa2ceb0b389aaec0f602ee702bbffd3e8fd88c4f2338d25f253ccd7",
+      "bytes": 10143
+    },
+    {
+      "path": "web/operations.html",
+      "git_blob": "748de785b3acf8dcecd5cf3de5c6f8bdf18b5a59",
+      "sha256": "a251445fdd80194d9e474ebedf5f2c316ca96415def1f53802e71e6dc2379851",
+      "bytes": 1912
+    },
+    {
+      "path": "web/operations.js",
+      "git_blob": "968c638e5146118608639e9c324f5524c5f8ffd2",
+      "sha256": "a597acec17c9975dd240a089215817c7fc2eb4896d821f4cee2d1bf324ba418b",
+      "bytes": 12561
+    },
+    {
+      "path": "web/package-lock.json",
+      "git_blob": "3c4381577f14722f1b5d157e666b6854455e2b31",
+      "sha256": "33ec1127adcdb75bcb3301e0340ccaa754cbc80e86870ed7158e38015b9d3386",
+      "bytes": 18403
+    },
+    {
+      "path": "web/package.json",
+      "git_blob": "e7014a8fd3c0efd01872df0b0b7b51be11789005",
+      "sha256": "694d3849b4a447f4fe75fbb11289b52e259c986af8e7d8589248b360a450a6ca",
+      "bytes": 274
+    },
+    {
+      "path": "web/prepare.mjs",
+      "git_blob": "bd628ccf5dbb4a67ce55a8ae686e193c9abb79c0",
+      "sha256": "251e219e5811471bfea78851580728451230d1447e624e8c741237fdf6690fa3",
+      "bytes": 1774
+    },
+    {
+      "path": "web/shield.svg",
+      "git_blob": "dd143f0d67d77bb851a2f93cc88b58fb64204fcd",
+      "sha256": "2b8e20ff3c05dd1e1b1763c7f803e6240d048291b372098569f505ec9cb2c082",
+      "bytes": 264
+    },
+    {
+      "path": "web/styles.css",
+      "git_blob": "96346862a00996e485a3b6de828dcf2f8c56e2af",
+      "sha256": "a46f5ea088618f3d4249df967bd02e725d76a354f652e7b86c466d5af7ae4f8f",
+      "bytes": 35208
+    },
+    {
+      "path": "web/tests/app.test.mjs",
+      "git_blob": "41faea28709788ba15d1515f6a5182796f977708",
+      "sha256": "f3f602867d8091d51a7f8f331c2b18c497fc8dbc86885fa27f3154f63518dd3b",
+      "bytes": 17932
+    },
+    {
+      "path": "web/tests/checkup.test.mjs",
+      "git_blob": "158aa33c1bb81d22f6e8bf8bdecc319c600e4820",
+      "sha256": "c0c56500a51d2fe9b9e93c959a367c3a9e29eb7056c3676697cd242002a45c7d",
+      "bytes": 2258
+    },
+    {
+      "path": "web/tests/continuity.test.mjs",
+      "git_blob": "8f0fd5464d0728c7fe2a21b07ae72a2d30b80812",
+      "sha256": "042d1952783941ccaab1e9c484744d221ede30ebcda762f593b348355eae955b",
+      "bytes": 8446
+    },
+    {
+      "path": "web/tests/core.test.mjs",
+      "git_blob": "f6d3a88c87ffad7a22dd597bb52bf8bef1b31c65",
+      "sha256": "327fe50f84359571345bc1c5fee505c3a644338a9a385fceb1fc00246abf9d57",
+      "bytes": 11020
+    },
+    {
+      "path": "web/tests/empresa-viva-books.test.mjs",
+      "git_blob": "0b9562faf72a8e5579a22b4d64ccddbf332b198f",
+      "sha256": "8e7e3c4766a417c559c7fbc5a22d1f6ce212e2694b2475af8ff516782e39bc50",
+      "bytes": 9420
+    },
+    {
+      "path": "web/tests/empresa-viva.test.mjs",
+      "git_blob": "2aa1c643fd78cae242aea2dc3d07253df6f815e1",
+      "sha256": "9df9e54feed8e10c68f03e339964f13fd8d8c4523cff6baeee8c64e61fd64d12",
+      "bytes": 9405
+    },
+    {
+      "path": "web/tests/method.test.mjs",
+      "git_blob": "a892487766c231cf896726729c93bd10b3a3509f",
+      "sha256": "f21c679f8eadf92a58363ebd68d4aaba548bdac949addf4a6863b0c697249b5a",
+      "bytes": 2375
+    },
+    {
+      "path": "web/tests/operations.test.mjs",
+      "git_blob": "15a30d6e2842764e926f05bfc2161faf2b5357b9",
+      "sha256": "db599e33f4e4ff074d84abc50f2d3d52f75f8c0f844e85ee30e2948723cf9a77",
+      "bytes": 9026
+    },
+    {
+      "path": "web/tests/wifi.test.mjs",
+      "git_blob": "48a2454175db62e8421b06bdd582f5da33f526a6",
+      "sha256": "3f34a1b546f19ebfa9412e0f8117523df8bdd22a4f11d2174bf3fc411c5730dc",
+      "bytes": 2897
+    },
+    {
+      "path": "web/wifi.js",
+      "git_blob": "3f9cf4ae2f0c4ba0859b4c052de0b0c1a8a4b66c",
+      "sha256": "02f3d93234e8eab076c10337ab1f3ae1fcd7cb09141a7a61cf4b8a1f0265bc20",
+      "bytes": 3904
+    }
+  ],
+  "excluded": [
+    {
+      "path": ".openai/hosting.json",
+      "reason": "Identidade de hospedagem do NetGuard; não pertence ao projeto Rede."
+    }
+  ]
+}

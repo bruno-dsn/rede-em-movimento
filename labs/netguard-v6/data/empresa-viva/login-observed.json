@@ -1,0 +1,954 @@
+{
+  "id": "dc71525477824e45adc79cd6de857077",
+  "mission_id": "login",
+  "mode": "observed_python",
+  "exercise": "guided",
+  "version": "1.1.0",
+  "scenario_reference": "aurora-helpdesk-v1",
+  "started_at": "2026-10-12T20:47:29.225959Z",
+  "completed_at": "2026-10-12T20:47:31.495353Z",
+  "code_sha256": "7dce594fb8d2d5021b10a1041bbf7ae64ad8125f64b6b275321f1c1c8d334f90",
+  "configuration": {
+    "limit": 5,
+    "window_seconds": 60,
+    "reference_time": "2026-10-12T12:00:00+00:00",
+    "variant_transport": "in_process_no_listener"
+  },
+  "variants": [
+    {
+      "id": "before",
+      "events": [
+        {
+          "actor": "lia",
+          "category": "probe",
+          "correlation_id": "b1b216fd07bc4b6694cd866f3a375d02",
+          "decision": "denied",
+          "id": "36b26231c426411ca33cb8e8873241ee",
+          "observed_at": "2026-10-12T20:47:29.659615Z",
+          "origin": "observed_python",
+          "reason": "Erro legítimo 1",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:01+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.10",
+          "status": 401,
+          "request": "POST /api/login · valor de senha omitido",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "lia",
+          "category": "probe",
+          "correlation_id": "cc91bbda590446d8a586a3410df97735",
+          "decision": "denied",
+          "id": "f265e4f8aae242c2a8aeadfebadddfbc",
+          "observed_at": "2026-10-12T20:47:29.746556Z",
+          "origin": "observed_python",
+          "reason": "Erro legítimo 2",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:02+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.10",
+          "status": 401,
+          "request": "POST /api/login · valor de senha omitido",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "lia",
+          "category": "probe",
+          "correlation_id": "ed5d1ac5daae4b579ac80ab89dcb1f28",
+          "decision": "allowed",
+          "id": "e9c7dbee1c9e4e2a8b60c438fc67c498",
+          "observed_at": "2026-10-12T20:47:29.841398Z",
+          "origin": "observed_python",
+          "reason": "Acesso legítimo após correção",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:03+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.10",
+          "status": 200,
+          "request": "POST /api/login · valor de senha omitido",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "4c87c727c0ce4e98aa1e642c1872a964",
+          "decision": "denied",
+          "id": "757823782bf347a69b0c1554d6bd3830",
+          "observed_at": "2026-10-12T20:47:29.922389Z",
+          "origin": "observed_python",
+          "reason": "Tentativa controlada 1",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:04+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.50",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "04a4071b12b747f08481388d8bc7ad30",
+          "decision": "denied",
+          "id": "fa87b31e75f14296a202f412f8a96f7b",
+          "observed_at": "2026-10-12T20:47:30.014418Z",
+          "origin": "observed_python",
+          "reason": "Tentativa controlada 2",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:05+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.50",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "c47e8061e16f42ca80b8bfb120ebcc0c",
+          "decision": "denied",
+          "id": "bd6dbd5eebb748d8a198bdaa89f30412",
+          "observed_at": "2026-10-12T20:47:30.103002Z",
+          "origin": "observed_python",
+          "reason": "Tentativa controlada 3",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:06+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.50",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "id": "4fd038b6a5164ebbbfb49a54c15c2c30",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:06+00:00",
+          "observed_at": "2026-10-12T20:47:30.597312Z",
+          "origin": "derived",
+          "category": "alert",
+          "actor": "rafa",
+          "resource": "login",
+          "decision": "review",
+          "reason": "Três negativas na sequência controlada; sinal de triagem, não prova de invasão.",
+          "correlation_id": "c47e8061e16f42ca80b8bfb120ebcc0c",
+          "variant": "before",
+          "status": null,
+          "request": "Regra explícita: 3 negativas / episódio",
+          "source_ip": "192.0.2.50",
+          "code_ref": "scenarios.py:compare"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "66f2dbc8021c48f9b92d5bb23d2d3ac5",
+          "decision": "denied",
+          "id": "b407fa98dd204149a9f58fda62c8a79c",
+          "observed_at": "2026-10-12T20:47:30.185575Z",
+          "origin": "observed_python",
+          "reason": "Tentativa controlada 4",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:07+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.50",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "e4047352b97648c894bf68a5ff61c712",
+          "decision": "denied",
+          "id": "e54cfe75bba54ec1bb14b1eee8d0bc3e",
+          "observed_at": "2026-10-12T20:47:30.267226Z",
+          "origin": "observed_python",
+          "reason": "Tentativa controlada 5",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:08+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.50",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "256cd66aaee5447a82936cf3bd12fc08",
+          "decision": "denied",
+          "id": "bc06c1a0f63a41cb9419fca38040195e",
+          "observed_at": "2026-10-12T20:47:30.350083Z",
+          "origin": "observed_python",
+          "reason": "Tentativa controlada 6",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:09+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.50",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "948bc68882ef408f8a8ee2560748652f",
+          "decision": "denied",
+          "id": "052b8150130b45a1ade184a957773acc",
+          "observed_at": "2026-10-12T20:47:30.431551Z",
+          "origin": "observed_python",
+          "reason": "Tentativa controlada 7",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:10+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.50",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "8c470ba3138249b2bc6f9285dcbe72c1",
+          "decision": "denied",
+          "id": "ecefe9d94d4b4ede8d2144c264337e7d",
+          "observed_at": "2026-10-12T20:47:30.513818Z",
+          "origin": "observed_python",
+          "reason": "Tentativa controlada 8",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:11+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.50",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "85df999ef7fe4dd09943d7ad33508bf1",
+          "decision": "allowed",
+          "id": "7b994d2a30704fc5acfd9df7cd680b1c",
+          "observed_at": "2026-10-12T20:47:30.597025Z",
+          "origin": "observed_python",
+          "reason": "Outra origem: cliente legítimo",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:12+00:00",
+          "variant": "before",
+          "source_ip": "192.0.2.60",
+          "status": 200,
+          "request": "POST /api/login · origem fictícia 192.0.2.60",
+          "code_ref": "security.py:LoginBudget"
+        }
+      ],
+      "observations": [
+        {
+          "label": "Erro legítimo 1",
+          "status": 401,
+          "request": "POST /api/login · valor de senha omitido",
+          "actor": "lia",
+          "resource": "",
+          "data": {
+            "message": "Credenciais inválidas."
+          },
+          "event_id": "36b26231c426411ca33cb8e8873241ee",
+          "correlation_id": "b1b216fd07bc4b6694cd866f3a375d02"
+        },
+        {
+          "label": "Erro legítimo 2",
+          "status": 401,
+          "request": "POST /api/login · valor de senha omitido",
+          "actor": "lia",
+          "resource": "",
+          "data": {
+            "message": "Credenciais inválidas."
+          },
+          "event_id": "f265e4f8aae242c2a8aeadfebadddfbc",
+          "correlation_id": "cc91bbda590446d8a586a3410df97735"
+        },
+        {
+          "label": "Acesso legítimo após correção",
+          "status": 200,
+          "request": "POST /api/login · valor de senha omitido",
+          "actor": "lia",
+          "resource": "",
+          "data": {
+            "id": "lia",
+            "name": "Lia · cliente fictícia",
+            "role": "customer"
+          },
+          "event_id": "e9c7dbee1c9e4e2a8b60c438fc67c498",
+          "correlation_id": "ed5d1ac5daae4b579ac80ab89dcb1f28"
+        },
+        {
+          "label": "Tentativa controlada 1",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "actor": "rafa",
+          "resource": "",
+          "data": {
+            "message": "Credenciais inválidas."
+          },
+          "event_id": "757823782bf347a69b0c1554d6bd3830",
+          "correlation_id": "4c87c727c0ce4e98aa1e642c1872a964"
+        },
+        {
+          "label": "Tentativa controlada 2",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "actor": "rafa",
+          "resource": "",
+          "data": {
+            "message": "Credenciais inválidas."
+          },
+          "event_id": "fa87b31e75f14296a202f412f8a96f7b",
+          "correlation_id": "04a4071b12b747f08481388d8bc7ad30"
+        },
+        {
+          "label": "Tentativa controlada 3",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "actor": "rafa",
+          "resource": "",
+          "data": {
+            "message": "Credenciais inválidas."
+          },
+          "event_id": "bd6dbd5eebb748d8a198bdaa89f30412",
+          "correlation_id": "c47e8061e16f42ca80b8bfb120ebcc0c"
+        },
+        {
+          "label": "Tentativa controlada 4",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "actor": "rafa",
+          "resource": "",
+          "data": {
+            "message": "Credenciais inválidas."
+          },
+          "event_id": "b407fa98dd204149a9f58fda62c8a79c",
+          "correlation_id": "66f2dbc8021c48f9b92d5bb23d2d3ac5"
+        },
+        {
+          "label": "Tentativa controlada 5",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "actor": "rafa",
+          "resource": "",
+          "data": {
+            "message": "Credenciais inválidas."
+          },
+          "event_id": "e54cfe75bba54ec1bb14b1eee8d0bc3e",
+          "correlation_id": "e4047352b97648c894bf68a5ff61c712"
+        },
+        {
+          "label": "Tentativa controlada 6",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "actor": "rafa",
+          "resource": "",
+          "data": {
+            "message": "Credenciais inválidas."
+          },
+          "event_id": "bc06c1a0f63a41cb9419fca38040195e",
+          "correlation_id": "256cd66aaee5447a82936cf3bd12fc08"
+        },
+        {
+          "label": "Tentativa controlada 7",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "actor": "rafa",
+          "resource": "",
+          "data": {
+            "message": "Credenciais inválidas."
+          },
+          "event_id": "052b8150130b45a1ade184a957773acc",
+          "correlation_id": "948bc68882ef408f8a8ee2560748652f"
+        },
+        {
+          "label": "Tentativa controlada 8",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "actor": "rafa",
+          "resource": "",
+          "data": {
+            "message": "Credenciais inválidas."
+          },
+          "event_id": "ecefe9d94d4b4ede8d2144c264337e7d",
+          "correlation_id": "8c470ba3138249b2bc6f9285dcbe72c1"
+        },
+        {
+          "label": "Outra origem: cliente legítimo",
+          "status": 200,
+          "request": "POST /api/login · origem fictícia 192.0.2.60",
+          "actor": "rafa",
+          "resource": "",
+          "data": {
+            "id": "rafa",
+            "name": "Rafael · cliente fictício",
+            "role": "customer"
+          },
+          "event_id": "7b994d2a30704fc5acfd9df7cd680b1c",
+          "correlation_id": "85df999ef7fe4dd09943d7ad33508bf1"
+        }
+      ],
+      "operations": 12,
+      "budget": 18,
+      "initial_data": "Lia/101, Rafael/202, Joana/admin; uma empresa fictícia"
+    },
+    {
+      "id": "after",
+      "events": [
+        {
+          "actor": "lia",
+          "category": "probe",
+          "correlation_id": "251c24756c4943d4bf6e56f77640f60c",
+          "decision": "denied",
+          "id": "9cb2f52928054ad08c81d0d472cc020d",
+          "observed_at": "2026-10-12T20:47:30.768930Z",
+          "origin": "observed_python",
+          "reason": "Erro legítimo 1",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:01+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.10",
+          "status": 401,
+          "request": "POST /api/login · valor de senha omitido",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "lia",
+          "category": "probe",
+          "correlation_id": "67f167c9696f4a3a8ee0377beb57b080",
+          "decision": "denied",
+          "id": "cfdf5c5966354a33a173a653164d1e86",
+          "observed_at": "2026-10-12T20:47:30.857930Z",
+          "origin": "observed_python",
+          "reason": "Erro legítimo 2",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:02+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.10",
+          "status": 401,
+          "request": "POST /api/login · valor de senha omitido",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "lia",
+          "category": "probe",
+          "correlation_id": "94a84fc1c16b4791b92c4d2aab5f21fe",
+          "decision": "allowed",
+          "id": "eca31f5e39104154a3d5e7cc284f4790",
+          "observed_at": "2026-10-12T20:47:30.942612Z",
+          "origin": "observed_python",
+          "reason": "Acesso legítimo após correção",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:03+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.10",
+          "status": 200,
+          "request": "POST /api/login · valor de senha omitido",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "85f8f1eb13324a79a863b40b76dbc368",
+          "decision": "denied",
+          "id": "743485b4061648368494edbc4da893cc",
+          "observed_at": "2026-10-12T20:47:31.032354Z",
+          "origin": "observed_python",
+          "reason": "Tentativa controlada 1",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:04+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.50",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "8115e0a303a54282a5add5a18200f48f",
+          "decision": "denied",
+          "id": "1d3a1668c5b349879b9c08159c5ce3fa",
+          "observed_at": "2026-10-12T20:47:31.125547Z",
+          "origin": "observed_python",
+          "reason": "Tentativa controlada 2",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:05+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.50",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "7b384c4910684bd3af4a16a3d017d855",
+          "decision": "denied",
+          "id": "d5790f61871d4d0cb1be4f4166715cdb",
+          "observed_at": "2026-10-12T20:47:31.224158Z",
+          "origin": "observed_python",
+          "reason": "Tentativa controlada 3",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:06+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.50",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "id": "0e5e55769d334f96a363af43b9f6604c",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:06+00:00",
+          "observed_at": "2026-10-12T20:47:31.495302Z",
+          "origin": "derived",
+          "category": "alert",
+          "actor": "rafa",
+          "resource": "login",
+          "decision": "review",
+          "reason": "Três negativas na sequência controlada; sinal de triagem, não prova de invasão.",
+          "correlation_id": "7b384c4910684bd3af4a16a3d017d855",
+          "variant": "after",
+          "status": null,
+          "request": "Regra explícita: 3 negativas / episódio",
+          "source_ip": "192.0.2.50",
+          "code_ref": "scenarios.py:compare"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "d97ca37150e3412499861f203e3bcef6",
+          "decision": "denied",
+          "id": "fe29d50d96c34ffe86655c6cc2488e25",
+          "observed_at": "2026-10-12T20:47:31.315332Z",
+          "origin": "observed_python",
+          "reason": "Tentativa controlada 4",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:07+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.50",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "db1af62211fc454e97a820311c1ce361",
+          "decision": "denied",
+          "id": "0c076933fa2f4a42bf6d528162b2570d",
+          "observed_at": "2026-10-12T20:47:31.402839Z",
+          "origin": "observed_python",
+          "reason": "Tentativa controlada 5",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:08+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.50",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "c35bcebebf0843259803a349df9cb71b",
+          "decision": "denied",
+          "id": "38f81615e5444bfe84e2f7b9dc2e8724",
+          "observed_at": "2026-10-12T20:47:31.403017Z",
+          "origin": "observed_python",
+          "reason": "Tentativa controlada 6",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:09+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.50",
+          "status": 429,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "4227d851b63e4ceca1872cee95ee9d96",
+          "decision": "denied",
+          "id": "e797641b5ae5432c8f0ac367107b3d20",
+          "observed_at": "2026-10-12T20:47:31.403077Z",
+          "origin": "observed_python",
+          "reason": "Tentativa controlada 7",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:10+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.50",
+          "status": 429,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "d8c5e079a27948c2aac4301b4b8262a9",
+          "decision": "denied",
+          "id": "3e1d6cccc3c54e3199cc4809fdb8bf80",
+          "observed_at": "2026-10-12T20:47:31.403432Z",
+          "origin": "observed_python",
+          "reason": "Tentativa controlada 8",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:11+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.50",
+          "status": 429,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "code_ref": "security.py:LoginBudget"
+        },
+        {
+          "actor": "rafa",
+          "category": "probe",
+          "correlation_id": "edd9408595574b49bcbc0e7c7d7c4f9b",
+          "decision": "allowed",
+          "id": "554b0c4e8ebb47e1902a9e2ebe3b6abb",
+          "observed_at": "2026-10-12T20:47:31.495067Z",
+          "origin": "observed_python",
+          "reason": "Outra origem: cliente legítimo",
+          "resource": "",
+          "run_id": "dc71525477824e45adc79cd6de857077",
+          "timestamp": "2026-10-12T12:00:12+00:00",
+          "variant": "after",
+          "source_ip": "192.0.2.60",
+          "status": 200,
+          "request": "POST /api/login · origem fictícia 192.0.2.60",
+          "code_ref": "security.py:LoginBudget"
+        }
+      ],
+      "observations": [
+        {
+          "label": "Erro legítimo 1",
+          "status": 401,
+          "request": "POST /api/login · valor de senha omitido",
+          "actor": "lia",
+          "resource": "",
+          "data": {
+            "message": "Credenciais inválidas."
+          },
+          "event_id": "9cb2f52928054ad08c81d0d472cc020d",
+          "correlation_id": "251c24756c4943d4bf6e56f77640f60c"
+        },
+        {
+          "label": "Erro legítimo 2",
+          "status": 401,
+          "request": "POST /api/login · valor de senha omitido",
+          "actor": "lia",
+          "resource": "",
+          "data": {
+            "message": "Credenciais inválidas."
+          },
+          "event_id": "cfdf5c5966354a33a173a653164d1e86",
+          "correlation_id": "67f167c9696f4a3a8ee0377beb57b080"
+        },
+        {
+          "label": "Acesso legítimo após correção",
+          "status": 200,
+          "request": "POST /api/login · valor de senha omitido",
+          "actor": "lia",
+          "resource": "",
+          "data": {
+            "id": "lia",
+            "name": "Lia · cliente fictícia",
+            "role": "customer"
+          },
+          "event_id": "eca31f5e39104154a3d5e7cc284f4790",
+          "correlation_id": "94a84fc1c16b4791b92c4d2aab5f21fe"
+        },
+        {
+          "label": "Tentativa controlada 1",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "actor": "rafa",
+          "resource": "",
+          "data": {
+            "message": "Credenciais inválidas."
+          },
+          "event_id": "743485b4061648368494edbc4da893cc",
+          "correlation_id": "85f8f1eb13324a79a863b40b76dbc368"
+        },
+        {
+          "label": "Tentativa controlada 2",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "actor": "rafa",
+          "resource": "",
+          "data": {
+            "message": "Credenciais inválidas."
+          },
+          "event_id": "1d3a1668c5b349879b9c08159c5ce3fa",
+          "correlation_id": "8115e0a303a54282a5add5a18200f48f"
+        },
+        {
+          "label": "Tentativa controlada 3",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "actor": "rafa",
+          "resource": "",
+          "data": {
+            "message": "Credenciais inválidas."
+          },
+          "event_id": "d5790f61871d4d0cb1be4f4166715cdb",
+          "correlation_id": "7b384c4910684bd3af4a16a3d017d855"
+        },
+        {
+          "label": "Tentativa controlada 4",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "actor": "rafa",
+          "resource": "",
+          "data": {
+            "message": "Credenciais inválidas."
+          },
+          "event_id": "fe29d50d96c34ffe86655c6cc2488e25",
+          "correlation_id": "d97ca37150e3412499861f203e3bcef6"
+        },
+        {
+          "label": "Tentativa controlada 5",
+          "status": 401,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "actor": "rafa",
+          "resource": "",
+          "data": {
+            "message": "Credenciais inválidas."
+          },
+          "event_id": "0c076933fa2f4a42bf6d528162b2570d",
+          "correlation_id": "db1af62211fc454e97a820311c1ce361"
+        },
+        {
+          "label": "Tentativa controlada 6",
+          "status": 429,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "actor": "rafa",
+          "resource": "",
+          "data": {
+            "message": "Limite temporário de tentativas; aguarde a janela de 60 segundos."
+          },
+          "event_id": "38f81615e5444bfe84e2f7b9dc2e8724",
+          "correlation_id": "c35bcebebf0843259803a349df9cb71b"
+        },
+        {
+          "label": "Tentativa controlada 7",
+          "status": 429,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "actor": "rafa",
+          "resource": "",
+          "data": {
+            "message": "Limite temporário de tentativas; aguarde a janela de 60 segundos."
+          },
+          "event_id": "e797641b5ae5432c8f0ac367107b3d20",
+          "correlation_id": "4227d851b63e4ceca1872cee95ee9d96"
+        },
+        {
+          "label": "Tentativa controlada 8",
+          "status": 429,
+          "request": "POST /api/login · origem fictícia 192.0.2.50",
+          "actor": "rafa",
+          "resource": "",
+          "data": {
+            "message": "Limite temporário de tentativas; aguarde a janela de 60 segundos."
+          },
+          "event_id": "3e1d6cccc3c54e3199cc4809fdb8bf80",
+          "correlation_id": "d8c5e079a27948c2aac4301b4b8262a9"
+        },
+        {
+          "label": "Outra origem: cliente legítimo",
+          "status": 200,
+          "request": "POST /api/login · origem fictícia 192.0.2.60",
+          "actor": "rafa",
+          "resource": "",
+          "data": {
+            "id": "rafa",
+            "name": "Rafael · cliente fictício",
+            "role": "customer"
+          },
+          "event_id": "554b0c4e8ebb47e1902a9e2ebe3b6abb",
+          "correlation_id": "edd9408595574b49bcbc0e7c7d7c4f9b"
+        }
+      ],
+      "operations": 12,
+      "budget": 18,
+      "initial_data": "Lia/101, Rafael/202, Joana/admin; uma empresa fictícia"
+    }
+  ],
+  "checks": [
+    {
+      "name": "before: Erro legítimo 1",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "before: Erro legítimo 2",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "before: Acesso legítimo após correção",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    },
+    {
+      "name": "before: Tentativa controlada 1",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "before: Tentativa controlada 2",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "before: Tentativa controlada 3",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "before: Tentativa controlada 4",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "before: Tentativa controlada 5",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "before: Tentativa controlada 6",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "before: Tentativa controlada 7",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "before: Tentativa controlada 8",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "before: Outra origem: cliente legítimo",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    },
+    {
+      "name": "after: Erro legítimo 1",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "after: Erro legítimo 2",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "after: Acesso legítimo após correção",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    },
+    {
+      "name": "after: Tentativa controlada 1",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "after: Tentativa controlada 2",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "after: Tentativa controlada 3",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "after: Tentativa controlada 4",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "after: Tentativa controlada 5",
+      "expected": 401,
+      "actual": 401,
+      "passed": true
+    },
+    {
+      "name": "after: Tentativa controlada 6",
+      "expected": 429,
+      "actual": 429,
+      "passed": true
+    },
+    {
+      "name": "after: Tentativa controlada 7",
+      "expected": 429,
+      "actual": 429,
+      "passed": true
+    },
+    {
+      "name": "after: Tentativa controlada 8",
+      "expected": 429,
+      "actual": 429,
+      "passed": true
+    },
+    {
+      "name": "after: Outra origem: cliente legítimo",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    }
+  ],
+  "snippets": {
+    "before": "# lessons.py: _NoLimitForFixedLesson\ndef allow(self, source, username):\n    return True",
+    "after": "# security.py: LoginBudget.allow\nif count >= self.limit or total >= 20:\n    return False\nself.windows[(source, username)] = (stamp, count+1)"
+  },
+  "limit": "Execução real de funções Python em bancos de memória separados. Sem requisições HTTP nas variantes, contêiner ou isolamento de máquina virtual. Relógio e IPs didáticos; não é incidente real."
+}

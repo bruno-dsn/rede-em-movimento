@@ -1,0 +1,8 @@
+NETGUARD — DOCUMENTO FICTÍCIO PARA TESTE
+
+Este arquivo não contém dados de clientes.
+Versão 1: entrega de teste concluída.
+Responsável fictício: Equipe Aurora.
+
+Crie uma cópia pelo piloto. Depois altere somente este arquivo de teste.
+Ao restaurar, a versão anterior deve aparecer em uma pasta nova e sua edição atual deve continuar aqui.
